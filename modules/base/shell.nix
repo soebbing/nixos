@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
-let path = pkgs.lib.concatStringsSep ":" [
+let
+  path = pkgs.lib.concatStringsSep ":" [
     "$HOME/go/bin"
     "$HOME/.vpn-tool/bin"
     "$HOME/.config/nix-cache/"
@@ -29,7 +30,5 @@ in {
   };
 
   # Use the fish shell.
-  programs.fish = {
-    enable = true;
-  };
+  programs.fish = { enable = true; };
 }

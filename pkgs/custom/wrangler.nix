@@ -1,6 +1,4 @@
-{ stdenv, fetchFromGitHub, rustPlatform, cmake, pkgconfig, zlib
-, openssl
-}:
+{ stdenv, fetchFromGitHub, rustPlatform, cmake, pkgconfig, zlib, openssl }:
 
 with rustPlatform;
 
@@ -30,7 +28,7 @@ buildRustPackage rec {
     longDescription = ''
       wrangler is a CLI tool designed for folks who are interested in using Cloudflare Workers.
     '';
-    homepage = https://github.com/cloudflare/wrangler;
+    homepage = "https://github.com/cloudflare/wrangler";
     license = licenses.mit;
     maintainers = with maintainers; [ shyim ];
   };
