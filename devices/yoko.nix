@@ -14,5 +14,5 @@
 
   programs.adb.enable = true;
 
-  environment.systemPackages = with pkgs; [ discord-ptb nixfmt go ];
+  environment.systemPackages = with pkgs; [ discord-ptb nixfmt go wrangler nodejs-12_x ];
 }
