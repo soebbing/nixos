@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware.nix ./packages.nix ./shell.nix ./cache.nix ./podman.nix ];
+  imports = [ ./hardware.nix ./packages.nix ./shell.nix ./cache.nix ];
 
   nixpkgs.overlays = import ../../pkgs/overlays;
 
