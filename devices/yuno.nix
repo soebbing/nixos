@@ -55,38 +55,6 @@ in {
       };
     };
 
-    systemd.services.api = {
-      enable = true;
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
-      description = "Start the server";
-      serviceConfig = {
-        WorkingDirectory = "/home/stream/api";
-        User = "root";
-        ExecStart = "${pkgs.nodejs-12_x}/bin/node node_modules/.bin/nodemon";
-      };
-    };
-
-    systemd.services.api-dev = {
-      enable = true;
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
-      description = "Start the tsc";
-      serviceConfig = {
-        WorkingDirectory = "/home/stream/api";
-        User = "root";
-        ExecStart = "${pkgs.nodejs-12_x}/bin/node node_modules/.bin/tsc -w";
-      };
-    };
-
-    systemd.services.imgproxy = {
-      enable = true;
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
-      description = "Start the imgproxy";
-      serviceConfig = { ExecStart = "/usr/bin/imgproxy"; };
-    };
-
     systemd.services.frp = {
       enable = true;
       wantedBy = [ "multi-user.target" ];
@@ -109,39 +77,10 @@ in {
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
       recommendedProxySettings = true;
-      recommendedTlsSettings = true;
+      recommendedTlsSettings = false;
 
       virtualHosts."nut.shyim.de" = {
         locations = { "/" = { proxyPass = "http://127.0.0.1:3125"; }; };
-      };
-
-      virtualHosts."${streamDomain}" = {
-        forceSSL = true;
-        sslCertificate = "/etc/ssl/cloudflare.crt";
-        sslCertificateKey = "/etc/ssl/cloudflare.key";
-        root = "/home/stream/frontend";
-        locations = { "/" = { tryFiles = "$uri $uri/ /index.html"; }; };
-        extraConfig = cloudflareConfig;
-      };
-
-      virtualHosts."api.${streamDomain}" = {
-        forceSSL = true;
-        sslCertificate = "/etc/ssl/cloudflare.crt";
-        sslCertificateKey = "/etc/ssl/cloudflare.key";
-        locations = {
-          "/" = {
-            proxyPass = "http://127.0.0.1:3000";
-            proxyWebsockets = true;
-          };
-        };
-        extraConfig = cloudflareConfig;
-      };
-      virtualHosts."img.${streamDomain}" = {
-        forceSSL = true;
-        sslCertificate = "/etc/ssl/cloudflare.crt";
-        sslCertificateKey = "/etc/ssl/cloudflare.key";
-        locations = { "/" = { proxyPass = "http://127.0.0.1:8080"; }; };
-        extraConfig = cloudflareConfig;
       };
 
       virtualHosts."*.shy.ovh" = {
