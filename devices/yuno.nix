@@ -67,16 +67,11 @@ in {
 
     networking.firewall.allowedTCPPorts = [ 80 443 21 25 143 6697 ];
 
-    services.mysql = {
-      enable = true;
-      package = pkgs.mysql80;
-    };
-
     services.nginx = {
       enable = true;
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
-      recommendedProxySettings = true;
+      recommendedGzipSettings = false;
+      recommendedOptimisation = false;
+      recommendedProxySettings = false;
       recommendedTlsSettings = false;
 
       virtualHosts."nut.shyim.de" = {
