@@ -5,6 +5,15 @@
 
   nixpkgs.overlays = import ../../pkgs/overlays;
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    shyim = import (builtins.fetchTarball
+      "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
+        inherit pkgs;
+      };
+
+    # Dev-Mode   shyim =     import /home/shyim/Code/nur-repository/default.nix { inherit pkgs; };
+  };
+
   i18n = {
     consoleFont = "Lat2-Terminus16";
     defaultLocale = "en_US.UTF-8";

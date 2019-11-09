@@ -1,5 +1,1 @@
-[
-  (import ./overrides.nix)
-  (import ./custom.nix)
-
-]
+[ (import ./overrides.nix) ]
