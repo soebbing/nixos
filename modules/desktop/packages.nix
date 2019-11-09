@@ -2,11 +2,10 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = import ../../pkgs/overlays;
   environment.systemPackages = with pkgs; [
     docker
     docker-compose
-    phpstorm
+    jetbrains.phpstorm
     jetbrains.jdk
     kbfs
     keybase
@@ -15,14 +14,15 @@
     firefox
     thunderbird
     vscodium
-    php73
+    shyim.php74
     php73Packages.composer
+    nodejs-13_x
     gnupg
     insomnia
     xclip
     travis
     spotify
-    swdc
+    shyim.swdc
     rclone
     nixops
 
