@@ -19,10 +19,12 @@ in {
     boot.loader.grub.device = "/dev/sda";
 
     networking.hostName = "yuno.shyim.de";
+    networking.interfaces.ens3.ipv6.addresses = [ { address = "2a01:4f8:c2c:d1ea::1"; prefixLength = 64; } ];
+    networking.defaultGateway6 = { address = "fe80::1"; interface = "ens3"; };
     i18n.consoleKeyMap = "de";
     services.xserver.layout = "de";
 
-    environment.systemPackages = with pkgs; [ shyim.frp lego ];
+    environment.systemPackages = with pkgs; [ lego ];
 
     services.frp.enable = true;
     services.frp.config = {
