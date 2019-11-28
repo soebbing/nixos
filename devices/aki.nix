@@ -33,4 +33,8 @@
   boot.extraModprobeConfig = "install nouveau /run/current-system/sw/bin/false";
   hardware.bumblebee.enable = true;
   hardware.bumblebee.connectDisplay = true;
+
+  virtualisation.libvirtd.enable = true;
+
+  environment.systemPackages = with pkgs; [ virt-manager ];
 }

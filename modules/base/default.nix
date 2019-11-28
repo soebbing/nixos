@@ -10,8 +10,7 @@
       "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
         inherit pkgs;
       };
-
-    # Dev-Mode   shyim =     import /home/shyim/Code/nur-repository/default.nix { inherit pkgs; };
+    # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
   };
 
   i18n = {
@@ -22,6 +21,11 @@
   # Time zone.
   time.timeZone = "Europe/Berlin";
   time.hardwareClockInLocalTime = true;
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "vm.max_map_count" = 262144;
+  };
 
   # The NixOS release version.
   system.stateVersion = "19.03";

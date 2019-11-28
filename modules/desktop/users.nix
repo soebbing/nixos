@@ -7,8 +7,15 @@
   # User accounts.
   users.users.shyim = {
     isNormalUser = true;
-    extraGroups =
-      [ "wheel" "docker" "video" "audio" "networkmanager" "systemd-journal" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+      "video"
+      "audio"
+      "networkmanager"
+      "systemd-journal"
+      "libvirtd"
+    ];
     shell = "/run/current-system/sw/bin/fish";
   };
 
