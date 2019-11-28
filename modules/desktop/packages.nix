@@ -5,8 +5,7 @@
   environment.systemPackages = with pkgs; [
     docker
     docker-compose
-    jetbrains.phpstorm
-    jetbrains.jdk
+    shyim.phpstorm
     kbfs
     keybase
     keybase-gui
@@ -14,7 +13,7 @@
     firefox
     thunderbird
     vscodium
-    shyim.php74
+    php73
     php73Packages.composer
     nodejs-13_x
     gnupg
