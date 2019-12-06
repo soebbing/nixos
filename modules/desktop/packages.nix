@@ -40,5 +40,5 @@
     escrotum
   ];
 
-  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-emoji source-sans-pro ];
+  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-emoji source-sans-pro font-awesome_5 ];
 }
