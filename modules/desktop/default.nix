@@ -6,4 +6,6 @@
   networking.extraHosts = ''
     127.0.0.1 mysql
   '';
+
+  programs.ssh.startAgent = true;
 }
