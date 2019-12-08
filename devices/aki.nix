@@ -7,6 +7,7 @@
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
+    ../modules/desktop/manager/i3.nix
   ];
 
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];

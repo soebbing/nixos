@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ ../modules/base ../modules/desktop ../modules/desktop/notebook.nix ];
+  imports = [
+    ../modules/base
+    ../modules/desktop
+    ../modules/desktop/notebook.nix
+    ../modules/desktop/manager/i3.nix
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;

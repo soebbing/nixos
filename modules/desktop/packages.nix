@@ -12,9 +12,9 @@
     google-chrome
     firefox
     thunderbird
-    vscodium
-    php73
-    php73Packages.composer
+    vscode-ext
+    php74
+    php74Packages.composer
     nodejs-13_x
     gnupg
     insomnia
@@ -24,21 +24,9 @@
     shyim.swdc
     rclone
     nixops
-
-    # I3
-    (polybar.override { i3Support = true; })
-    rofi
-    arandr
-    pavucontrol
-    filezilla
-    xfce.thunar
-    playerctl
-    blueman
-    feh
-    networkmanagerapplet
-    kitty
-    escrotum
+    gnumake
+    terraform
   ];
 
-  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-emoji source-sans-pro font-awesome_5 ];
+  fonts.fonts = with pkgs; [ noto-fonts noto-fonts-emoji source-sans-pro ];
 }
