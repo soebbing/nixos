@@ -6,11 +6,7 @@
     opengl.driSupport32Bit = true;
     bluetooth = {
       enable = true;
-      extraConfig = ''
-
-                  [General]
-        Enable=Source,Sink,Media,Socket
-      '';
+      config = { General = { Enable = "Source,Sink,Media,Socket"; }; };
     };
     pulseaudio = {
       package = pkgs.pulseaudioFull;
