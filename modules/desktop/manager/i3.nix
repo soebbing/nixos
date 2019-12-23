@@ -5,11 +5,11 @@
     xserver = {
       enable = true;
       windowManager = {
-        default = "i3";
         i3 = { enable = true; };
       };
 
       displayManager = {
+        defaultSession = "none+i3";
         lightdm = {
           autoLogin = {
             enable = true;
@@ -18,7 +18,6 @@
         };
       };
       desktopManager = {
-        default = "none";
         xterm = { enable = false; };
       };
     };

@@ -27,7 +27,7 @@
   }];
 
   networking.hostName = "aki";
-  i18n.consoleKeyMap = "de";
+  console.keyMap = "de";
   services.xserver.layout = "de";
 
   boot.kernelParams = [ "acpi_rev_override" ];
@@ -35,7 +35,6 @@
   hardware.bumblebee.enable = true;
   hardware.bumblebee.connectDisplay = true;
 
-  virtualisation.libvirtd.enable = true;
-
-  environment.systemPackages = with pkgs; [ virt-manager ];
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "shyim" ];
 }

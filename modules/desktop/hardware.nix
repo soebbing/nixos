@@ -15,6 +15,7 @@
       support32Bit = true;
     };
   };
+  services.blueman.enable = true;
 
   # Systemd stop job timeout.
   # Increase max file descriptors to 1M,

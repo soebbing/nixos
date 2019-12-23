@@ -26,6 +26,10 @@
     nixops
     gnumake
     terraform
+    ffsend
+    shellcheck
+    fzf
+    tldr
   ];
 
   fonts.fonts = with pkgs; [ noto-fonts noto-fonts-emoji source-sans-pro ];

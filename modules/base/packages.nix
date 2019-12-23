@@ -7,11 +7,12 @@
     wget
     neovim
     git
-    fzf
     psmisc # killall
     htop
     openssl
-    iftop
     unzip
+    bat
+    lsd
+    tmux
   ];
 }
