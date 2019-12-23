@@ -26,6 +26,8 @@ in {
     shellAliases = {
       nano = "nvim";
       vim = "nvim";
+      cat = "bat";
+      ls = "lsd";
     };
   };
 

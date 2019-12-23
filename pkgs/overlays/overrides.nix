@@ -30,6 +30,12 @@ self: super: {
         version = "0.2.0";
         sha256 = "0xf6bxv922h3y1ckrn25mk6hmavr8c5xc59dprcj7q66z2j87g0s";
       }
+      {
+        name = "shellcheck";
+        publisher = "timonwong";
+        version = "0.8.1";
+        sha256 = "0zg7ihwkxg0da0wvqcy9vqp6pyjignilsg9cldp5pp9s0in561cw";
+      }
     ];
   };
 }

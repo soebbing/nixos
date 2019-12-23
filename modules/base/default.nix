@@ -13,8 +13,11 @@
     # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
   };
 
+  console = {
+    font = "Lat2-Terminus16";
+  };
+
   i18n = {
-    consoleFont = "Lat2-Terminus16";
     defaultLocale = "en_US.UTF-8";
   };
 
