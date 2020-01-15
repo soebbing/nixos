@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  hardware = { bumblebee = { enable = true; }; };
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+
+  #hardware = { bumblebee = { enable = true; }; };
   services = {
     xserver = {
       libinput = {
@@ -10,4 +13,9 @@
       };
     };
   };
+
+
+  # Necessary for Gnome Shell integration
+  nixpkgs.config.firefox.enableGnomeExtensions = true;
+  services.gnome3.chrome-gnome-shell.enable = true;
 }

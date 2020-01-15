@@ -6,8 +6,8 @@
     s3cmd
     openvpn
     ansible
-    go-jira
-    php74Packages.phpstan
-    zoom-us
+    vagrant
+    virtualbox
+    gitAndTools.gitFull
   ];
 }

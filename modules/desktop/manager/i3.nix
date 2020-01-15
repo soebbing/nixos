@@ -9,15 +9,15 @@
       };
 
       displayManager = {
-        defaultSession = "none+i3";
         lightdm = {
           autoLogin = {
             enable = true;
-            user = "shyim";
+            user = "hendrik";
           };
         };
       };
       desktopManager = {
+        default = "xfce";
         xterm = { enable = false; };
       };
     };
@@ -31,6 +31,7 @@
     (polybar.override { i3Support = true; })
     rofi
     arandr
+    i3 i3lock i3status dmenu
     pavucontrol
     xfce.thunar
     playerctl
