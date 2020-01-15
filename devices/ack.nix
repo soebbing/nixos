@@ -14,7 +14,7 @@
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
-  networking.hostName = "mei";
+  networking.hostName = "ack";
   i18n.consoleKeyMap = "us";
   services.xserver.layout = "us";
 }

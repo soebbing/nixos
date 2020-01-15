@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../hardware-scans/aki.nix
+    ../hardware-scans/syn.nix
     ../modules/base
     ../modules/desktop
     ../modules/desktop/notebook.nix
@@ -21,14 +21,23 @@
 
   boot.initrd.luks.devices = [{
     name = "root";
-    device = "/dev/disk/by-uuid/357e67b2-546d-4632-b197-b03c6facf271";
+    device = "/dev/disk/by-uuid/x";
     preLVM = true;
     allowDiscards = true;
   }];
 
-  networking.hostName = "aki";
+  networking.hostName = "syn";
   console.keyMap = "de";
   services.xserver.layout = "de";
+  
+  i18n = {
+    consoleFont = "Lat2-Terminus16";
+    consoleKeyMap = "de";
+    defaultLocale = "de_DE.UTF-8";
+  };
+
+  # Set your time zone.
+  time.timeZone = "Europe/Berlin";
 
   boot.kernelParams = [ "acpi_rev_override" ];
   boot.extraModprobeConfig = "install nouveau /run/current-system/sw/bin/false";
@@ -36,5 +45,5 @@
   hardware.bumblebee.connectDisplay = true;
 
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "shyim" ];
+  users.extraGroups.vboxusers.members = [ "hendrik" ];
 }

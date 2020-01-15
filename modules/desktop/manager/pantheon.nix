@@ -8,7 +8,7 @@
         lightdm = {
           autoLogin = {
             enable = true;
-            user = "shyim";
+            user = "hendrik";
           };
           greeters.pantheon.enable = true;
         };
