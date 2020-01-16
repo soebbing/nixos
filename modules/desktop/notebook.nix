@@ -4,11 +4,24 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  #hardware = { bumblebee = { enable = true; }; };
+#  hardware = { 
+#    bumblebee = { 
+#      enable = true;
+#      connectDisplay = true;
+#      driver = "nouveau";
+#    };
+#  };
   services = {
     xserver = {
+      enable = true;
+
+      videoDrivers = [ "intel" "vesa" ];
+
       libinput = {
         enable = true;
+        tapping = true;
+        disableWhileTyping = true;
+        scrollMethod = "twofinger";
         naturalScrolling = false;
       };
     };

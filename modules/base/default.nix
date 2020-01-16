@@ -13,13 +13,12 @@
     # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
   };
 
- # console = {
- #   font = "Lat2-Terminus16";
- # };
+  console = {
+    keyMap = "de";
+    font = "Lat2-Terminus16";
+  };
 
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "de";
     defaultLocale = "de_DE.UTF-8";
   };
 
@@ -33,5 +32,5 @@
   };
 
   # The NixOS release version.
-  system.stateVersion = "19.09";
+  system.stateVersion = "20.03";
 }

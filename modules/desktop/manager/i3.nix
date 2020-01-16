@@ -9,6 +9,7 @@
       };
 
       displayManager = {
+        defaultSession = "none+i3";
         lightdm = {
           autoLogin = {
             enable = true;
@@ -17,7 +18,6 @@
         };
       };
       desktopManager = {
-        default = "xfce";
         xterm = { enable = false; };
       };
     };
@@ -25,7 +25,12 @@
     gnome3 = { gnome-keyring = { enable = true; }; };
   };
 
-  fonts.fonts = with pkgs; [ font-awesome_5 ];
+  fonts.fonts = with pkgs; [
+    dejavu_fonts
+    nerdfonts
+    font-awesome-ttf
+    font-awesome_5
+  ];
 
   environment.systemPackages = with pkgs; [
     (polybar.override { i3Support = true; })
