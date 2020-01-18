@@ -35,4 +35,30 @@
 
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+
+  environment.variables = {
+    MESA_LOADER_DRIVER_OVERRIDE = "iris";
+  };
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+
+  hardware.opengl = {
+    enable = true;
+    package = (pkgs.mesa.override {
+      galliumDrivers = [ "r300" "r600" "radeonsi" "nouveau" "virgl" "svga" "swrast" "iris" ];
+      driDrivers = [];
+      vulkanDrivers = [];
+    }).drivers;
+
+    extraPackages = with pkgs; [
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-media-driver # only available starting nixos-19.03 or the current nixos-unstable
+    ];
+  };
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "hendrik" ];
 }

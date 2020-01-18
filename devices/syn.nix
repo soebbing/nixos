@@ -44,7 +44,4 @@
 #  boot.extraModprobeConfig = "install nouveau /run/current-system/sw/bin/false";
 #  hardware.bumblebee.enable = true;
 #  hardware.bumblebee.connectDisplay = true;
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "hendrik" ];
 }

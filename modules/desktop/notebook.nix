@@ -4,18 +4,16 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-#  hardware = { 
-#    bumblebee = { 
-#      enable = true;
-#      connectDisplay = true;
-#      driver = "nouveau";
-#    };
-#  };
   services = {
     xserver = {
       enable = true;
 
-      videoDrivers = [ "intel" "vesa" ];
+      videoDrivers = [ "modesetting" "intel" "vesa" ];
+
+      deviceSection = ''
+        Option "DRI" "3"
+        Option "TearFree" "true"
+      '';
 
       libinput = {
         enable = true;
@@ -26,7 +24,6 @@
       };
     };
   };
-
 
   # Necessary for Gnome Shell integration
   nixpkgs.config.firefox.enableGnomeExtensions = true;
