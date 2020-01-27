@@ -3,17 +3,22 @@
 {
   environment.systemPackages = with pkgs; [
     gnome3.gnome-desktop
-    guake
+    gnome3.gnome-tweaks
     numix-icon-theme
     numix-solarized-gtk-theme
   ];
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.displayManager.gdm.autoSuspend = true;
-  services.xserver.desktopManager.gnome3.enable = true;
-  fonts.fonts = with pkgs; [  ];
+  services.xserver = {
+    enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
+      autoSuspend = true;
+    };
+    desktopManager = {
+      gnome3 = { enable = true; };
+    };
+  };
 
   # Necessary for Gnome Shell integration
   nixpkgs.config.firefox.enableGnomeExtensions = true;
