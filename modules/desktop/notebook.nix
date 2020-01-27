@@ -17,6 +17,7 @@
 
       libinput = {
         enable = true;
+        middleEmulation = true;
         tapping = true;
         disableWhileTyping = true;
         scrollMethod = "twofinger";

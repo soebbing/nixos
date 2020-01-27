@@ -12,7 +12,7 @@
 
   virtualisation.docker = {
     enable = true;
-    enableOnBoot = false;
+    enableOnBoot = true;
   };
 
   virtualisation.virtualbox.host = {

@@ -13,8 +13,8 @@ let
 in {
   environment = {
     variables = {
-      EDITOR = "nvim";
-      TERMINAL = "kitty";
+      EDITOR = "vim";
+      TERMINAL = "gnome-terminal";
     };
 
     loginShellInit = ''
@@ -24,8 +24,8 @@ in {
     '';
 
     shellAliases = {
-      nano = "nvim";
-      vim = "nvim";
+      nano = "vim";
+      vim = "vim";
       cat = "bat";
       ls = "lsd";
     };

@@ -9,7 +9,8 @@
       };
 
       displayManager = {
-        defaultSession = "none+i3";
+        defaultSession = "xfce";
+        #defaultSession = "none+i3";
         lightdm = {
           autoLogin = {
             enable = true;
@@ -43,7 +44,8 @@
     blueman
     feh
     networkmanagerapplet
-    kitty
+#    kitty
+    termite
     escrotum
   ];
 }

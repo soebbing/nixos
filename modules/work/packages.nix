@@ -9,5 +9,9 @@
     vagrant
     virtualbox
     gitAndTools.gitFull
+    gitAndTools.git-annex
+    gitAndTools.git-extras
+    gitAndTools.git2cl
+    gitAndTools.tig
   ];
 }
