@@ -7,7 +7,8 @@
     sudo
     wget
     curl
-    neovim
+    vim
+    rake
     git
     psmisc # killall
     htop
@@ -20,7 +21,15 @@
     fzf autojump networkmanager fish starship
     coreutils
     file
+    stow
     tree
     silver-searcher
+    linuxPackages.cpupower
+    ctags
+    gnupg
+    pwgen
+    silver-searcher
+    openssh
+    xsel
   ];
 }
