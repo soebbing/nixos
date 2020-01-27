@@ -13,22 +13,36 @@
 #    ../modules/desktop/manager/i3.nix
   ];
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
-
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.gfxmodeEfi = "1600x1200";
-
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/disk/by-uuid/4e55509a-3a96-4792-826d-af55a36c1a60";
-      preLVM = true;
-      allowDiscards = true;
-    };
+  boot.loader.grub = {
+    enable = true;
+    copyKernels = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+    version = 2;
+    device = "nodev";
+    gfxmodeEfi = "1600x1200";
   };
+  boot.loader.systemd-boot = {
+    enable = true;
+    editor = false;
+  };
+
+  boot.loader.efi.canTouchEfiVariables = false;
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/1f51db2c-4205-4ca7-a4f8-9cc46e836e74";
+      fsType = "btrfs";
+      options = [ "subvol=nixos" "noatime" "nodiratime" "discard" ];
+    };
+
+  boot.initrd.luks.devices."nixenc".device = "/dev/disk/by-uuid/843710eb-d94e-4929-ab29-338525889afe";
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/C349-E5E2";
+      fsType = "vfat";
+    };
+
+  swapDevices = [{ device = "/dev/disk/by-uuid/658684d9-f7a1-43d9-b92a-ba011aed4186"; }];
 
   networking.hostName = "syn";
   networking.hostId = "16bee688";

@@ -18,20 +18,6 @@
   ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c24deeeb-db38-42d6-9327-4b567c745a58";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8C79-2CC4";
-      fsType = "vfat";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/9921746a-4069-4ad0-bde4-dc2ad9944a09"; }
-    ];
 
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";

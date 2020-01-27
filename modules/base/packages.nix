@@ -2,7 +2,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  
+
   environment.systemPackages = with pkgs; [
     sudo
     wget
@@ -28,7 +28,6 @@
     ctags
     gnupg
     pwgen
-    silver-searcher
     openssh
     xsel
   ];
