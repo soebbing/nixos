@@ -1,7 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware.nix ./packages.nix ./shell.nix ./cache.nix ];
+  imports = [
+    ./hardware.nix
+    ./packages.nix
+    ./shell.nix
+    ./cache.nix
+    ./i18n-en.nix
+   ];
 
   nixpkgs.overlays = import ../../pkgs/overlays;
 
@@ -13,14 +19,6 @@
     # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
   };
 
-  console = {
-    keyMap = "de";
-    font = "Lat2-Terminus16";
-  };
-
-  i18n = {
-    defaultLocale = "de_DE.UTF-8";
-  };
 
   # Time zone.
   time.timeZone = "Europe/Berlin";
@@ -31,6 +29,14 @@
     "vm.max_map_count" = 262144;
   };
 
+  environment.etc."php.d/hendrik.ini" = {
+    text = ''
+      memory_limit=2G
+          '';
+
+    mode = "0777";
+  };
+
   # The NixOS release version.
-  system.stateVersion = "20.03";
+  system.stateVersion = "19.09";
 }

@@ -1,41 +1,11 @@
 self: super: {
-  neovim = super.neovim.override {
-    configure = {
-      customRC = ''
-        set encoding=utf-8
-        set tabstop=4
-        set shiftwidth=4
-        set autoindent
+  php74 = super.php74.overrideAttrs (oldAttr: {
+    buildInputs = oldAttr.buildInputs ++ [ super.libffi ];
+    configureFlags = oldAttr.configureFlags ++ [ "--with-ffi" ];
 
-        set backupdir=~/.cache
-        set directory=~/.cache
-              '';
-      packages.myVimPackage = with super.vimPlugins; {
-        start = [ vim-nix syntastic nerdtree ];
-        opt = [ ];
-      };
+    src = super.fetchurl {
+      url = "https://www.php.net/distributions/php-7.4.2.tar.bz2";
+      sha256 = "05p8z0ld058yjanxaphy3ka20hn7x7d6nak5sm782w4wprs9k402";
     };
-  };
-  vscode-ext = super.vscode-with-extensions.override {
-    vscodeExtensions = super.pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "Nix";
-        publisher = "bbenoist";
-        version = "1.0.1";
-        sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
-      }
-      {
-        name = "vue-vscode-extensionpack";
-        publisher = "sdras";
-        version = "0.2.0";
-        sha256 = "0xf6bxv922h3y1ckrn25mk6hmavr8c5xc59dprcj7q66z2j87g0s";
-      }
-      {
-        name = "shellcheck";
-        publisher = "timonwong";
-        version = "0.8.1";
-        sha256 = "0zg7ihwkxg0da0wvqcy9vqp6pyjignilsg9cldp5pp9s0in561cw";
-      }
-    ];
-  };
+  });
 }

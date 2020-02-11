@@ -6,7 +6,7 @@
 
     kbfs = {
       enable = true;
-      mountPoint = "/home/hendrik/keybase";  
+      mountPoint = "/home/hendrik/keybase";
     };
   };
 

@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     gnome3.gnome-desktop
     gnome3.gnome-tweaks
+    gnome3.dconf-editor
     numix-icon-theme
     numix-solarized-gtk-theme
   ];

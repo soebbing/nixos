@@ -7,7 +7,10 @@
       docker
       docker-compose
       docker-sync
-      shyim.phpstorm
+      dive
+      jetbrains.phpstorm
+      jetbrains.rider
+    #  shyim.phpstorm
       vscode
       kbfs
       keybase
@@ -16,14 +19,13 @@
       firefox
       inkscape
       libreoffice
-      php73
-      php73Packages.composer
-      php73Packages.phpstan
+      php74
+      php74Packages.composer
+      php74Packages.phpstan
       nodejs-12_x
       gnupg
       insomnia
       xclip
-      travis
       spotify
       rclone
       nixops
@@ -33,8 +35,9 @@
       shellcheck
       fzf
       tldr
+      lm_sensors
 
-      transmission
+      transmission-gtk
       networkmanagerapplet
       xfontsel
 
@@ -47,17 +50,16 @@
       xautolock
 
       enpass
+      mullvad-vpn
       libxkbcommon
       qt5.qtwayland
   ];
 
   fonts.fonts = with pkgs; [
-    dejavu_fonts
     nerdfonts
-    font-awesome-ttf
-    font-awesome_5
     noto-fonts
     noto-fonts-emoji
     source-sans-pro
+    fira-code
   ];
 }
