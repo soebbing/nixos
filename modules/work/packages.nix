@@ -2,12 +2,16 @@
 
 {
   environment.systemPackages = with pkgs; [
+    python3
+    adoptopenjdk-bin
     awscli
     s3cmd
     openvpn
     ansible
     vagrant
-    virtualbox
+    linphone
+    virtualboxWithExtpack
+    kubectl
     gitAndTools.gitFull
     gitAndTools.git-annex
     gitAndTools.git-extras

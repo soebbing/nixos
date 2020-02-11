@@ -7,14 +7,18 @@
     sudo
     wget
     curl
+    bash
     vim
     rake
+    cmake
     git
     psmisc # killall
+    shellcheck
     htop
     openssl
     unzip
     bat
+    tldr
     lsd
     lsof
     tmux
@@ -30,5 +34,7 @@
     pwgen
     openssh
     xsel
+    nixfmt
+    shyim.ncspot
   ];
 }

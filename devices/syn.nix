@@ -48,6 +48,8 @@
   networking.hostId = "16bee688";
   networking.hosts = {
     "127.0.0.1" = [
+      "traefik.shopmacher.example"
+      "portainer.shopmacher.example"
       "traefik.handcoding.example"
       "portainer.handcoding.example"
       "www.unixtimestamp.example"
@@ -58,16 +60,12 @@
       "www.djplaymysong.example"
       "www.auctionmap.example"
     ];
+    "10.10.20.81" = [
+      "virt.loungedreams.com"
+    ];
   };
-  i18n = {
-    defaultLocale = "de_DE.UTF-8";
-  };
-  console.font = "Lat2-Terminus16";
-  console.keyMap = "de";
-  services.xserver.layout = "de";
-
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
 
   boot.kernelParams = [ "acpi_rev_override" ];
+
+  hardware.cpu.intel.updateMicrocode = true;
 }

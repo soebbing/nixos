@@ -9,8 +9,7 @@
       };
 
       displayManager = {
-        defaultSession = "xfce";
-        #defaultSession = "none+i3";
+        defaultSession = "none+i3";
         lightdm = {
           autoLogin = {
             enable = true;
@@ -31,6 +30,9 @@
     nerdfonts
     font-awesome-ttf
     font-awesome_5
+    fantasque-sans-mono
+    siji
+    iosevka-bin
   ];
 
   environment.systemPackages = with pkgs; [
@@ -44,8 +46,10 @@
     blueman
     feh
     networkmanagerapplet
-#    kitty
     termite
     escrotum
+
+    numix-icon-theme
+    numix-solarized-gtk-theme
   ];
 }
