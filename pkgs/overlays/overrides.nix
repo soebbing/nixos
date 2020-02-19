@@ -8,4 +8,16 @@ self: super: {
       sha256 = "05p8z0ld058yjanxaphy3ka20hn7x7d6nak5sm782w4wprs9k402";
     };
   });
+
+  dotnet3-sdk = super.dotnet-sdk.overrideAttrs (oldAttr: {
+    version = "3.1.101";
+    netCoreVersion = "3.1.1";
+    pname = "dotnet-sdk";
+
+    src = super.fetchurl {
+      url = "https://download.visualstudio.microsoft.com/download/pr/c4b503d6-2f41-4908-b634-270a0a1dcfca/c5a20e42868a48a2cd1ae27cf038044c/dotnet-sdk-3.1.101-linux-x64.tar.gz";
+      # use sha512 from the download page
+      sha512 = "eeee75323be762c329176d5856ec2ecfd16f06607965614df006730ed648a5b5d12ac7fd1942fe37cfc97e3013e796ef278e7c7bc4f32b8680585c4884a8a6a1";
+    };
+  });
 }

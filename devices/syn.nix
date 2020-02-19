@@ -22,6 +22,7 @@
     device = "nodev";
     gfxmodeEfi = "1600x1200";
   };
+
   boot.loader.systemd-boot = {
     enable = true;
     editor = false;
@@ -59,9 +60,15 @@
       "www.canastapp.example"
       "www.djplaymysong.example"
       "www.auctionmap.example"
+      "virt.1a-medizintechnik.de"
+      "virt-erp.1a-medizintechnik.de"
     ];
     "10.10.20.81" = [
       "virt.loungedreams.com"
+    ];
+    "10.10.20.80" = [
+#      "virt.1a-medizintechnik.de"
+#      "virt-erp.1a-medizintechnik.de"
     ];
   };
 
