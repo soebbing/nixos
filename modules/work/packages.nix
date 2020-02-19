@@ -2,13 +2,16 @@
 
 {
   environment.systemPackages = with pkgs; [
+    gimp
     python3
+    dotnet3-sdk
     adoptopenjdk-bin
     awscli
     s3cmd
     openvpn
     ansible
     vagrant
+    postman
     linphone
     virtualboxWithExtpack
     kubectl
