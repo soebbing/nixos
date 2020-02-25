@@ -8,9 +8,8 @@
       docker-compose
       docker-sync
       dive
-      jetbrains.phpstorm
+      phpstorm
       jetbrains.rider
-    #  shyim.phpstorm
       vscode
       kbfs
       keybase

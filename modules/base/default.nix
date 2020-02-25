@@ -11,13 +11,13 @@
 
   nixpkgs.overlays = import ../../pkgs/overlays;
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    shyim = import (builtins.fetchTarball
-      "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
-        inherit pkgs;
-      };
-    # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
-  };
+#  nixpkgs.config.packageOverrides = pkgs: {
+#    shyim = import (builtins.fetchTarball
+#      "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
+#        inherit pkgs;
+#      };
+#    # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
+#  };
 
 
   # Time zone.
@@ -38,5 +38,5 @@
   };
 
   # The NixOS release version.
-  system.stateVersion = "19.09";
+  system.stateVersion = "unstable";
 }
