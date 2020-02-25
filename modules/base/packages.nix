@@ -28,6 +28,7 @@
     stow
     tree
     silver-searcher
+    ripgrep
     linuxPackages.cpupower
     ctags
     gnupg
@@ -35,6 +36,6 @@
     openssh
     xsel
     nixfmt
-    shyim.ncspot
+    ncspot
   ];
 }

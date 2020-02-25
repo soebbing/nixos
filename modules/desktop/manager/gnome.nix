@@ -21,6 +21,8 @@
     };
   };
 
+  services.gvfs.enable = true;
+
   # Necessary for Gnome Shell integration
   nixpkgs.config.firefox.enableGnomeExtensions = true;
   services.gnome3.chrome-gnome-shell.enable = true;
