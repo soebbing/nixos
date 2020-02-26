@@ -13,6 +13,7 @@
     vagrant
     postman
     linphone
+    rambox
     virtualboxWithExtpack
     kubectl
     gitAndTools.gitFull
