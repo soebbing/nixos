@@ -1,24 +1,18 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./hardware.nix
-    ./packages.nix
-    ./shell.nix
-    ./cache.nix
-    ./i18n-en.nix
-   ];
+  imports =
+    [ ./hardware.nix ./packages.nix ./shell.nix ./cache.nix ./i18n-en.nix ];
 
   nixpkgs.overlays = import ../../pkgs/overlays;
 
-#  nixpkgs.config.packageOverrides = pkgs: {
-#    shyim = import (builtins.fetchTarball
-#      "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
-#        inherit pkgs;
-#      };
-#    # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
-#  };
-
+  #  nixpkgs.config.packageOverrides = pkgs: {
+  #    shyim = import (builtins.fetchTarball
+  #      "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
+  #        inherit pkgs;
+  #      };
+  #    # shyim = import /home/shyim/Code/nix-packages/default.nix { inherit pkgs; };
+  #  };
 
   # Time zone.
   time.timeZone = "Europe/Berlin";
@@ -38,5 +32,5 @@
   };
 
   # The NixOS release version.
-  system.stateVersion = "unstable";
+  system.stateVersion = "20.03";
 }

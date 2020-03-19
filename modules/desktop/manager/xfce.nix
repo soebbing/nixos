@@ -2,18 +2,17 @@
 
 {
   services.xserver = {
-    enable = true;   
+    enable = true;
     displayManager.defaultSession = "xfce";
     desktopManager = {
-#      default = "xfce";
+      default = "xfce";
       xterm.enable = false;
       xfce = {
         enable = true;
-#        noDesktop = true;
-#        enableXfwm = false;
+        enableXfwm = false;
       };
     };
-#    windowManager.i3.enable = true;
+    windowManager.i3.enable = true;
   };
 
   fonts.fonts = with pkgs; [
@@ -29,8 +28,8 @@
     playerctl
     blueman
     feh
-#    networkmanagerapplet
-#    kitty
+    networkmanagerapplet
+    kitty
     escrotum
 
     xfce.exo

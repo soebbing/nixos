@@ -10,7 +10,7 @@
     ../modules/work
 #    ../modules/desktop/manager/xfce.nix
     ../modules/desktop/manager/gnome.nix
-#    ../modules/desktop/manager/i3.nix
+#      ../modules/desktop/manager/i3.nix
   ];
 
   boot.loader.grub = {
@@ -60,11 +60,15 @@
       "www.canastapp.example"
       "www.djplaymysong.example"
       "www.auctionmap.example"
+
+      "ikeetracking.example"
+
       "virt.1a-medizintechnik.de"
       "virt-erp.1a-medizintechnik.de"
+      "virt.loungedreams.com"
     ];
     "10.10.20.81" = [
-      "virt.loungedreams.com"
+#      "virt.loungedreams.com"
     ];
     "10.10.20.80" = [
 #      "virt.1a-medizintechnik.de"

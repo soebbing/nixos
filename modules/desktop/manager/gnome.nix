@@ -16,9 +16,7 @@
       wayland = false;
       autoSuspend = true;
     };
-    desktopManager = {
-      gnome3 = { enable = true; };
-    };
+    desktopManager = { gnome3 = { enable = true; }; };
   };
 
   services.gvfs.enable = true;
