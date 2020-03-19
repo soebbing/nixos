@@ -3,9 +3,7 @@
 {
   services.xserver.layout = "de";
 
-  i18n = {
-    defaultLocale = "de_DE.UTF-8";
-  };
+  i18n = { defaultLocale = "de_DE.UTF-8"; };
 
   console = {
     keyMap = "de";

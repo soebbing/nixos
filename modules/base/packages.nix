@@ -12,7 +12,8 @@
     rake
     cmake
     git
-    psmisc # killall
+    psmisc
+    bind
     shellcheck
     htop
     openssl
@@ -22,7 +23,11 @@
     lsd
     lsof
     tmux
-    fzf autojump networkmanager fish starship
+    fzf
+    autojump
+    networkmanager
+    fish
+    starship
     coreutils
     file
     stow

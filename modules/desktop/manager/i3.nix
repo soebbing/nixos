@@ -4,9 +4,7 @@
   services = {
     xserver = {
       enable = true;
-      windowManager = {
-        i3 = { enable = true; };
-      };
+      windowManager = { i3 = { enable = true; }; };
 
       displayManager = {
         defaultSession = "none+i3";
@@ -17,9 +15,7 @@
           };
         };
       };
-      desktopManager = {
-        xterm = { enable = false; };
-      };
+      desktopManager = { xterm = { enable = false; }; };
     };
 
     gnome3 = { gnome-keyring = { enable = true; }; };
@@ -39,7 +35,10 @@
     (polybar.override { i3Support = true; })
     rofi
     arandr
-    i3 i3lock i3status dmenu
+    i3
+    i3lock
+    i3status
+    dmenu
     pavucontrol
     xfce.thunar
     playerctl
