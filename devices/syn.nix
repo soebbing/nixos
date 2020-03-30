@@ -63,16 +63,17 @@
 
       "ikeetracking.example"
 
-      "virt.1a-medizintechnik.de"
-      "virt-erp.1a-medizintechnik.de"
+#      "virt.1a-medizintechnik.de"
+#      "virt-erp.1a-medizintechnik.de"
+
       "virt.loungedreams.com"
     ];
     "10.10.20.81" = [
 #      "virt.loungedreams.com"
     ];
     "10.10.20.80" = [
-#      "virt.1a-medizintechnik.de"
-#      "virt-erp.1a-medizintechnik.de"
+      "virt.1a-medizintechnik.de"
+      "virt-erp.1a-medizintechnik.de"
     ];
   };
 

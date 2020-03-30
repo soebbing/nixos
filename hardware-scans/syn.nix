@@ -20,7 +20,7 @@
   boot.kernelModules = [ "kvm-intel" ];
 
   nix.maxJobs = lib.mkDefault 8;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
