@@ -1,6 +1,11 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  unstable = import <nixos-unstable> {};
+
+in {
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     gnome3.gnome-desktop
     gnome3.gnome-tweaks

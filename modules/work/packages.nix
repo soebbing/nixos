@@ -1,8 +1,12 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  unstable = import <nixos-unstable> {};
+
+in {
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
-    gimp
     python3
     dotnet3-sdk
     adoptopenjdk-bin
@@ -10,16 +14,18 @@
     s3cmd
     openvpn
     ansible
-    vagrant
-    postman
     linphone
-    rambox
-    virtualboxWithExtpack
-    kubectl
-    gitAndTools.gitFull
-    gitAndTools.git-annex
-    gitAndTools.git-extras
-    gitAndTools.git2cl
-    gitAndTools.tig
+
+    unstable.docker
+    unstable.docker-compose
+    unstable.docker-sync
+    unstable.kubectl
+    unstable.dive
+    unstable.virtualboxWithExtpack
+    unstable.vagrant
+
+    phpstorm
+    unstable.jetbrains.rider
+    unstable.postman
   ];
 }

@@ -1,68 +1,73 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  unstable = import <nixos-unstable> {};
+
+in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    docker
-    docker-compose
-    docker-sync
-    dive
-    phpstorm
-    jetbrains.rider
-    vscode
-    kbfs
-    keybase
-    keybase-gui
-    google-chrome
-    firefox
-    inkscape
-    libreoffice
-    php74
-    php74Packages.composer
-    php74Packages.phpstan
-    nodejs-12_x
     gnupg
     insomnia
     xclip
-    spotify
     rclone
     nixops
     gnumake
     terraform
-    ffsend
-    shellcheck
-    fzf
-    tldr
-    lm_sensors
 
     transmission-gtk
     networkmanagerapplet
     xfontsel
 
-    gtk3
     hicolor_icon_theme
     shared_mime_info
 
     dunst
     libnotify
     xautolock
+    xorg.xkill
 
-    enpass
-    mullvad-vpn
-    libxkbcommon
-    qt5.qtwayland
+    unstable.vscode
+    unstable.cura
 
-    powerline-fonts
-    smplayer
-    mpv
-  ];
+    unstable.kbfs
+    unstable.keybase
+    unstable.keybase-gui
+    unstable.ffsend
+    unstable.shellcheck
+    unstable.fzf
+    unstable.tldr
+    unstable.lm_sensors
+    unstable.xorg.xhost
+    unstable.wakatime
 
-  fonts.fonts = with pkgs; [
-    nerdfonts
-    noto-fonts
-    noto-fonts-emoji
-    source-sans-pro
-    fira-code
+    php74
+    unstable.php74Packages.composer
+    unstable.php74Packages.phpstan
+    unstable.nodejs-12_x
+    unstable.gitAndTools.gitFull
+    unstable.gitAndTools.git-annex
+    unstable.gitAndTools.git-extras
+    unstable.gitAndTools.git2cl
+    unstable.gitAndTools.tig
+
+    unstable.enpass
+    unstable.mullvad-vpn
+    unstable.libxkbcommon
+    unstable.gtk3
+    unstable.qt5.qtwayland
+    unstable.blender
+
+    unstable.powerline-fonts
+    unstable.smplayer
+    unstable.mpv
+    unstable.google-chrome
+    unstable.firefox
+    unstable.spotify
+    unstable.inkscape
+    unstable.libreoffice
+    unstable.gimp
+    unstable.zoom-us
+    unstable.rambox
   ];
 }
