@@ -53,6 +53,7 @@
       "portainer.shopmacher.example"
       "traefik.handcoding.example"
       "portainer.handcoding.example"
+
       "www.unixtimestamp.example"
       "www.convert-unix-timestamp.example"
       "www.download-handbuch.example"
@@ -60,16 +61,15 @@
       "www.canastapp.example"
       "www.djplaymysong.example"
       "www.auctionmap.example"
+      "www.farbuhr.example"
 
       "ikeetracking.example"
 
-#      "virt.1a-medizintechnik.de"
-#      "virt-erp.1a-medizintechnik.de"
-
-      "virt.loungedreams.com"
+      "virt.1a-medizintechnik.example"
+      "virt.loungedreams.example"
     ];
     "10.10.20.81" = [
-#      "virt.loungedreams.com"
+       "virt.loungedreams.com"
     ];
     "10.10.20.80" = [
       "virt.1a-medizintechnik.de"

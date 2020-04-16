@@ -40,6 +40,14 @@ in {
     unstable.lm_sensors
     unstable.xorg.xhost
     unstable.wakatime
+    unstable.tree
+    unstable.silver-searcher
+    unstable.ripgrep
+    unstable.ncspot
+    unstable.starship
+    unstable.tmux
+    unstable.autojump
+    unstable.htop
 
     php74
     unstable.php74Packages.composer
@@ -62,6 +70,7 @@ in {
     unstable.smplayer
     unstable.mpv
     unstable.google-chrome
+    unstable.chrome-gnome-shell
     unstable.firefox
     unstable.spotify
     unstable.inkscape
