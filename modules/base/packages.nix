@@ -15,25 +15,18 @@
     psmisc
     bind
     shellcheck
-    htop
     openssl
     unzip
     bat
     tldr
     lsd
     lsof
-    tmux
-    fzf
-    autojump
     networkmanager
+    bash
     fish
-    starship
     coreutils
     file
     stow
-    tree
-    silver-searcher
-    ripgrep
     linuxPackages.cpupower
     ctags
     gnupg
@@ -41,6 +34,5 @@
     openssh
     xsel
     nixfmt
-    ncspot
   ];
 }
