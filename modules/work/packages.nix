@@ -20,12 +20,15 @@ in {
     unstable.docker-compose
     unstable.docker-sync
     unstable.kubectl
+    unstable.kubectx
     unstable.dive
     unstable.virtualboxWithExtpack
     unstable.vagrant
 
     phpstorm
-    unstable.jetbrains.rider
+   # unstable.jetbrains.rider
     unstable.postman
+
+    unstable.etcher
   ];
 }
