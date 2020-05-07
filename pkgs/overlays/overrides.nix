@@ -4,9 +4,9 @@ self: super: {
     configureFlags = oldAttr.configureFlags ++ [ "--with-ffi" ];
 
     src = super.fetchurl {
-      url = "https://www.php.net/distributions/php-7.4.4.tar.bz2";
+      url = "https://www.php.net/distributions/php-7.4.5.tar.bz2";
       sha256 =
-        "308e8f4182ec8a2767b0b1b8e1e7c69fb149b37cfb98ee4a37475e082fa9829f";
+        "39daa533d5b63c3394da711dc12867dd76c2ec31c940bbba16f14e577df13d6f";
     };
   });
 
@@ -25,12 +25,12 @@ self: super: {
 
   phpstorm = super.jetbrains.phpstorm.overrideAttrs (old: rec {
     name = "phpstorm";
-    version = "2019.3.4";
+    version = "2020.1.0";
 
     src = super.fetchurl rec {
-      url = "https://download.jetbrains.com/webide/PhpStorm-2020.1.tar.gz";
+      url = "https://download-cf.jetbrains.com/webide/PhpStorm-2020.1.1.tar.gz";
       sha256 =
-        "48620424341008bad90d6ee877553665bd689fceaddd69059f0400b3a5a478fb";
+        "bce141cccd847d2d6cf030ba82f65b842fb0a717ab034f2fc49fa5f6d9a2ec99";
     };
   });
 }
