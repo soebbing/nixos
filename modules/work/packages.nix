@@ -24,10 +24,12 @@ in {
     unstable.dive
     unstable.virtualboxWithExtpack
     unstable.vagrant
+    unstable.aws-sam-cli
 
-    phpstorm
-   # unstable.jetbrains.rider
+    unstable.jetbrains.phpstorm
+    unstable.jetbrains.rider
     unstable.postman
+    unstable.redis-desktop-manager
 
     unstable.etcher
   ];

@@ -18,18 +18,8 @@
       desktopManager = { xterm = { enable = false; }; };
     };
 
-    gnome3 = { gnome-keyring = { enable = true; }; };
+      gnome3 = { gnome-keyring = { enable = true; }; };
   };
-
-  fonts.fonts = with pkgs; [
-    dejavu_fonts
-    nerdfonts
-    font-awesome-ttf
-    font-awesome_5
-    fantasque-sans-mono
-    siji
-    iosevka-bin
-  ];
 
   environment.systemPackages = with pkgs; [
     (polybar.override { i3Support = true; })
@@ -38,6 +28,7 @@
     i3
     i3lock
     i3status
+    clipmenu
     dmenu
     pavucontrol
     xfce.thunar
@@ -47,6 +38,7 @@
     networkmanagerapplet
     termite
     escrotum
+    lxappearance
 
     numix-icon-theme
     numix-solarized-gtk-theme
