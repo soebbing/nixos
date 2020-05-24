@@ -19,7 +19,6 @@
     gnome3 = { gnome-keyring = { enable = true; }; };
 
     pantheon.contractor.enable = true;
-    pantheon.files.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ gtk-engine-murrine ];
