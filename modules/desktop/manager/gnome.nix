@@ -7,11 +7,12 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    gnome3.gnome-desktop
-    gnome3.gnome-tweaks
-    gnome3.dconf-editor
-    numix-icon-theme
-    numix-solarized-gtk-theme
+    unstable.gnome3.gnome-desktop
+    unstable.gnome3.gnome-tweaks
+    unstable.gnome3.dconf-editor
+    unstable.rhythmbox
+    unstable.numix-icon-theme
+    unstable.numix-solarized-gtk-theme
   ];
 
   services.xserver = {
