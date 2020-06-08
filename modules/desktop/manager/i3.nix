@@ -22,7 +22,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (polybar.override { i3Support = true; })
+    (polybar.override { i3Support = true; pulseSupport = true; })
     rofi
     arandr
     i3
