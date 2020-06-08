@@ -19,61 +19,38 @@ in {
 
   environment.systemPackages = with pkgs; [
 
-    # Password manager for KDE
-    unstable.kdeApplications.kwalletmanager
-    unstable.kwalletcli
-
-    # Allow automatic unlocking of kwallet if the same password. This seems to
-    # work without installing kwallet-pam.
-    #kwallet-pam
-
-    # ssh-add prompts a user for a passphrase using KDE. Not sure if it is used
-    # by anything? ssh-add just asks passphrase on the console.
-    unstable.ksshaskpass
-
-    # Archives (e.g., tar.gz and zip)
-    unstable.ark
-
-    # GPG manager for KDE
-    unstable.kgpg
-
     # This is needed for graphical dialogs used to enter GPG passphrases
     pinentry-qt
 
-    kdeplasma-addons
-
-    # Screenshots
-    unstable.kdeApplications.spectacle
-
-    # Bluetooth
-    bluedevil
-
-    # Text editor
-    unstable.kate
-
-    # Torrenting
-    unstable.ktorrent
-
-    # Printing and scanning
-    unstable.kdeApplications.print-manager
-    
-    # Document readers
-    unstable.okular
-
-    # Email
-    unstable.kmail
- 
-    # Photo/image editor
-    unstable.digikam5
- 
-    # Media player
     unstable.vlc
+    unstable.kdeplasma-addons
+    unstable.bluedevil
+    unstable.kate
+    unstable.ktorrent
+    unstable.okular
+    unstable.kmail
+    unstable.konsole
+    unstable.dolphin
+    unstable.digikam5
+    unstable.kgpg
+    unstable.ark
+    # ssh-add prompts a user for a passphrase using KDE. Not sure if it is used
+    # by anything? ssh-add just asks passphrase on the console.
+    unstable.ksshaskpass
+    unstable.kwalletcli
 
     # KDE apps
+    unstable.kdeApplications.spectacle
+    unstable.kdeApplications.print-manager
+    unstable.kdeApplications.calendarsupport
+    unstable.kdeApplications.kalarm
+    unstable.kdeApplications.kalarmcal
+    unstable.kdeApplications.dolphin-plugins
+    unstable.kdeApplications.kwalletmanager
+
     unstable.kdeFrameworks.attica
     unstable.kdeFrameworks.baloo
     unstable.kdeFrameworks.karchive
-
     unstable.kdeFrameworks.kauth
     unstable.kdeFrameworks.kcompletion
     unstable.kdeFrameworks.kcontacts
@@ -90,12 +67,9 @@ in {
     unstable.kdeFrameworks.kimageformats
     unstable.kdeFrameworks.kinit
     unstable.kdeFrameworks.kio
-
     unstable.kdeFrameworks.kmediaplayer
     unstable.kdeFrameworks.knotifications
-
     unstable.kdeFrameworks.knotifyconfig
-
     unstable.kdeFrameworks.kparts
     unstable.kdeFrameworks.krunner
     unstable.kdeFrameworks.ktexteditor
@@ -107,13 +81,6 @@ in {
     unstable.kdeFrameworks.oxygen-icons5
     unstable.kdeFrameworks.kconfig
     unstable.kdeFrameworks.kconfigwidgets
-    unstable.konsole
-    unstable.dolphin
-	unstable.kdeFrameworks.kactivities
-    unstable.kdeApplications.calendarsupport
-    unstable.kdeApplications.kalarm
-    unstable.kdeApplications.kalarmcal
-    unstable.kdeApplications.dolphin-plugins
-
+	  unstable.kdeFrameworks.kactivities
   ];
 }
