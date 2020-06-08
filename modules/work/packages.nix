@@ -7,8 +7,9 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    python3
     dotnet3-sdk
+
+    python3
     adoptopenjdk-bin
     awscli
     s3cmd
@@ -27,7 +28,7 @@ in {
     unstable.aws-sam-cli
 
     unstable.jetbrains.phpstorm
-    unstable.jetbrains.rider
+    jetbrains.rider
     unstable.postman
     unstable.redis-desktop-manager
 
