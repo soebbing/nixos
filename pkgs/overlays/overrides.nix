@@ -1,14 +1,14 @@
 self: super: {
   dotnet3-sdk = super.dotnet-sdk.overrideAttrs (oldAttrs: {
-    version = "3.1.101";
-    netCoreVersion = "3.1.1";
+    version = "3.1.300";
+    netCoreVersion = "3.1.4";
     pname = "dotnet-sdk";
 
     src = super.fetchurl {
       url =
-        "https://download.visualstudio.microsoft.com/download/pr/f65a8eb0-4537-4e69-8ff3-1a80a80d9341/cc0ca9ff8b9634f3d9780ec5915c1c66/dotnet-sdk-3.1.201-linux-x64.tar.gz";
+        "https://download.visualstudio.microsoft.com/download/pr/0c795076-b679-457e-8267-f9dd20a8ca28/02446ea777b6f5a5478cd3244d8ed65b/dotnet-sdk-3.1.300-linux-x64.tar.gz";
       sha512 =
-        "934bf29734776331691a4724f2174c4e9d2d1dde160f18397fd01abf0f96f2ec1bdd2874db9f0e25dce6993d527ea9c19031a0e67383fd813dcfcb9552ea0c70";
+        "1c3844ea5f8847d92372dae67529ebb08f09999cac0aa10ace571c63a9bfb615adbf8b9d5cebb2f960b0a81f6a5fba7d80edb69b195b77c2c7cca174cbc2fd0b";
     };
   });
 }
