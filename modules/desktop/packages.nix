@@ -7,8 +7,10 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    unstable.nerdfonts
+    unstable.powerline-fonts
+
     gnupg
-    insomnia
     xclip
     rclone
     nixops
@@ -49,7 +51,7 @@ in {
     unstable.autojump
     unstable.htop
 
-    php74
+    unstable.php74
     unstable.php74Packages.composer
     unstable.php74Packages.phpstan
     unstable.nodejs-12_x
