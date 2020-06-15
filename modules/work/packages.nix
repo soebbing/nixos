@@ -26,9 +26,11 @@ in {
     unstable.virtualboxWithExtpack
     unstable.vagrant
     unstable.aws-sam-cli
+    unstable.minio-client
 
     unstable.jetbrains.phpstorm
     jetbrains.rider
+    unstable.insomnia
     unstable.postman
     unstable.redis-desktop-manager
 
