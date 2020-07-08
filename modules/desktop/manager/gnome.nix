@@ -10,7 +10,11 @@ in {
     unstable.gnome3.gnome-desktop
     unstable.gnome3.gnome-tweaks
     unstable.gnome3.dconf-editor
+    unstable.gnome3.gnome-shell-extensions
+    unstable.gnomeExtensions.clipboard-indicator
+    unstable.gnomeExtensions.sound-output-device-chooser
     unstable.rhythmbox
+    unstable.baobab
     unstable.numix-icon-theme
     unstable.numix-solarized-gtk-theme
   ];

@@ -22,10 +22,10 @@ in {
     unstable.docker-sync
     unstable.kubectl
     unstable.kubectx
+    unstable.percona-xtrabackup
     unstable.dive
     unstable.virtualboxWithExtpack
     unstable.vagrant
-    unstable.aws-sam-cli
     unstable.minio-client
 
     unstable.jetbrains.phpstorm

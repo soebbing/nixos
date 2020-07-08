@@ -7,7 +7,6 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    unstable.nerdfonts
     unstable.powerline-fonts
 
     gnupg
@@ -79,6 +78,6 @@ in {
     unstable.libreoffice
     unstable.gimp
     unstable.zoom-us
-    unstable.rambox
+    unstable.calibre
   ];
 }
