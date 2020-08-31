@@ -48,12 +48,30 @@ in {
     unstable.starship
     unstable.tmux
     unstable.autojump
+    unstable.qemu
     unstable.htop
+    unstable.xsel
+
+    unstable.calcurse
+    unstable.canto-curses
+    unstable.cherrytree
+    unstable.ctodo
+    unstable.findbugs
+    unstable.gitinspector
+    unstable.hexcurse
+    unstable.khal
+    unstable.mairix
+    unstable.mediainfo
+    unstable.remind
+    unstable.rlwrap
+    unstable.sipcalc
+    unstable.typespeed
 
     unstable.php74
     unstable.php74Packages.composer
     unstable.php74Packages.phpstan
     unstable.nodejs-12_x
+    unstable.go_bootstrap
     unstable.gitAndTools.gitFull
     unstable.gitAndTools.git-annex
     unstable.gitAndTools.git-extras
