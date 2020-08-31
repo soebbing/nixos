@@ -7,8 +7,7 @@
   services = {
     xserver = {
       enable = true;
-
-      videoDrivers = [ "modesetting" "intel" "vesa" ];
+      videoDrivers = [ "modesetting" "intel" "vesa" ]; # "displaylink"
 
       deviceSection = ''
         Option "DRI" "3"

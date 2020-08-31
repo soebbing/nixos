@@ -20,6 +20,7 @@ in {
     unstable.docker
     unstable.docker-compose
     unstable.docker-sync
+    unstable.k3s
     unstable.kubectl
     unstable.kubectx
     unstable.percona-xtrabackup
@@ -28,10 +29,12 @@ in {
     unstable.vagrant
     unstable.minio-client
 
-    unstable.jetbrains.phpstorm
     jetbrains.rider
+    unstable.jetbrains.phpstorm
+    unstable.jetbrains.goland
+    unstable.jetbrains.idea-ultimate
+    unstable.jetbrains.datagrip
     unstable.insomnia
-    unstable.postman
     unstable.redis-desktop-manager
 
     unstable.etcher
