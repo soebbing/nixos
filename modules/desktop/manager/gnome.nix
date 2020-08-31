@@ -1,7 +1,25 @@
 { config, lib, pkgs, ... }:
 
+with pkgs;
 let
   unstable = import <nixos-unstable> {};
+  gnome-shell-extension-pop-shell = stdenv.mkDerivation rec {
+    pname = "gnome-shell-extension-pop-shell";
+    version = "2020-03-18";
+
+    src = fetchFromGitHub {
+      owner = "pop-os";
+      repo = "shell";
+      rev = "0c480fb8c0f0c39a5842cff89f38d807600c2a14";
+      sha256 = "053csqmbj37f7kilsav9z1q7b0v0rrqvbqzk28qkpddkpvysvh7m";
+    };
+
+    nativeBuildInputs = [ glib ];
+    buildInputs = [ nodePackages.typescript ];
+
+    # the gschema doesn't seem to be installed properly (see dconf)
+    makeFlags = [ "INSTALLBASE=$(out)/share/gnome-shell/extensions" ];
+  };
 
 in {
   nixpkgs.config.allowUnfree = true;
@@ -17,6 +35,7 @@ in {
     unstable.baobab
     unstable.numix-icon-theme
     unstable.numix-solarized-gtk-theme
+    gnome-shell-extension-pop-shell
   ];
 
   services.xserver = {
