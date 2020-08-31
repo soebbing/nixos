@@ -51,6 +51,7 @@ in {
     unstable.qemu
     unstable.htop
     unstable.xsel
+    unstable.jq
 
     unstable.calcurse
     unstable.canto-curses
