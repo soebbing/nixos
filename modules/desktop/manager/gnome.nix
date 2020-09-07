@@ -10,7 +10,7 @@ let
     src = fetchFromGitHub {
       owner = "pop-os";
       repo = "shell";
-      rev = "0c480fb8c0f0c39a5842cff89f38d807600c2a14";
+      rev = "841632872d77abc3c45cd13540ffae755839655a";
       sha256 = "053csqmbj37f7kilsav9z1q7b0v0rrqvbqzk28qkpddkpvysvh7m";
     };
 
