@@ -28,6 +28,7 @@ in {
     unstable.virtualboxWithExtpack
     unstable.vagrant
     unstable.minio-client
+    unstable.lftp
 
     jetbrains.rider
     unstable.jetbrains.phpstorm
@@ -35,6 +36,7 @@ in {
     unstable.jetbrains.idea-ultimate
     unstable.jetbrains.datagrip
     unstable.insomnia
+    #unstable.redis
     unstable.redis-desktop-manager
 
     unstable.etcher
