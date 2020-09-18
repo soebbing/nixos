@@ -8,25 +8,24 @@ in {
 
   environment.systemPackages = with pkgs; [
     unstable.powerline-fonts
+    unstable.gnupg
+    unstable.xclip
+    unstable.rclone
+    unstable.nixops
+    unstable.gnumake
+    unstable.terraform
 
-    gnupg
-    xclip
-    rclone
-    nixops
-    gnumake
-    terraform
+    unstable.transmission-gtk
+    unstable.networkmanagerapplet
+    unstable.xfontsel
 
-    transmission-gtk
-    networkmanagerapplet
-    xfontsel
+    unstable.hicolor_icon_theme
+    unstable.shared_mime_info
 
-    hicolor_icon_theme
-    shared_mime_info
-
-    dunst
-    libnotify
-    xautolock
-    xorg.xkill
+    unstable.dunst
+    unstable.libnotify
+    unstable.xautolock
+    unstable.xorg.xkill
 
     unstable.vscode
     unstable.cura
@@ -89,6 +88,7 @@ in {
     unstable.powerline-fonts
     unstable.smplayer
     unstable.mpv
+    unstable.ferdi
     unstable.google-chrome
     unstable.chrome-gnome-shell
     unstable.firefox
