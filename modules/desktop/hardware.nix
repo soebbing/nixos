@@ -42,7 +42,7 @@
     };
    serviceConfig = {
      Type = "oneshot";
-     ExecStart = "/bin/bash -c \"echo 0 > /sys/module/hid_apple/parameters/fnmode\"";
+     ExecStart = "[ -f /sys/module/hid_apple/parameters/fnmode ] && /bin/bash -c \"echo 0 > /sys/module/hid_apple/parameters/fnmode\"";
    };
    wantedBy = [ "multi-user.target" ];
  };
