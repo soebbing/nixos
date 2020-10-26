@@ -36,9 +36,9 @@ in {
     unstable.jetbrains.idea-ultimate
     unstable.jetbrains.datagrip
     unstable.insomnia
-    #unstable.redis
     unstable.redis-desktop-manager
 
     unstable.etcher
+    unstable.arduino
   ];
 }
