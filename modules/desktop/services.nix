@@ -13,6 +13,7 @@
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
+    extraOptions = "--registry-mirror=https://mirror.gcr.io";
   };
 
   virtualisation.virtualbox.host = {
