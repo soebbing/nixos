@@ -64,11 +64,16 @@
       "www.djplaymysong.example"
       "www.auctionmap.example"
       "www.farbuhr.example"
+      "www.utf8-encode.example"
+      "www.utf8-decode.example"
 
       "ikeetracking.example"
 
       "virt.1a-medizintechnik.example"
       "virt.loungedreams.example"
+
+      "api.shopmacher.virt"
+      "services.shopmacher.virt"
     ];
     "10.10.20.81" = [
        "virt.loungedreams.com"
@@ -76,6 +81,12 @@
     "10.10.20.80" = [
       "virt.1a-medizintechnik.de"
       "virt-erp.1a-medizintechnik.de"
+    ];
+    "10.10.210.30" = [
+      "virt.bvb.de"
+    ];
+    "10.10.20.74" = [
+      "virt.bvbonlineshop.com"
     ];
   };
 
