@@ -10,6 +10,7 @@ in {
     dotnet3-sdk
 
     python3
+    python37Packages.setuptools
     adoptopenjdk-bin
     awscli
     s3cmd
@@ -25,14 +26,14 @@ in {
     unstable.kubectx
     unstable.percona-xtrabackup
     unstable.dive
-    unstable.virtualboxWithExtpack
+    virtualboxWithExtpack
     unstable.vagrant
     unstable.minio-client
     unstable.lftp
+    unstable.soapui
 
     jetbrains.rider
     unstable.jetbrains.phpstorm
-    unstable.jetbrains.goland
     unstable.jetbrains.idea-ultimate
     unstable.jetbrains.datagrip
     unstable.insomnia
