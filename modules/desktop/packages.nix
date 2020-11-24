@@ -7,6 +7,8 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    #prismatik
+
     unstable.powerline-fonts
     unstable.gnupg
     unstable.xclip

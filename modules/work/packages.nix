@@ -26,15 +26,14 @@ in {
     unstable.kubectx
     unstable.percona-xtrabackup
     unstable.dive
-    virtualboxWithExtpack
+    unstable.virtualboxWithExtpack
     unstable.vagrant
     unstable.minio-client
     unstable.lftp
     unstable.soapui
 
-    jetbrains.rider
+    unstable.jetbrains.rider
     unstable.jetbrains.phpstorm
-    unstable.jetbrains.idea-ultimate
     unstable.jetbrains.datagrip
     unstable.insomnia
     unstable.redis-desktop-manager
