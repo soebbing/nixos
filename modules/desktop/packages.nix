@@ -9,11 +9,13 @@ in {
   environment.systemPackages = with pkgs; [
     #prismatik
 
+    unstable.clutter-gtk
+    unstable.unclutter-xfixes
+
     unstable.powerline-fonts
     unstable.gnupg
     unstable.xclip
     unstable.rclone
-    unstable.nixops
     unstable.gnumake
     unstable.terraform
 
@@ -30,6 +32,7 @@ in {
     unstable.xorg.xkill
 
     unstable.vscode
+    unstable.handbrake
     unstable.cura
 
     unstable.kbfs
@@ -68,17 +71,7 @@ in {
     unstable.rlwrap
     unstable.sipcalc
     unstable.typespeed
-
-    unstable.php74
-    unstable.php74Packages.composer
-    unstable.php74Packages.phpstan
-    unstable.nodejs-12_x
-    unstable.go_bootstrap
-    unstable.gitAndTools.gitFull
-    unstable.gitAndTools.git-annex
-    unstable.gitAndTools.git-extras
-    unstable.gitAndTools.git2cl
-    unstable.gitAndTools.tig
+    unstable.xorg.libXScrnSaver
 
     unstable.enpass
     unstable.mullvad-vpn
