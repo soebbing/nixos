@@ -3,7 +3,8 @@
 {
   services.xserver.layout = "us";
 
-  i18n = { defaultLocale = "en_US.UTF-8"; };
+  # English language, sensible time/date/currency formats
+  i18n = { defaultLocale = "en_IE.UTF-8"; };
 
   console = {
     keyMap = "us";
