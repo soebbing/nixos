@@ -16,6 +16,7 @@
     createHome = true;
     group = "users";
     extraGroups = [
+      "adbusers"
       "wheel"
       "docker"
       "video"
