@@ -55,6 +55,7 @@
       "portainer.shopmacher.example"
       "traefik.handcoding.example"
       "portainer.handcoding.example"
+      "grafana.handcoding.example"
 
       "www.unixtimestamp.example"
       "www.convert-unix-timestamp.example"
