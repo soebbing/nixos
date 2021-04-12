@@ -5,13 +5,13 @@ let
   unstable = import <nixos-unstable> {};
   gnome-shell-extension-pop-shell = stdenv.mkDerivation rec {
     pname = "gnome-shell-extension-pop-shell";
-    version = "2020-10-18";
+    version = "1.2.0";
 
     src = fetchFromGitHub {
       owner = "pop-os";
       repo = "shell";
-      rev = "18243a26b2177c3d13a8af4c05050d5deb29790c";
-      sha256 = "0nws28w40xpwhgdpcifzys1md4h6a7q5k3wcn2a77z5m26g69zw2";
+      rev = "891525b74b706683301d7415a62b012472a03ad4";
+      sha256 = "1ba1nrnk4cqgjx5mygqdkw74xlankrkiib9rw0vwkjcgv9bj024a";
     };
 
     nativeBuildInputs = [ glib ];
