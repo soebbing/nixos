@@ -5,6 +5,7 @@ let
 
 in {
   services = {
+    flatpak = { enable = true; };
     keybase = { enable = true; };
 
     kbfs = {
