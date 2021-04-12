@@ -48,6 +48,7 @@ in {
     unstable.tree
     unstable.silver-searcher
     unstable.ripgrep
+    unstable.mtr
     unstable.ncspot
     unstable.starship
     unstable.tmux
@@ -56,6 +57,7 @@ in {
     unstable.htop
     unstable.xsel
     unstable.jq
+    unstable.broot
 
     unstable.calcurse
     unstable.canto-curses
@@ -78,12 +80,16 @@ in {
     unstable.libxkbcommon
     unstable.gtk3
     unstable.qt5.qtwayland
-    unstable.blender
+
+    unstable.vivaldi # Special Browser
+    unstable.vivaldi-widevine
+    unstable.vivaldi-ffmpeg-codecs
 
     unstable.powerline-fonts
     unstable.smplayer
     unstable.mpv
     unstable.ferdi
+    unstable.signal-desktop
     unstable.google-chrome
     unstable.chrome-gnome-shell
     unstable.firefox
