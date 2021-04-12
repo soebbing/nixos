@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <nixpkgs-unstable> {};
 
 in {
   nixpkgs.config.allowUnfree = true;
@@ -17,20 +17,19 @@ in {
   environment.systemPackages = with pkgs; [
     dotnet3-sdk
 
-    unstable.php80
-    unstable.php80Packages.composer2
-    unstable.php80Packages.psalm
-    unstable.php80Packages.phpcs
-    unstable.php80Packages.phpstan
-    unstable.php80Packages.phpmd
-    unstable.php80Packages.phpcbf
-    unstable.php80Packages.php-cs-fixer
-    unstable.php80Packages.php-parallel-lint
+    unstable.php74
+    unstable.php74Packages.composer
+    unstable.php74Packages.psalm
+    unstable.php74Packages.phpcs
+    unstable.php74Packages.phpstan
+    unstable.php74Packages.phpmd
+    unstable.php74Packages.phpcbf
+    unstable.php74Packages.php-cs-fixer
+    unstable.php74Packages.php-parallel-lint
 
     unstable.nodejs-12_x
-    unstable.go_bootstrap
+    unstable.go
     unstable.gitAndTools.gitFull
-    unstable.gitAndTools.git-annex
     unstable.gitAndTools.git-extras
     unstable.gitAndTools.git2cl
     unstable.gitAndTools.tig
@@ -41,7 +40,7 @@ in {
     unstable.s3cmd
     unstable.openvpn
     unstable.ansible
-    linphone # Kaputt am 07.01.2021
+    unstable.linphone
 
     unstable.docker
     unstable.docker-compose
@@ -51,7 +50,7 @@ in {
     unstable.kubectx
     unstable.percona-xtrabackup
     unstable.dive
-    vagrant
+    unstable.vagrant
     unstable.minio-client
     unstable.lftp
     unstable.soapui
