@@ -1,38 +1,44 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  unstable = import <nixos> {};
+
+in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    sudo
-    wget
-    curl
-    bash
-    vim
-    rake
-    cmake
-    git
-    psmisc
-    bind
-    shellcheck
-    openssl
-    unzip
-    bat
-    tldr
-    lsd
-    lsof
-    networkmanager
-    bash
-    fish
-    coreutils
-    file
-    stow
-    linuxPackages.cpupower
-    ctags
-    gnupg
-    pwgen
-    openssh
-    xsel
-    nixfmt
+    unstable.sudo
+    unstable.wget
+    unstable.curl
+    unstable.bash
+    unstable.vim
+    unstable.rake
+    unstable.cmake
+    unstable.git
+    unstable.psmisc
+    unstable.bind
+    unstable.shellcheck
+    unstable.openssl
+    unstable.unzip
+    unstable.bat
+    unstable.tldr
+    unstable.lsd
+    unstable.lsof
+    unstable.networkmanager
+    unstable.bash
+    unstable.fish
+    unstable.coreutils
+    unstable.file
+    unstable.stow
+    unstable.linuxPackages.cpupower
+    unstable.ctags
+    unstable.gnupg
+    unstable.pwgen
+    unstable.openssh
+    unstable.xsel
+    unstable.nixfmt
+    unstable.ntfs3g
+    unstable.thefuck
+    unstable.ffmpeg
   ];
 }
