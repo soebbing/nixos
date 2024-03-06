@@ -25,6 +25,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "hendrik" ];
+#  virtualisation.virtualbox.host.enable = true;
+#  users.extraGroups.vboxusers.members = [ "hendrik" ];
 }

@@ -23,9 +23,10 @@ in {
     unstable.networkmanagerapplet
     unstable.xfontsel
 
-    unstable.hicolor_icon_theme
-    unstable.shared_mime_info
+    unstable.hicolor-icon-theme
+    unstable.shared-mime-info
 
+    unstable.kitty
     unstable.dunst
     unstable.libnotify
     unstable.xautolock
@@ -64,7 +65,6 @@ in {
     unstable.cherrytree
     unstable.ctodo
     unstable.findbugs
-    unstable.gitinspector
     unstable.hexcurse
     unstable.khal
     unstable.mairix
@@ -81,14 +81,9 @@ in {
     unstable.gtk3
     unstable.qt5.qtwayland
 
-    unstable.vivaldi # Special Browser
-    unstable.vivaldi-widevine
-    unstable.vivaldi-ffmpeg-codecs
-
     unstable.powerline-fonts
     unstable.smplayer
     unstable.mpv
-    unstable.ferdi
     unstable.signal-desktop
     unstable.google-chrome
     unstable.chrome-gnome-shell

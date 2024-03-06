@@ -16,16 +16,16 @@
 
       libinput = {
         enable = true;
-        middleEmulation = true;
-        tapping = true;
-        disableWhileTyping = true;
-        scrollMethod = "twofinger";
-        naturalScrolling = false;
+        touchpad.middleEmulation = true;
+        touchpad.tapping = true;
+        touchpad.disableWhileTyping = true;
+        touchpad.scrollMethod = "twofinger";
+        touchpad.naturalScrolling = false;
       };
     };
   };
 
   # Necessary for Gnome Shell integration
   nixpkgs.config.firefox.enableGnomeExtensions = true;
-  services.gnome3.chrome-gnome-shell.enable = true;
+  services.gnome.chrome-gnome-shell.enable = true;
 }

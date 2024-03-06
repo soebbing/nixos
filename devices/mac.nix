@@ -7,7 +7,11 @@
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
+#    ../modules/desktop/manager/pantheon.nix
+#    ../modules/desktop/manager/xfce.nix
     ../modules/desktop/manager/gnome.nix
+#    ../modules/desktop/manager/kde.nix
+#      ../modules/desktop/manager/i3.nix
   ];
 
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
@@ -19,22 +23,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.gfxmodeEfi = "1024x768";
 
-  boot.initrd.luks.devices = [
-    { 
-      name = "root";
+  boot.initrd.luks.devices = {
+    root = {
       device = "/dev/disk/by-uuid/95d43e30-da84-46cf-8051-fcffe34b9cf4";
       allowDiscards = true;
       preLVM = true;
-    }
-  ];
+    };
+  };
 
   networking.hostName = "syn";
   #console.keyMap = "de";
-  services.xserver.layout = "de";
+  #services.xserver.layout = "de";
   
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  virtualisation.virtualbox.host.enable = true;
+#  virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "hendrik" ];
 }
