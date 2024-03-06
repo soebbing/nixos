@@ -1,5 +1,7 @@
+{ config, pkgs, ... }:
+
 {
   imports = [
-    ./devices/syn.nix
+    devices/mac.nix
   ];
 }

@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  unstable = import <nixpkgs-unstable> {};
+  unstable = import <nixpkgs> {};
 
 in {
   nixpkgs.config.allowUnfree = true;
@@ -27,7 +27,7 @@ in {
     unstable.php74Packages.php-cs-fixer
     unstable.php74Packages.php-parallel-lint
 
-    unstable.nodejs-12_x
+    unstable.nodejs
     unstable.go
     unstable.gitAndTools.gitFull
     unstable.gitAndTools.git-extras
