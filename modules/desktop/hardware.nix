@@ -6,7 +6,7 @@
   hardware = {
     bluetooth = {
       enable = true;
-      config = { General = { Enable = "Source,Sink,Media,Socket"; }; };
+      settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
     };
 
     pulseaudio = {
@@ -35,7 +35,7 @@
   }];
 
  systemd.services.keychron = {
-   enable = true;
+   enable = false;
    description = "Set Function keys by default instead of multimedia keys";
     unitConfig = {
       Type = "simple";
