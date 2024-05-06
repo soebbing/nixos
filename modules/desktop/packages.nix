@@ -66,7 +66,9 @@ in {
     unstable.ctodo
     unstable.findbugs
     unstable.hexcurse
+    unstable.handbrake
     unstable.khal
+    unstable.libdvdcss
     unstable.mairix
     unstable.mediainfo
     unstable.remind
@@ -92,6 +94,7 @@ in {
     unstable.inkscape
     unstable.libreoffice
     unstable.gimp
+    unstable.vlc
     unstable.zoom-us
     unstable.calibre
   ];
