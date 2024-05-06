@@ -27,11 +27,11 @@ in {
     extraOptions = "--registry-mirror=https://mirror.gcr.io";
   };
 
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-    package = unstable.virtualboxWithExtpack;
-  };
+#  virtualisation.virtualbox.host = {
+#    enable = true;
+#    enableExtensionPack = true;
+#    package = unstable.virtualboxWithExtpack;
+#  };
 
   system.autoUpgrade.enable = true;
 }
