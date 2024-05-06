@@ -32,12 +32,10 @@
   };
 
   networking.hostName = "syn";
-  #console.keyMap = "de";
-  #services.xserver.layout = "de";
   
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
 #  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "hendrik" ];
+#  users.extraGroups.vboxusers.members = [ "hendrik" ];
 }
