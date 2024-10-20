@@ -36,7 +36,7 @@ in {
     unstable.pwgen
     unstable.openssh
     unstable.xsel
-    unstable.nixfmt
+    unstable.nixfmt-rfc-style
     unstable.ntfs3g
     unstable.thefuck
     unstable.ffmpeg

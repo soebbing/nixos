@@ -14,7 +14,7 @@ in {
     };
 
     samba = {
-      enable = true;
+      enable = false;
       extraConfig = ''
       client min protocol = NT1
     '';

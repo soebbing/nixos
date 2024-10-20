@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
 
   # English language, sensible time/date/currency formats
   i18n = { defaultLocale = "en_IE.UTF-8"; };

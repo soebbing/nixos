@@ -2,7 +2,7 @@
 
 {
   boot = {
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     kernelParams = [
       "noibrs"
       "noibpb"

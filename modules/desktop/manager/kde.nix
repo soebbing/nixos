@@ -14,7 +14,7 @@ in {
   };
 
   # Use Plasma 5
-  services.xserver.displayManager.defaultSession = "plasma5";
+  services.xserver.displayManager.defaultSession = "plasmawayland";
   services.xserver.desktopManager.plasma5.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -31,7 +31,7 @@ in {
     unstable.kmail
     unstable.konsole
     unstable.dolphin
-    unstable.digikam5
+    unstable.digikam
     unstable.kgpg
     unstable.ark
     # ssh-add prompts a user for a passphrase using KDE. Not sure if it is used
@@ -40,47 +40,46 @@ in {
     unstable.kwalletcli
 
     # KDE apps
-    unstable.kdeApplications.spectacle
-    unstable.kdeApplications.print-manager
-    unstable.kdeApplications.calendarsupport
-    unstable.kdeApplications.kalarm
-    unstable.kdeApplications.kalarmcal
-    unstable.kdeApplications.dolphin-plugins
-    unstable.kdeApplications.kwalletmanager
+    unstable.kdePackages.spectacle
+    # unstable.kdePackages.print-manager
+    unstable.kdePackages.calendarsupport
+    unstable.kdePackages.kalarm
+    unstable.kdePackages.dolphin-plugins
+    unstable.kdePackages.kwalletmanager
 
-    unstable.kdeFrameworks.attica
-    unstable.kdeFrameworks.baloo
-    unstable.kdeFrameworks.karchive
-    unstable.kdeFrameworks.kauth
-    unstable.kdeFrameworks.kcompletion
-    unstable.kdeFrameworks.kcontacts
-    unstable.kdeFrameworks.kded
-    unstable.kdeFrameworks.kdesu
-    unstable.kdeFrameworks.kemoticons
-    unstable.kdeFrameworks.kdnssd
-    unstable.kdeFrameworks.kfilemetadata
-    unstable.kdeFrameworks.kguiaddons
-    unstable.kdeFrameworks.kglobalaccel
-    unstable.kdeFrameworks.ki18n
-    unstable.kdeFrameworks.kiconthemes
-    unstable.kdeFrameworks.kidletime
-    unstable.kdeFrameworks.kimageformats
-    unstable.kdeFrameworks.kinit
-    unstable.kdeFrameworks.kio
-    unstable.kdeFrameworks.kmediaplayer
-    unstable.kdeFrameworks.knotifications
-    unstable.kdeFrameworks.knotifyconfig
-    unstable.kdeFrameworks.kparts
-    unstable.kdeFrameworks.krunner
-    unstable.kdeFrameworks.ktexteditor
-    unstable.kdeFrameworks.kwallet
-    unstable.kdeFrameworks.networkmanager-qt
-    unstable.kdeFrameworks.kxmlgui
-    unstable.kdeFrameworks.plasma-framework
-    unstable.kdeFrameworks.prison
-    unstable.kdeFrameworks.oxygen-icons5
-    unstable.kdeFrameworks.kconfig
-    unstable.kdeFrameworks.kconfigwidgets
-	  unstable.kdeFrameworks.kactivities
+    unstable.libsForQt5.attica
+    unstable.libsForQt5.baloo
+    unstable.libsForQt5.karchive
+    unstable.libsForQt5.kauth
+    unstable.libsForQt5.kcompletion
+    unstable.libsForQt5.kcontacts
+    unstable.libsForQt5.kded
+    unstable.libsForQt5.kdesu
+    unstable.libsForQt5.kemoticons
+    unstable.libsForQt5.kdnssd
+    unstable.libsForQt5.kfilemetadata
+    unstable.libsForQt5.kguiaddons
+    unstable.libsForQt5.kglobalaccel
+    unstable.libsForQt5.ki18n
+    unstable.libsForQt5.kiconthemes
+    unstable.libsForQt5.kidletime
+    unstable.libsForQt5.kimageformats
+    unstable.libsForQt5.kinit
+    unstable.libsForQt5.kio
+    unstable.libsForQt5.kmediaplayer
+    unstable.libsForQt5.knotifications
+    unstable.libsForQt5.knotifyconfig
+    unstable.libsForQt5.kparts
+    unstable.libsForQt5.krunner
+    unstable.libsForQt5.ktexteditor
+    unstable.libsForQt5.kwallet
+    unstable.libsForQt5.networkmanager-qt
+    unstable.libsForQt5.kxmlgui
+    unstable.libsForQt5.plasma-framework
+    unstable.libsForQt5.prison
+    unstable.libsForQt5.oxygen-icons5
+    unstable.libsForQt5.kconfig
+    unstable.libsForQt5.kconfigwidgets
+	  unstable.libsForQt5.kactivities
   ];
 }

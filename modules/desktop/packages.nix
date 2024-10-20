@@ -9,93 +9,81 @@ in {
   environment.systemPackages = with pkgs; [
     #prismatik
 
+    unstable.autojump
+    unstable.broot
+    unstable.calcurse
+    #unstable.calibre
+    unstable.canto-curses
+    unstable.cherrytree
+    unstable.chrome-gnome-shell
     unstable.clutter-gtk
-    unstable.unclutter-xfixes
-
-    unstable.powerline-fonts
-    unstable.gnupg
-    unstable.xclip
-    unstable.rclone
-    unstable.gnumake
-    unstable.terraform
-
-    unstable.transmission-gtk
-    unstable.networkmanagerapplet
-    unstable.xfontsel
-
-    unstable.hicolor-icon-theme
-    unstable.shared-mime-info
-
-    unstable.kitty
+    unstable.ctodo
+    #unstable.cura
     unstable.dunst
-    unstable.libnotify
-    unstable.xautolock
-    unstable.xorg.xkill
-
-    unstable.vscode
+    unstable.enpass
+    unstable.findbugs
+    unstable.firefox
+    unstable.ffsend
+    unstable.fzf
+    unstable.gimp
+    unstable.github-cli
+    unstable.gnumake
+    unstable.gnupg
+    unstable.google-chrome
     unstable.handbrake
-    unstable.cura
-
+    unstable.hexcurse
+    unstable.hicolor-icon-theme
+    unstable.htop
+    unstable.inkscape
+    unstable.jq
     unstable.kbfs
     unstable.keybase
     unstable.keybase-gui
-    unstable.ffsend
-    unstable.shellcheck
-    unstable.fzf
-    unstable.tldr
-    unstable.lm_sensors
-    unstable.xorg.xhost
-    unstable.wakatime
-    unstable.tree
-    unstable.silver-searcher
-    unstable.ripgrep
-    unstable.mtr
-    unstable.ncspot
-    unstable.starship
-    unstable.tmux
-    unstable.autojump
-    unstable.qemu
-    unstable.htop
-    unstable.xsel
-    unstable.jq
-    unstable.broot
-
-    unstable.calcurse
-    unstable.canto-curses
-    unstable.cherrytree
-    unstable.ctodo
-    unstable.findbugs
-    unstable.hexcurse
-    unstable.handbrake
     unstable.khal
+    unstable.kitty
     unstable.libdvdcss
+    unstable.libnotify
+    unstable.libreoffice
+    unstable.libxkbcommon
+    unstable.lm_sensors
     unstable.mairix
     unstable.mediainfo
+    unstable.mpv
+    unstable.mqttx
+    unstable.mtr
+    unstable.ncspot
+    unstable.networkmanagerapplet
+    unstable.powerline-fonts
+    unstable.qemu
+    unstable.rclone
     unstable.remind
     unstable.rlwrap
-    unstable.sipcalc
-    unstable.typespeed
-    unstable.xorg.libXScrnSaver
-
-    unstable.enpass
-    unstable.mullvad-vpn
-    unstable.libxkbcommon
-    unstable.gtk3
-    unstable.qt5.qtwayland
-
-    unstable.powerline-fonts
-    unstable.smplayer
-    unstable.mpv
+    unstable.ripgrep
+    unstable.shared-mime-info
+    unstable.shellcheck
     unstable.signal-desktop
-    unstable.google-chrome
-    unstable.chrome-gnome-shell
-    unstable.firefox
+    unstable.sipcalc
+    unstable.silver-searcher
+    unstable.smplayer
     unstable.spotify
-    unstable.inkscape
-    unstable.libreoffice
-    unstable.gimp
+    unstable.starship
+    unstable.terraform
+    unstable.tldr
+    unstable.tmux
+    unstable.transmission_4-gtk
+    unstable.tree
+    unstable.typespeed
+    unstable.unclutter-xfixes
     unstable.vlc
+    unstable.vscode
+    unstable.wakatime
+    unstable.xautolock
+    unstable.xclip
+    unstable.xfontsel
+    unstable.xorg.libXScrnSaver
+    unstable.xorg.xhost
+    unstable.xorg.xkill
+    unstable.xsel
     unstable.zoom-us
-    unstable.calibre
   ];
 }
