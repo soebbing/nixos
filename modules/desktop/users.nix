@@ -28,5 +28,5 @@
     #shell = "/run/current-system/sw/bin/fish";
   };
 
-  nix.trustedUsers = [ "root" "hendrik" ];
+  nix.settings.trusted-users = [ "root" "hendrik" ];
 }

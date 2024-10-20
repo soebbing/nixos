@@ -20,7 +20,6 @@
     copyKernels = true;
     efiSupport = true;
     efiInstallAsRemovable = true;
-    version = 2;
     device = "nodev";
     gfxmodeEfi = "1600x1200";
   };

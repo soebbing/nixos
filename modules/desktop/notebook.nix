@@ -13,19 +13,18 @@
         Option "DRI" "3"
         Option "TearFree" "true"
       '';
-
-      libinput = {
-        enable = true;
-        touchpad.middleEmulation = true;
-        touchpad.tapping = true;
-        touchpad.disableWhileTyping = true;
-        touchpad.scrollMethod = "twofinger";
-        touchpad.naturalScrolling = false;
-      };
+    };
+    
+    libinput = {
+      enable = true;
+      touchpad.middleEmulation = true;
+      touchpad.tapping = true;
+      touchpad.disableWhileTyping = true;
+      touchpad.scrollMethod = "twofinger";
+      touchpad.naturalScrolling = false;
     };
   };
 
   # Necessary for Gnome Shell integration
   nixpkgs.config.firefox.enableGnomeExtensions = true;
-  services.gnome.chrome-gnome-shell.enable = true;
 }

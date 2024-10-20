@@ -11,8 +11,6 @@
 
     pulseaudio = {
       package = pkgs.pulseaudioFull;
-      extraModules = [ pkgs.pulseaudio-modules-bt ];
-      #extraConfig = "load-module module-alsa-sink device=hw:\"USB\" channel_map=right,left";
       enable = true;
       support32Bit = true;
     };

@@ -5,8 +5,6 @@ let
 
 in {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
-
   nixpkgs.config.packageOverrides = pkgs: {
     shyim = import (builtins.fetchTarball
       "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
@@ -15,17 +13,15 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    dotnet3-sdk
+    unstable.dotnet-sdk_8
 
-    unstable.php74
-    unstable.php74Packages.composer
-    unstable.php74Packages.psalm
-    unstable.php74Packages.phpcs
-    unstable.php74Packages.phpstan
-    unstable.php74Packages.phpmd
-    unstable.php74Packages.phpcbf
-    unstable.php74Packages.php-cs-fixer
-    unstable.php74Packages.php-parallel-lint
+    unstable.php83
+    unstable.php83Packages.composer
+    unstable.php83Packages.psalm
+    unstable.php83Packages.phpstan
+    unstable.php83Packages.phpmd
+    unstable.php83Packages.php-codesniffer
+    unstable.php83Packages.php-parallel-lint
 
     unstable.nodejs
     unstable.go
@@ -50,7 +46,6 @@ in {
     unstable.kubectx
     unstable.percona-xtrabackup
     unstable.dive
-    unstable.vagrant
     unstable.minio-client
     unstable.lftp
     unstable.soapui
@@ -60,9 +55,8 @@ in {
     unstable.jetbrains.phpstorm
 
     unstable.insomnia
-    unstable.redis-desktop-manager
+    unstable.resp-app
 
-    unstable.etcher
     unstable.arduino
   ];
 }

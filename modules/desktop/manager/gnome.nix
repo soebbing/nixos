@@ -25,9 +25,9 @@ in {
 
   environment.systemPackages = with pkgs; [
     unstable.gnome-desktop
-    unstable.gnome.gnome-tweaks
-    unstable.gnome.dconf-editor
-    unstable.gnome.gnome-shell-extensions
+    unstable.gnome-tweaks
+    unstable.dconf-editor
+    unstable.gnome-shell-extensions
     unstable.gnomeExtensions.clipboard-indicator
     unstable.gnomeExtensions.sound-output-device-chooser
     unstable.rhythmbox
@@ -51,5 +51,4 @@ in {
 
   # Necessary for Gnome Shell integration
   nixpkgs.config.firefox.enableGnomeExtensions = true;
-  services.gnome.chrome-gnome-shell.enable = true;
 }

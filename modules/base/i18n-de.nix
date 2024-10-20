@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  services.xserver.layout = "de";
+  services.xserver.xkb.layout = "de";
 
   i18n = { defaultLocale = "de_DE.UTF-8"; };
 
