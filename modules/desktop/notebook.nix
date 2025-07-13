@@ -1,19 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
   services = {
-    xserver = {
-      enable = true;
-      videoDrivers = [ "modesetting" "intel" "vesa" ]; # "displaylink"
-
-      deviceSection = ''
-        Option "DRI" "3"
-        Option "TearFree" "true"
-      '';
-    };
+    #xserver = {
+    #  enable = true;
+    #  videoDrivers = [ "modesetting" "intel" "vesa" ]; # "displaylink"
+#
+    #  deviceSection = ''
+    #    Option "DRI" "3"
+    #    Option "TearFree" "true"
+    #  '';
+    #};
     
     libinput = {
       enable = true;

@@ -15,9 +15,12 @@ in {
 
     samba = {
       enable = false;
-      extraConfig = ''
-      client min protocol = NT1
-    '';
+    };
+
+    pulseaudio = {
+      package = pkgs.pulseaudioFull;
+      enable = false;
+      support32Bit = true;
     };
   };
 

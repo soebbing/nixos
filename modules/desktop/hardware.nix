@@ -1,18 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
-  sound.enable = true;
-
   hardware = {
+    graphics.enable = true;
+
     bluetooth = {
       enable = true;
       settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
-    };
-
-    pulseaudio = {
-      package = pkgs.pulseaudioFull;
-      enable = true;
-      support32Bit = true;
     };
   };
   services.blueman.enable = true;

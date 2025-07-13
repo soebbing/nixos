@@ -66,17 +66,13 @@ in {
     unstable.silver-searcher
     unstable.smplayer
     unstable.spotify
-    unstable.starship
-    unstable.terraform
-    unstable.tldr
-    unstable.tmux
     unstable.transmission_4-gtk
     unstable.tree
     unstable.typespeed
     unstable.unclutter-xfixes
     unstable.vlc
-    unstable.vscode
     unstable.wakatime
+
     unstable.xautolock
     unstable.xclip
     unstable.xfontsel
@@ -84,6 +80,8 @@ in {
     unstable.xorg.xhost
     unstable.xorg.xkill
     unstable.xsel
-    unstable.zoom-us
+
+    unstable.vscode-with-extensions
+    unstable.yubioath-flutter
   ];
 }
