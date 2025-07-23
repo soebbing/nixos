@@ -9,3 +9,8 @@ My NixOS configuration files.
 empty and only contains an import of the corresponding entry point.
 
 `pkgs/` contains overlays, custom packages and overrides.
+
+# Prerequisits
+
+Install channels, e.g. for Home Manager
+`nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager`
