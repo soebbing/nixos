@@ -11,7 +11,7 @@
 #    ../modules/desktop/manager/xfce.nix
     ../modules/desktop/manager/gnome.nix
 #    ../modules/desktop/manager/kde.nix
-#      ../modules/desktop/manager/i3.nix
+#    ../modules/desktop/manager/i3.nix
   ];
 
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
