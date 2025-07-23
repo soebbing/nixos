@@ -82,6 +82,7 @@ in {
     unstable.xsel
 
     unstable.vscode-with-extensions
+    unstable.vscode-extensions.bbenoist.nix
     unstable.yubioath-flutter
   ];
 }
