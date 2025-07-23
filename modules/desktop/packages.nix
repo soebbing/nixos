@@ -80,9 +80,19 @@ in {
     unstable.xorg.xhost
     unstable.xorg.xkill
     unstable.xsel
-
-    unstable.vscode-with-extensions
-    unstable.vscode-extensions.bbenoist.nix
     unstable.yubioath-flutter
+
+    (unstable.vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        bbenoist.nix
+        vue.volar
+        devsense.phptools-vscode
+        devsense.profiler-php-vscode
+        devsense.composer-php-vscode
+        ms-azuretools.vscode-docker
+        ms-vscode-remote.remote-ssh
+      ];
+      }
+    )
   ];
 }
