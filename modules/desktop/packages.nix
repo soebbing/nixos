@@ -40,7 +40,7 @@ in {
     unstable.keybase
     unstable.keybase-gui
     unstable.khal
-    unstable.kitty
+    unstable.ghostty
     unstable.libdvdcss
     unstable.libnotify
     unstable.libreoffice
