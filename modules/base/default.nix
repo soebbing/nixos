@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ ./hardware.nix ./builder.nix ./packages.nix ./shell.nix ./cache.nix ./i18n-en.nix ];
+    [ ./hardware.nix ./home-manager.nix ./builder.nix ./packages.nix ./shell.nix ./cache.nix ./i18n-en.nix ];
 
   nixpkgs.overlays = import ../../pkgs/overlays;
 
