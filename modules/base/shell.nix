@@ -24,10 +24,11 @@ in {
     '';
 
     shellAliases = {
-      nano = "vim";
-      vim = "vim";
+      nano = "nvim";
+      vim = "nvim";
       cat = "bat";
       ls = "lsd";
+      gs = "git status";
     };
   };
 

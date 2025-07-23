@@ -31,7 +31,6 @@ in {
     unstable.starship
     unstable.tmux
     unstable.superfile
-    unstable.vim
     unstable.xh
     unstable.zellij
     unstable.rake
@@ -44,6 +43,7 @@ in {
     unstable.lsd
     unstable.lsof
     unstable.networkmanager
+    unstable.neovim-unwrapped
     unstable.fish
     unstable.coreutils
     unstable.file
