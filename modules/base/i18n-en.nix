@@ -1,10 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   services.xserver.xkb.layout = "us";
 
   # English language, sensible time/date/currency formats
-  i18n = { defaultLocale = "en_IE.UTF-8"; };
+  i18n = {
+    defaultLocale = "en_IE.UTF-8";
+  };
 
   console = {
     keyMap = "us";
@@ -14,4 +21,3 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 }
-

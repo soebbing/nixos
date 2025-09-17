@@ -2,6 +2,6 @@
 
 {
   imports = [
-    devices/mac.nix
+    devices/lenovo-t14.nix
   ];
 }

@@ -8,11 +8,11 @@
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
-#    ../modules/desktop/manager/pantheon.nix
-#    ../modules/desktop/manager/xfce.nix
+    #    ../modules/desktop/manager/pantheon.nix
+    #    ../modules/desktop/manager/xfce.nix
     ../modules/desktop/manager/gnome.nix
-#    ../modules/desktop/manager/kde.nix
-#      ../modules/desktop/manager/i3.nix
+    #    ../modules/desktop/manager/kde.nix
+    #      ../modules/desktop/manager/i3.nix
   ];
 
   boot.loader.grub = {
@@ -31,20 +31,25 @@
 
   boot.loader.efi.canTouchEfiVariables = false;
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1f51db2c-4205-4ca7-a4f8-9cc46e836e74";
-      fsType = "btrfs";
-      options = [ "subvol=nixos" "noatime" "nodiratime" "discard" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/1f51db2c-4205-4ca7-a4f8-9cc46e836e74";
+    fsType = "btrfs";
+    options = [
+      "subvol=nixos"
+      "noatime"
+      "nodiratime"
+      "discard"
+    ];
+  };
 
   boot.initrd.luks.devices."nixenc".device = "/dev/disk/by-uuid/843710eb-d94e-4929-ab29-338525889afe";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C349-E5E2";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/C349-E5E2";
+    fsType = "vfat";
+  };
 
-  swapDevices = [{ device = "/dev/disk/by-uuid/658684d9-f7a1-43d9-b92a-ba011aed4186"; }];
+  swapDevices = [ { device = "/dev/disk/by-uuid/658684d9-f7a1-43d9-b92a-ba011aed4186"; } ];
 
   networking.hostName = "syn";
   networking.hostId = "16bee688";

@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware.nix ./packages.nix ./users.nix ./services.nix ];
+  imports = [
+    ./hardware.nix
+    ./packages.nix
+    ./users.nix
+    ./services.nix
+  ];
 
-  networking.extraHosts = ''
-  '';
+  networking.extraHosts = '''';
 
   programs.ssh.startAgent = true;
 }

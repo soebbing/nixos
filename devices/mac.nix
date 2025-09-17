@@ -8,14 +8,18 @@
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
-#    ../modules/desktop/manager/pantheon.nix
-#    ../modules/desktop/manager/xfce.nix
+    #    ../modules/desktop/manager/pantheon.nix
+    #    ../modules/desktop/manager/xfce.nix
     ../modules/desktop/manager/gnome.nix
-#    ../modules/desktop/manager/kde.nix
-#    ../modules/desktop/manager/i3.nix
+    #    ../modules/desktop/manager/kde.nix
+    #    ../modules/desktop/manager/i3.nix
   ];
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = [
+    "noatime"
+    "nodiratime"
+    "discard"
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
@@ -32,10 +36,10 @@
   };
 
   networking.hostName = "syn";
-  
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-#  virtualisation.virtualbox.host.enable = true;
-#  users.extraGroups.vboxusers.members = [ "hendrik" ];
+  #  virtualisation.virtualbox.host.enable = true;
+  #  users.extraGroups.vboxusers.members = [ "hendrik" ];
 }

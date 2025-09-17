@@ -11,8 +11,7 @@
     shell = pkgs.fish;
     home = "/home/hendrik";
     description = "Hendrik Soebbing";
-    hashedPassword =
-      "$6$rscYCrM5xadGLXMN$NrziVb4PdnkWmqGYbeOnzmQJYMfCOkLL35oQNWwPsD61GiX06dgu9K7MY4OAJo.pPyUp5aV/wBnIidbpvi48m0"; # "hendrik"
+    hashedPassword = "$6$rscYCrM5xadGLXMN$NrziVb4PdnkWmqGYbeOnzmQJYMfCOkLL35oQNWwPsD61GiX06dgu9K7MY4OAJo.pPyUp5aV/wBnIidbpvi48m0"; # "hendrik"
     createHome = true;
     group = "users";
     extraGroups = [
@@ -28,5 +27,8 @@
     #shell = "/run/current-system/sw/bin/fish";
   };
 
-  nix.settings.trusted-users = [ "root" "hendrik" ];
+  nix.settings.trusted-users = [
+    "root"
+    "hendrik"
+  ];
 }

@@ -4,7 +4,11 @@
   services = {
     xserver = {
       enable = true;
-      windowManager = { i3 = { enable = true; }; };
+      windowManager = {
+        i3 = {
+          enable = true;
+        };
+      };
 
       displayManager = {
         defaultSession = "none+i3";
@@ -15,14 +19,25 @@
           };
         };
       };
-      desktopManager = { xterm = { enable = false; }; };
+      desktopManager = {
+        xterm = {
+          enable = false;
+        };
+      };
     };
 
-      gnome3 = { gnome-keyring = { enable = true; }; };
+    gnome3 = {
+      gnome-keyring = {
+        enable = true;
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
-    (polybar.override { i3Support = true; pulseSupport = true; })
+    (polybar.override {
+      i3Support = true;
+      pulseSupport = true;
+    })
     rofi
     arandr
     i3

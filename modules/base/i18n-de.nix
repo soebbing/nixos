@@ -3,7 +3,9 @@
 {
   services.xserver.xkb.layout = "de";
 
-  i18n = { defaultLocale = "de_DE.UTF-8"; };
+  i18n = {
+    defaultLocale = "en_IE.UTF-8";
+  };
 
   console = {
     keyMap = "de";
@@ -13,4 +15,3 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 }
-
