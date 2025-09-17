@@ -1,13 +1,20 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  unstable = import <nixpkgs> {};
+  unstable = import <nixpkgs> { };
 
-in {
+in
+{
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    shyim = import (builtins.fetchTarball
-      "https://github.com/shyim/nix-packages/archive/master.tar.gz") {
+    shyim =
+      import (builtins.fetchTarball "https://github.com/shyim/nix-packages/archive/master.tar.gz")
+        {
         inherit pkgs;
       };
   };
@@ -30,32 +37,34 @@ in {
     unstable.gitAndTools.git2cl
     unstable.gitAndTools.tig
 
-    unstable.python3
+    unstable.iredis # Terminal GUI for Redis
     unstable.temurin-bin # OpenJDK
     unstable.awscli
     unstable.s3cmd
-    unstable.mycli
+    unstable.mycli # MySQL client
+    unstable.usql # General SQL terminal interface
     unstable.ansible
-    unstable.httpie
+    unstable.httpie # Command line HTTP client whose goal is to make CLI human-friendly
+
+    unstable.devenv
+    unstable.cachix
 
     unstable.docker
     unstable.docker-compose
     unstable.docker-sync
     unstable.dive
     unstable.minio-client
-    unstable.mycli
-    unstable.usql
-    unstable.lftp
     unstable.soapui
     unstable.terraform
     
-    unstable.jetbrains.rider
+    #unstable.jetbrains.rider
     unstable.jetbrains.goland
     unstable.jetbrains.phpstorm
 
-    unstable.insomnia
-    unstable.resp-app
+    unstable.code-cursor # AI-powered code editor built on vscode
+    unstable.insomnia # REST API GUI
+    unstable.tiny-rdm # Redis GUI
 
-    unstable.arduino
+    unstable.arduino # Open-source electronics prototyping platform
   ];
 }

@@ -13,10 +13,16 @@
           greeters.pantheon.enable = true;
         };
       };
-      desktopManager = { pantheon.enable = true; };
+      desktopManager = {
+        pantheon.enable = true;
+      };
     };
 
-    gnome3 = { gnome-keyring = { enable = true; }; };
+    gnome3 = {
+      gnome-keyring = {
+        enable = true;
+      };
+    };
 
     pantheon.contractor.enable = true;
   };

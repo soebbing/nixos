@@ -1,12 +1,17 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <nixos-unstable> { };
 
-in {
+in
+{
   services = {
-    flatpak = { enable = true; };
-    keybase = { enable = true; };
+    flatpak = {
+      enable = true;
+    };
+    keybase = {
+      enable = true;
+    };
 
     kbfs = {
       enable = true;
@@ -30,11 +35,11 @@ in {
     extraOptions = "--registry-mirror=https://mirror.gcr.io";
   };
 
-#  virtualisation.virtualbox.host = {
-#    enable = true;
-#    enableExtensionPack = true;
-#    package = unstable.virtualboxWithExtpack;
-#  };
+  #  virtualisation.virtualbox.host = {
+  #    enable = true;
+  #    enableExtensionPack = true;
+  #    package = unstable.virtualboxWithExtpack;
+  #  };
 
   system.autoUpgrade.enable = true;
 }

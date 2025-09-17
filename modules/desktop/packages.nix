@@ -1,77 +1,65 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <nixos-unstable> { };
 
-in {
+in
+{
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    #prismatik
 
-    unstable.autojump
-    unstable.broot
-    unstable.calcurse
-    #unstable.calibre
-    unstable.canto-curses
-    unstable.cherrytree
+    unstable.autojump # `cd' command that learns
+    unstable.broot # Interactive tree view, a fuzzy search, a balanced BFS descent and customizable commands
+    unstable.calibre # Comprehensive e-book software
+    unstable.canto-curses # Ncurses-based console Atom/RSS feed reader
+    unstable.cherrytree # Hierarchical note taking application
     unstable.chrome-gnome-shell
-    unstable.clutter-gtk
     unstable.ctodo
-    #unstable.cura
-    unstable.dunst
+    #unstable.cura # 3D prining slicer
     unstable.enpass
-    unstable.findbugs
-    unstable.firefox
-    unstable.ffsend
-    unstable.fzf
+    unstable.firefox # Web browser built from Firefox source tree
     unstable.gimp
     unstable.github-cli
-    unstable.gnumake
-    unstable.gnupg
     unstable.google-chrome
     unstable.handbrake
-    unstable.hexcurse
+    unstable.hexcurse # ncurses-based console hexeditor written in C
     unstable.hicolor-icon-theme
-    unstable.htop
-    unstable.inkscape
-    unstable.jq
+    unstable.inkscape # Vector graphics editor
     unstable.kbfs
     unstable.keybase
     unstable.keybase-gui
-    unstable.khal
-    unstable.ghostty
     unstable.libdvdcss
     unstable.libnotify
     unstable.libreoffice
-    unstable.libxkbcommon
-    unstable.lm_sensors
-    unstable.mairix
-    unstable.mediainfo
-    unstable.mpv
-    unstable.mqttx
-    unstable.mtr
-    unstable.ncspot
+    unstable.lm_sensors # Tools for reading hardware sensors
+    unstable.mediainfo # Supplies technical and tag information about a video or audio file
+    unstable.mpv # General-purpose media player, fork of MPlayer and mplayer2
+    unstable.mqttx # Powerful cross-platform MQTT 5.0 Desktop, CLI, and WebSocket client tools
+    unstable.mtr-gui # Network diagnostics tool
+    unstable.ncspot # Cross-platform ncurses Spotify client written in Rust, inspired by ncmpc and the likes
     unstable.networkmanagerapplet
+    unstable.openssl # Cryptographic library that implements the SSL and TLS protocols
     unstable.powerline-fonts
-    unstable.qemu
-    unstable.rclone
-    unstable.remind
-    unstable.rlwrap
-    unstable.ripgrep
-    unstable.shared-mime-info
-    unstable.shellcheck
-    unstable.signal-desktop
-    unstable.sipcalc
-    unstable.silver-searcher
-    unstable.smplayer
-    unstable.spotify
-    unstable.transmission_4-gtk
-    unstable.tree
-    unstable.typespeed
-    unstable.unclutter-xfixes
-    unstable.vlc
-    unstable.wakatime
+    unstable.qemu # Generic and open source machine emulator and virtualizer
+    unstable.rclone # Command line program to sync files and directories to and from major cloud storage
+    unstable.remind # Sophisticated calendar and alarm program for the console
+    unstable.shared-mime-info # Database of common MIME types
+    unstable.shellcheck # Shell script analysis tool
+    unstable.signal-desktop # Signal App
+    unstable.sipcalc #Advanced console ip subnet calculator
+    unstable.smplayer # Complete front-end for MPlayer
+    unstable.spotify # Play music from the Spotify music service
+    unstable.transmission_4-gtk # Fast, easy and free BitTorrent client
+    unstable.tree # Command to produce a depth indented directory listing
+    unstable.typespeed # Curses based typing game
+    unstable.vlc # Cross-platform media player and streaming server
+    unstable.wasistlos  # Whatsapp Client
 
     unstable.xautolock
     unstable.xclip
@@ -81,18 +69,5 @@ in {
     unstable.xorg.xkill
     unstable.xsel
     unstable.yubioath-flutter
-
-    (unstable.vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        bbenoist.nix
-        vue.volar
-        devsense.phptools-vscode
-        devsense.profiler-php-vscode
-        devsense.composer-php-vscode
-        ms-azuretools.vscode-docker
-        ms-vscode-remote.remote-ssh
-      ];
-      }
-    )
   ];
 }

@@ -12,5 +12,7 @@ empty and only contains an import of the corresponding entry point.
 
 # Prerequisits
 
-Install channels, e.g. for Home Manager
+Install channels, e.g. for Home Manager and unstable channel
+
+`nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable`
 `nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager`

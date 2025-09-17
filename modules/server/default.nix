@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./services.nix ./packages.nix ];
+  imports = [
+    ./services.nix
+    ./packages.nix
+  ];
 }

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   path = pkgs.lib.concatStringsSep ":" [
@@ -10,7 +15,8 @@ let
     "$PATH"
   ];
 
-in {
+in
+{
   environment = {
     variables = {
       EDITOR = "vim";
@@ -33,5 +39,7 @@ in {
   };
 
   # Use the fish shell.
-  programs.fish = { enable = true; };
+  programs.fish = {
+    enable = true;
+  };
 }

@@ -1,10 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with pkgs;
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <nixos-unstable> { };
 
-in {
+in
+{
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [

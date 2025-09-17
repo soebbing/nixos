@@ -8,7 +8,7 @@
     ../modules/desktop/manager/i3.nix
   ];
 
-  boot.loader.grub.enable = true;^
+  boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only

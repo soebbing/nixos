@@ -1,15 +1,25 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <nixos-unstable> { };
 
-in {
+in
+{
   nixpkgs.config.allowUnfree = true;
 
   services = {
     xserver = {
       enable = true;
-      desktopManager = { xterm = { enable = false; }; };
+      desktopManager = {
+        xterm = {
+          enable = false;
+        };
+      };
     };
   };
 
@@ -51,7 +61,7 @@ in {
     unstable.kdePackages.dragon
     unstable.kdePackages.juk
     unstable.kdePackages.merkuro
-  
+
     #unstable.kdePackages.liquidshell
     unstable.kdePackages.bomber
     unstable.kdePackages.killbots
