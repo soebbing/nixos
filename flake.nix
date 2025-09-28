@@ -30,7 +30,12 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.hendrik = import ./modules/base/home-manager.nix;
+              home-manager.users.hendrik = {
+                imports = [
+                  ./modules/base/home-manager.nix
+                  ./modules/home-manager-main-import.nix
+                ];
+              };
             }
           ];
         };
