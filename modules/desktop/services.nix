@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> { };
 
 in
 {
@@ -38,7 +37,7 @@ in
   #  virtualisation.virtualbox.host = {
   #    enable = true;
   #    enableExtensionPack = true;
-  #    package = unstable.virtualboxWithExtpack;
+  #    package = virtualboxWithExtpack;
   #  };
 
   system.autoUpgrade.enable = true;

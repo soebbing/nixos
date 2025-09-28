@@ -5,36 +5,36 @@
   ...
 }:
 
-with pkgs;
-let
-  unstable = import <nixos-unstable> { };
-
-in
 {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    unstable.gnome-desktop
-    unstable.gnome-tweaks
-    unstable.dconf-editor
-    unstable.gnome-shell-extensions
-    unstable.gnomeExtensions.clipboard-indicator
-    unstable.gnomeExtensions.sound-output-device-chooser
-    unstable.rhythmbox
-    unstable.baobab
+    gnome-desktop
+    gnome-tweaks
+    dconf-editor
+    gnome-shell-extensions
+    rhythmbox
+    baobab
+    neovim-gtk
 
-    unstable.adwaita-icon-theme
-    unstable.numix-icon-theme
-    unstable.numix-solarized-gtk-theme
-    unstable.numix-cursor-theme
-    unstable.breeze-hacked-cursor-theme
-    unstable.openzone-cursors
+    whitesur-icon-theme
+    adwaita-icon-theme
+    numix-icon-theme
+    numix-solarized-gtk-theme
+    numix-cursor-theme
+    breeze-hacked-cursor-theme
+    openzone-cursors
 
+    flat-remix-gnome
+
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.panel-corners
+    gnomeExtensions.just-perfection
     gnomeExtensions.pop-shell
   ];
 
-  services.xserver = {
-    enable = true;
+  services = {
     displayManager.gdm = {
       enable = true;
       wayland = true;

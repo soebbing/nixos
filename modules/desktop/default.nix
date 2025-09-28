@@ -10,5 +10,5 @@
 
   networking.extraHosts = '''';
 
-  programs.ssh.startAgent = true;
+  programs.ssh.startAgent = false;
 }

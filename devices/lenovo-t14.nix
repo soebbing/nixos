@@ -2,17 +2,12 @@
 
 {
   imports = [
-    <home-manager/nixos>
     ../hardware-scans/lenovo-t14.nix
     ../modules/base
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
-    #    ../modules/desktop/manager/pantheon.nix
-    #    ../modules/desktop/manager/xfce.nix
     ../modules/desktop/manager/gnome.nix
-    #    ../modules/desktop/manager/kde.nix
-    #    ../modules/desktop/manager/i3.nix
   ];
 
   fileSystems."/".options = [
@@ -38,7 +33,7 @@
   services.fprintd = {
     enable = true;
     tod.enable = true;
-    tod.driver = pkgs.libfprint-2-tod1-goodix; # pkgs.libfprint-2-tod1-vfs0090;
+    tod.driver = pkgs.libfprint-2-tod1-goodix;
   };
 
   services.keyd = {
@@ -48,15 +43,12 @@
         ids = [ "*" ];
         settings = {
           main = {
-              capslock = "overload(control, esc)";
-              leftalt = "leftmeta";
-              leftmeta = "leftalt";
+            capslock = "overload(control, esc)";
+            leftalt = "leftmeta";
+            leftmeta = "leftalt";
           };
         };
       };
     };
   };
-
-  #  virtualisation.virtualbox.host.enable = true;
-  #  users.extraGroups.vboxusers.members = [ "hendrik" ];
 }
