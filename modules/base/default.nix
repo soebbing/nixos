@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware.nix
-    ./home-manager.nix
     ./builder.nix
     ./packages.nix
     ./shell.nix
@@ -23,6 +22,10 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   environment.etc."php.d/hendrik.ini" = {
     text = ''

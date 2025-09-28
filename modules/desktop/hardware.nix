@@ -22,11 +22,11 @@
 
   # Systemd stop job timeout.
   # Increase max file descriptors to 1M,
-  systemd.extraConfig = ''
-    DefaultLimitNOFILE=1048576
-    DefaultTimeoutStartSec=10s
-    DefaultTimeoutStopSec=10s
-  '';
+  systemd.settings.Manager = {
+    DefaultLimitNOFILE = 1048576;
+    DefaultTimeoutStartSec = "10s";
+    DefaultTimeoutStopSec = "10s";
+  };
 
   security.pam.loginLimits = [
     {

@@ -6,7 +6,6 @@
 }:
 
 let
-  unstable = import <nixpkgs> { };
 
 in
 {
@@ -15,56 +14,55 @@ in
     shyim =
       import (builtins.fetchTarball "https://github.com/shyim/nix-packages/archive/master.tar.gz")
         {
-        inherit pkgs;
-      };
+          inherit pkgs;
+        };
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.dotnet-sdk
+    dotnet-sdk
 
-    unstable.php84
-    unstable.php84Packages.composer
-    unstable.php84Packages.psalm
-    unstable.php84Packages.phpstan
-    unstable.php84Packages.phpmd
-    unstable.php84Packages.php-codesniffer
-    unstable.php84Packages.php-parallel-lint
+    php84
+    php84Packages.composer
+    php84Packages.psalm
+    php84Packages.phpstan
+    php84Packages.phpmd
+    php84Packages.php-codesniffer
+    php84Packages.php-parallel-lint
 
-    unstable.nodejs
-    unstable.go
-    unstable.gitAndTools.gitFull
-    unstable.gitAndTools.git-extras
-    unstable.gitAndTools.git2cl
-    unstable.gitAndTools.tig
+    nodejs
+    go
+    gitAndTools.gitFull
+    gitAndTools.git-extras
+    gitAndTools.git2cl
+    gitAndTools.tig
 
-    unstable.iredis # Terminal GUI for Redis
-    unstable.temurin-bin # OpenJDK
-    unstable.awscli
-    unstable.s3cmd
-    unstable.mycli # MySQL client
-    unstable.usql # General SQL terminal interface
-    unstable.ansible
-    unstable.httpie # Command line HTTP client whose goal is to make CLI human-friendly
+    iredis # Terminal GUI for Redis
+    temurin-bin # OpenJDK
+    awscli
+    s3cmd
+    mycli # MySQL client
+    usql # General SQL terminal interface
+    ansible
+    httpie # Command line HTTP client whose goal is to make CLI human-friendly
 
-    unstable.devenv
-    unstable.cachix
+    devenv
+    cachix
 
-    unstable.docker
-    unstable.docker-compose
-    unstable.docker-sync
-    unstable.dive
-    unstable.minio-client
-    unstable.soapui
-    unstable.terraform
-    
-    #unstable.jetbrains.rider
-    unstable.jetbrains.goland
-    unstable.jetbrains.phpstorm
+    docker
+    docker-compose
+    dive
+    minio-client
+    soapui
+    terraform
 
-    unstable.code-cursor # AI-powered code editor built on vscode
-    unstable.insomnia # REST API GUI
-    unstable.tiny-rdm # Redis GUI
+    #jetbrains.rider
+    jetbrains.goland
+    jetbrains.phpstorm
 
-    unstable.arduino # Open-source electronics prototyping platform
+    code-cursor # AI-powered code editor built on vscode
+    insomnia # REST API GUI
+    tiny-rdm # Redis GUI
+
+    arduino # Open-source electronics prototyping platform
   ];
 }

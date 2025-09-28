@@ -6,17 +6,31 @@
 }:
 
 {
-  services.xserver = {
-    enable = true;
+  services = {
+
     displayManager.defaultSession = "xfce";
-    desktopManager = {
-      xterm.enable = false;
-      xfce = {
-        enable = true;
-        enableXfwm = true;
+    xserver = {
+      enable = true;
+      excludePackages = with pkgs; [
+        xterm
+      ];
+      displayManager = {
+        lightdm = {
+          enable = true;
+          greeters.slick = {
+            enable = true;
+            theme.name = "Zukitre-dark";
+          };
+        };
       };
+      desktopManager.xfce.enable = true;
+      #windowManager.i3.enable = true;
     };
-    #windowManager.i3.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -26,22 +40,18 @@
     blueman
     feh
     networkmanagerapplet
-    kitty
     escrotum
 
     numix-icon-theme
     numix-solarized-gtk-theme
 
     xfce.exo
-    xfce.gvfs
     xfce.parole
     xfce.ristretto
     xfce.tumbler
     xfce.thunar
-    xfce.thunar_volman
-    xfce.xfce4icontheme
-    xfce.xfce4settings
     xfce.xfconf
+    xfce.xfce4-icon-theme
     xfce.xfce4-session
     xfce.xfce4-settings
     xfce.xfce4-taskmanager
@@ -51,7 +61,6 @@
     xfce.xfce4-power-manager
     xfce.xfce4-netload-plugin
     xfce.xfce4-clipman-plugin
-    xfce.xfce4-namebar-plugin
     xfce.xfce4-sensors-plugin
     xfce.xfce4-volumed-pulse
     xfce.xfce4-weather-plugin
