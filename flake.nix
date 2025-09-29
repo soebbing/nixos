@@ -23,13 +23,11 @@
       ...
     }:
     let
-      system = "x86_64-linux";
       supportedSystems = [
         "x86_64-linux"
         "aarch64-darwin"
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      pkgs = nixpkgs.legacyPackages.${system};
       extraArgs = {
         flake = self;
       };
@@ -37,7 +35,7 @@
     {
       nixosConfigurations = {
         lenovo = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
           modules = [
             ./devices/lenovo-t14.nix
             home-manager.nixosModules.home-manager
@@ -53,10 +51,9 @@
       };
 
       darwinConfigurations = {
-        "megatron" = darwin.lib.darwinSystem {
+        megatron = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           specialArgs = extraArgs;
-
           modules = [
             home-manager.darwinModules.default
             ./mac.nix
@@ -65,9 +62,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "home-manager-backup";
               home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.hendrik.imports = [
-                ./home/default.nix
-              ];
+              home-manager.users.hendrik = import ./home;
             }
           ];
         };
