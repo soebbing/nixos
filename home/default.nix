@@ -1,9 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   home = {
     stateVersion = "25.05";
     username = "hendrik";
-    homeDirectory = "/home/hendrik";
+    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/hendrik" else "/home/hendrik";
     shell.enableFishIntegration = true;
     sessionVariables = {
     };
@@ -102,9 +107,14 @@
       xh # "Friendly and fast tool for sending HTTP requests"
       zellij # "A terminal workspace with batteries included"
 
-      # Linux only packages (from home-manager-main)
+      # Linux only packages
+    ] ++ lib.optionals pkgs.stdenv.isLinux [
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
+
+      # Mac only packages
+    ] ++ lib.optionals pkgs.stdenv.isDarwin [
+      maccy # Mac clipboard manager
     ];
   };
 
@@ -147,7 +157,7 @@
       loginShellInit = ''
         export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-        # Fix Ghostty
+        # Fix Ghostty (only on Linux)
         if test "$TERM_PROGRAM" = "ghostty"
             set -x TERM xterm-256color
         end
@@ -190,9 +200,9 @@
             end
         end
 
-                #${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+        #${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
-                fish_add_path --move --prepend $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /nix/var/nix/profiles/default/bin /run/current-system/sw/bin /Users/hendrik/Code/pcrew-bo/docker/scripts
+        fish_add_path --move --prepend $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /nix/var/nix/profiles/default/bin /run/current-system/sw/bin ~/Code/pcrew-bo/docker/scripts
       '';
     };
 
@@ -477,7 +487,7 @@
     };
 
     # Broken on mac (2025-09-10)
-    ghostty = {
+    ghostty = lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
       enableFishIntegration = true;
       # Configuration: https://ghostty.zerebos.com
@@ -666,7 +676,8 @@
       '';
     };
 
-    zed-editor = {
+    # Broken on mac 2025-09-29
+    zed-editor = lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
       themes = builtins.fromJSON ''
         {
