@@ -10,14 +10,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    omarchy-nix = {
+      url = "github:henrysipp/omarchy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
+      omarchy-nix,
       darwin,
       self,
       ...
@@ -34,6 +43,36 @@
     in
     {
       nixosConfigurations = {
+        lenovo-omarchy = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            omarchy-nix.nixosModules.default
+            ./devices/lenovo-t14.nix
+            home-manager.nixosModules.home-manager
+            {
+              # Configure omarchy
+              omarchy = {
+                full_name = "Hendrik Söbbing";
+                email_address = "hendrik@soebbing.de";
+                theme = "tokyo-night";
+              };
+
+              home-manager = {
+                users.hendrik = {
+                  imports = [
+                    omarchy-nix.homeManagerModules.default
+                    ./home
+                  ];
+                };
+              };
+
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "home-manager-backup";
+              home-manager.extraSpecialArgs = extraArgs;
+            }
+          ];
+        };
         lenovo = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -44,7 +83,9 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "home-manager-backup";
               home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.hendrik = import ./home;
+              home-manager.users.hendrik.imports = [
+                ./home
+              ];
             }
           ];
         };
