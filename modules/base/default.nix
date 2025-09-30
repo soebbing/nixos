@@ -22,6 +22,14 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 7d";
+  };
+
+  nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
