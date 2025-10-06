@@ -17,7 +17,7 @@ in
     cherrytree # Hierarchical note taking application
     chrome-gnome-shell
     ctodo
-    #cura # 3D prining slicer
+    cura-appimage # 3D prining slicer
     enpass
     firefox # Web browser built from Firefox source tree
     gimp
@@ -40,6 +40,7 @@ in
     mtr-gui # Network diagnostics tool
     ncspot # Cross-platform ncurses Spotify client written in Rust, inspired by ncmpc and the likes
     networkmanagerapplet
+    nixd # Nix language server
     openssl # Cryptographic library that implements the SSL and TLS protocols
     powerline-fonts
     qemu # Generic and open source machine emulator and virtualizer

@@ -3,7 +3,9 @@
 let
 in
 {
- home.packages = with pkgs; [
+  home.packages =
+    with pkgs;
+    [
       nixVersions.latest
 
       #ansible

@@ -1,4 +1,11 @@
-{ config, lib, pkgs, flake, environment, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  flake,
+  environment,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -21,19 +28,19 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
   environment.etc."hosts".text = ''
-##
-# Host Database
-##
-127.0.0.1 localhost motorsport.de motorsport.test www.idontknow.gov myforsaledomain.de motorsport.example www.download-handbuch.example www.manuals-online.example www.canastapp.example
-255.255.255.255 broadcasthost
-fe80::1%lo0 localhost
-::1 localhost
-192.168.1.2 rackspace
-192.168.1.2 flightradar
-192.168.1.4 homeassistant
-192.168.1.9 octoprint
-192.168.1.27 printserver
-'';
+    ##
+    # Host Database
+    ##
+    127.0.0.1 localhost motorsport.de motorsport.test www.idontknow.gov myforsaledomain.de motorsport.example www.download-handbuch.example www.manuals-online.example www.canastapp.example
+    255.255.255.255 broadcasthost
+    fe80::1%lo0 localhost
+    ::1 localhost
+    192.168.1.2 rackspace
+    192.168.1.2 flightradar
+    192.168.1.4 homeassistant
+    192.168.1.9 octoprint
+    192.168.1.27 printserver
+  '';
 
   networking = {
     knownNetworkServices = [
@@ -43,11 +50,11 @@ fe80::1%lo0 localhost
     ];
 
     dns = [
-        "8.8.8.8"
-        "8.8.4.4"
-        "2001:4860:4860::8888"
-        "2001:4860:4860::8844"
-      ];
+      "8.8.8.8"
+      "8.8.4.4"
+      "2001:4860:4860::8888"
+      "2001:4860:4860::8844"
+    ];
   };
 
   users.users = {
@@ -72,17 +79,24 @@ fe80::1%lo0 localhost
         extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
-    settings.trusted-users = [ "root" "hendrik" ];
+    settings.trusted-users = [
+      "root"
+      "hendrik"
+    ];
   };
 
   environment.systemPackages = [
-  (pkgs.php.buildEnv {
-    extensions = ({ enabled, all }: enabled ++ (with all; [
-      xdebug
-    ]));
-    extraConfig = ''
-      xdebug.mode=debug
-    '';
-  })
-];
+    (pkgs.php.buildEnv {
+      extensions = (
+        { enabled, all }:
+        enabled
+        ++ (with all; [
+          xdebug
+        ])
+      );
+      extraConfig = ''
+        xdebug.mode=debug
+      '';
+    })
+  ];
 }

@@ -59,7 +59,7 @@ in
     jetbrains.goland
     jetbrains.phpstorm
 
-    code-cursor # AI-powered code editor built on vscode
+    code-cursor-fhs # AI-powered code editor built on vscode
     insomnia # REST API GUI
     tiny-rdm # Redis GUI
 
