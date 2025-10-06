@@ -56,35 +56,35 @@
                 email_address = "hendrik@soebbing.de";
                 theme = "tokyo-night";
               };
+            
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "home-manager-backup";
+              extraSpecialArgs = extraArgs;
 
-              home-manager = {
-                users.hendrik = {
-                  imports = [
-                    omarchy-nix.homeManagerModules.default
-                    ./home
-                  ];
-                };
+              users.hendrik = {
+                imports = [
+                  omarchy-nix.homeManagerModules.default
+                  ./home-manager
+                ];
               };
-
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "home-manager-backup";
-              home-manager.extraSpecialArgs = extraArgs;
             }
           ];
         };
+
         lenovo = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./devices/lenovo-t14.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "home-manager-backup";
-              home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.hendrik.imports = [
-                ./home
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "home-manager-backup";
+              extraSpecialArgs = extraArgs;
+
+              users.hendrik.imports = [
+                ./home-manager
               ];
             }
           ];
@@ -103,7 +103,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "home-manager-backup";
               home-manager.extraSpecialArgs = extraArgs;
-              home-manager.users.hendrik = import ./home;
+              home-manager.users.hendrik = import ./home-manager;
             }
           ];
         };
