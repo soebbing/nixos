@@ -203,7 +203,8 @@
       enable = true;
     };
 
-    kitty = {
+    # Broken on mac (2025-10-06)
+    kitty = lib.mkIf pkgs.stdenv.isLinux {
       enable = true;
       shellIntegration.enableFishIntegration = true;
       enableGitIntegration = true;
@@ -591,8 +592,7 @@
       '';
     };
 
-    # Broken on mac 2025-09-29
-    zed-editor = lib.mkIf pkgs.stdenv.isLinux {
+    zed-editor = {
       enable = true;
       themes = builtins.fromJSON ''
         {
