@@ -51,20 +51,23 @@
             home-manager.nixosModules.home-manager
             {
               # Configure omarchy
+              # https://github.com/henrysipp/omarchy-nix
               omarchy = {
+                theme = "gruvbox-light"; # kanagawa gruvbox-light
+
                 full_name = "Hendrik Söbbing";
                 email_address = "hendrik@soebbing.de";
-                theme = "tokyo-night";
               };
-            
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "home-manager-backup";
-              extraSpecialArgs = extraArgs;
 
-              users.hendrik = {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "home-manager-backup";
+              home-manager.extraSpecialArgs = extraArgs;
+
+              home-manager.users.hendrik = {
                 imports = [
                   omarchy-nix.homeManagerModules.default
+                  ./omarchy
                   ./home-manager
                 ];
               };
@@ -78,12 +81,12 @@
             ./devices/lenovo-t14.nix
             home-manager.nixosModules.home-manager
             {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "home-manager-backup";
-              extraSpecialArgs = extraArgs;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "home-manager-backup";
+              home-manager.extraSpecialArgs = extraArgs;
 
-              users.hendrik.imports = [
+              users.home-manager.hendrik.imports = [
                 ./home-manager
               ];
             }
