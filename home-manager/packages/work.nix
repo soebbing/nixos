@@ -7,7 +7,7 @@
     [
       nixVersions.latest
 
-      awscli2
+      #awscli2
       elixir
       go
       #gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
@@ -25,6 +25,7 @@
       terraform
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       tre-command # Better tree comand
+      typos-lsp # Source code spell checker
     ]
     # Only MacOS packages
     ++ lib.optionals pkgs.stdenv.isDarwin [

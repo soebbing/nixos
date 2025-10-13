@@ -86,7 +86,7 @@
               home-manager.backupFileExtension = "home-manager-backup";
               home-manager.extraSpecialArgs = extraArgs;
 
-              users.home-manager.hendrik.imports = [
+              home-manager.users.hendrik.imports = [
                 ./home-manager
               ];
             }

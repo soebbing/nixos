@@ -53,6 +53,7 @@ in
     ncdu # Disk usage analyzer with an ncurses interface
     nixfmt-rfc-style
     nixfmt-tree
+    nix-search-cli
     ntfs3g # FUSE-based NTFS driver with full write support
     pet # CLI Snippet Manager
     plocate # locate replacement
