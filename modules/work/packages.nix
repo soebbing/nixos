@@ -42,6 +42,7 @@ in
     s3cmd
     mycli # MySQL client
     usql # General SQL terminal interface
+    uv # Fast Python package installer
     ansible
     httpie # Command line HTTP client whose goal is to make CLI human-friendly
 

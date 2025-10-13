@@ -40,6 +40,7 @@ in
       most # Better more/less
       fastfetch # A maintained, feature-rich and performance oriented, neofetch like system information tool
       ncdu # A disk usage analyzer with an ncurses interface
+      nil # Nix language server
       ngrok # Secure introspectable tunnels to localhost
       nmap # Network exploration tool and security / port scanner
       nvd # Nix package diff

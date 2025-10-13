@@ -16,7 +16,7 @@ in
     canto-curses # Ncurses-based console Atom/RSS feed reader
     cherrytree # Hierarchical note taking application
     chrome-gnome-shell
-    ctodo
+    #ctodo
     cura-appimage # 3D prining slicer
     enpass
     firefox # Web browser built from Firefox source tree
