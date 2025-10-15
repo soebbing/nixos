@@ -117,7 +117,7 @@
 
         #${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
-        fish_add_path --move --prepend $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /nix/var/nix/profiles/default/bin /run/current-system/sw/bin ~/Code/pcrew-bo/docker/scripts
+        fish_add_path --move --prepend $HOME/.nix-profile/bin /run/wrappers/bin /etc/profiles/per-user/$USER/bin /nix/var/nix/profiles/default/bin /run/current-system/sw/bin ~/.local/bin` ~/Code/pcrew-bo/docker/scripts
       '';
     };
 
@@ -244,7 +244,13 @@
       # Configuration: https://ghostty.zerebos.com
       settings = {
         theme = "dark:Builtin Solarized Dark,light:Builtin Solarized Light";
-        font-size = 11;
+        # Use a Nerd Font for icons, with a fallback for any missing characters
+        font-family = "MesloLGS Nerd Font, Droid Sans Mono";
+
+        # Enable programming ligatures (like ->, ===, etc.)
+        #font-feature-settings = "\"calt\" 1, \"liga\" 1";
+
+        font-size = 13;
       };
     };
 
@@ -432,8 +438,19 @@
       themes = builtins.fromJSON (builtins.readFile ./configs/zed-themes.json);
       userSettings = {
         theme = "Solarized Light";
+        buffer_font_size = 16;
+        buffer_font_family = "MesloLGS Nerd Font, Droid Sans Mono";
+        ui_font_size = 20;
+        ui_font_family = "Adwaita Sans";
         telemetry = {
           metrics = false;
+        };
+        profiles = {
+          presentation = {
+            buffer_font_size = 22;
+            ui_font_size = 22;
+            theme = "Solarized Dark";
+          };
         };
       };
       userTasks = [
