@@ -8,6 +8,7 @@
       nixVersions.latest
 
       #awscli2
+      claude-code
       elixir
       go
       #gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
