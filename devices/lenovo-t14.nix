@@ -26,6 +26,26 @@
     "/dev/disk/by-uuid/3963685d-ea3d-45a0-b41a-cb6d5c472324";
 
   networking.hostName = "lenovo";
+  networking.hosts = {
+    "127.0.0.1" = [
+      "canastapp.example"
+      "www.canastapp.example"
+      "api.canastapp.example"
+      "db.canastapp.example"
+      "mail.canastapp.example"
+      "traefik.canastapp.example"
+
+      "www.unixtimestamp.example"
+      "www.convert-unix-timestamp.example"
+      "www.download-handbuch.example"
+      "www.manuals-online.example"
+      "www.djplaymysong.example"
+      "www.auctionmap.example"
+      "www.farbuhr.example"
+      "www.utf8-encode.example"
+      "www.utf8-decode.example"
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
