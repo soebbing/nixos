@@ -57,7 +57,7 @@ in
       sshs # Interface for SSH connections in ssh/config
       symfony-cli
       tealdeer # A very fast implementation of tldr in Rust
-      tre-command # Better tree comand
+      tre-command # Better tree command
       unrar
       wakeonlan
       watch

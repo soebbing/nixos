@@ -7,16 +7,19 @@
     [
       nixVersions.latest
 
-      #awscli2
+      awscli2
       claude-code
       elixir
       go
+      libgcc # GCC library for Linux
+      gcc
       #gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
       grpc # The C based gRPC (C++, Python, Ruby, Objective-C, PHP, C#)
       protoc-gen-go # Go support for Google's protocol buffers
       protoc-gen-go-grpc # The Go language implementation of gRPC. HTTP/2 based RPC
       grpc-gateway # A gRPC to JSON proxy generator plugin for Google Protocol Buffers
       lnav # Logfile Navigator
+      gnumake
       mariadb-client
       mycli # MySQL client
       mysql-client # Für mysqldump
@@ -25,7 +28,6 @@
       protobuf # Google Protobuf compiler
       terraform
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
-      tre-command # Better tree comand
       typos-lsp # Source code spell checker
     ]
     # Only MacOS packages
