@@ -36,7 +36,9 @@ in
       lemmeknow # Identify mysterious text or analyze hard-coded strings from captured network packets, malwares, and more.
       libusb1
       litecli # SQLlite client
-      mc # Midnight Commander
+      (pkgs.writeShellScriptBin "mco" ''
+        exec ${pkgs.mc}/bin/mc "$@"
+      '') # Midnight Commander wrapper with different binary name, conflicts with minio-client
       most # Better more/less
       fastfetch # A maintained, feature-rich and performance oriented, neofetch like system information tool
       ncdu # A disk usage analyzer with an ncurses interface

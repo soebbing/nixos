@@ -19,8 +19,6 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    dotnet-sdk
-
     php84
     php84Packages.composer
     php84Packages.psalm
@@ -29,41 +27,24 @@ in
     php84Packages.php-codesniffer
     php84Packages.php-parallel-lint
 
-    nodejs
-    go
-    gitAndTools.gitFull
-    gitAndTools.git-extras
-    gitAndTools.git2cl
-    gitAndTools.tig
-
-    iredis # Terminal GUI for Redis
+    dotnet-sdk
     temurin-bin # OpenJDK
-    awscli
-    s3cmd
-    mycli # MySQL client
-    usql # General SQL terminal interface
-    uv # Fast Python package installer
-    python314
-    ansible
-    httpie # Command line HTTP client whose goal is to make CLI human-friendly
 
     devenv
     cachix
 
     docker
     docker-compose
-    dive
-    minio-client
-    soapui
-    terraform
+
+    soapui # SOAP API testing tool
 
     #jetbrains.rider
     jetbrains.goland
     jetbrains.phpstorm
 
     code-cursor-fhs # AI-powered code editor built on vscode
+
     insomnia # REST API GUI
-    tiny-rdm # Redis GUI
 
     arduino # Open-source electronics prototyping platform
   ];
