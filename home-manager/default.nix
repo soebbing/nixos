@@ -4,6 +4,12 @@
   lib,
   ...
 }:
+let
+    # Font-Sizes in Zed depend on the platform
+    isDarwin = pkgs.stdenv.isDarwin;
+    zedBufferFontSize = if isDarwin then 13 else 15;
+    zedUiFontSize = if isDarwin then 14 else 19;
+in
 {
   home = {
     stateVersion = "25.05";
@@ -177,7 +183,7 @@
           ui = "auto";
         };
         column = {
-        ui = "auto";
+          ui = "auto";
         };
         init = {
           defaultBranch = "main";
@@ -504,10 +510,23 @@
       userSettings = {
         theme = "Solarized Light";
         autosave = "on_focus_change";
-        buffer_font_size = 15;
-        buffer_font_family = "MesloLGS Nerd Font, Droid Sans Mono";
-        ui_font_size = 19;
-        ui_font_family = "Adwaita Sans";
+        buffer_font_size = zedBufferFontSize;
+        buffer_font_family = "JetBrains Mono, MesloLGS Nerd Font, Droid Sans Mono";
+        buffer_font_weight = 400;
+
+        ui_font_size = zedUiFontSize;
+        ui_font_family = ".SystemUIFont";  # "JetBrains Mono, MesloLGS Nerd Font";
+        ui_font_weight = 400;
+
+        agent_font_size = 15;
+
+        # Terminal Font Settings
+        terminal = {
+          font_family = "MesloLGS Nerd Font, Droid Sans Mono";
+          font_size = 13;
+          # Terminal line height: comfortable (1.618), standard(1.3) or `{ "custom": 2 }`
+          line_height = "standard";
+        };
 
         profiles = {
           presentation = {
