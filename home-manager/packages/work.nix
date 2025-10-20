@@ -7,11 +7,15 @@
     [
       nixVersions.latest
 
+      ansible
       awscli2
       claude-code
+      dive # Docker image analyzer
+
       elixir
-      go
       gcc
+
+      go
       #gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
       grpc # The C based gRPC (C++, Python, Ruby, Objective-C, PHP, C#)
       protoc-gen-go # Go support for Google's protocol buffers
@@ -19,15 +23,27 @@
       grpc-gateway # A gRPC to JSON proxy generator plugin for Google Protocol Buffers
       lnav # Logfile Navigator
       gnumake
-      mariadb-client
+      httpie # Command line HTTP client whose goal is to make CLI human-friendly
+      iredis # Terminal GUI for Redis
+      mariadb-client # MariaDB client
+      minio-client # S3 client
       mycli # MySQL client
       mysql-client # Für mysqldump
-      nodejs_24 # For npx
+
+      nodejs # For npx
+
       packer # A tool for creating identical machine images for multiple platforms from a single source configuration
       protobuf # Google Protobuf compiler
-      terraform
+      python3
+
+      s3cmd # S3 client
+      terraform # Infrastructure as Code tool
+      tiny-rdm # Redis GUI
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
+
+      usql # General SQL terminal interface
+      uv # Fast Python package installer
     ]
     # Only MacOS packages
     ++ lib.optionals pkgs.stdenv.isDarwin [
