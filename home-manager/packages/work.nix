@@ -11,7 +11,6 @@
       claude-code
       elixir
       go
-      libgcc # GCC library for Linux
       gcc
       #gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
       grpc # The C based gRPC (C++, Python, Ruby, Objective-C, PHP, C#)
@@ -35,5 +34,6 @@
     ]
     # Linux only packages
     ++ lib.optionals pkgs.stdenv.isLinux [
+      libgcc # GCC library for Linux
     ];
 }

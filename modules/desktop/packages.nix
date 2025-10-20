@@ -40,7 +40,6 @@ in
     mtr-gui # Network diagnostics tool
     ncspot # Cross-platform ncurses Spotify client written in Rust, inspired by ncmpc and the likes
     networkmanagerapplet
-    nixd # Nix language server
     openssl # Cryptographic library that implements the SSL and TLS protocols
     powerline-fonts
     qemu # Generic and open source machine emulator and virtualizer
