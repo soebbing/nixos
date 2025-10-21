@@ -38,7 +38,6 @@
 
       s3cmd # S3 client
       terraform # Infrastructure as Code tool
-      tiny-rdm # Redis GUI
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
 
@@ -50,6 +49,7 @@
     ]
     # Linux only packages
     ++ lib.optionals pkgs.stdenv.isLinux [
+      tiny-rdm # Redis GUI
       libgcc # GCC library for Linux
     ];
 }
