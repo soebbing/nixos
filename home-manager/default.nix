@@ -5,10 +5,10 @@
   ...
 }:
 let
-    # Font-Sizes in Zed depend on the platform
-    isDarwin = pkgs.stdenv.isDarwin;
-    zedBufferFontSize = if isDarwin then 13 else 15;
-    zedUiFontSize = if isDarwin then 14 else 19;
+  # Font-Sizes in Zed depend on the platform
+  isDarwin = pkgs.stdenv.isDarwin;
+  zedBufferFontSize = if isDarwin then 13 else 15;
+  zedUiFontSize = if isDarwin then 14 else 19;
 in
 {
   home = {
@@ -77,8 +77,18 @@ in
       nix-direnv.enable = true;
     };
 
+    # Use the fish shell.
     fish = {
       enable = true;
+
+      # Auto-start zellij, but not in JetBrains IDEs (PHPStorm, GoLand, etc.)
+      interactiveShellInit = ''
+        if not set -q ZELLIJ
+            if test "$TERM_PROGRAM" = "ghostty"
+                exec zellij
+            end
+        end
+      '';
 
       loginShellInit = ''
         export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -92,19 +102,19 @@ in
         export FZF_ALT_C_OPTS="--preview 'eza --tree {} | head -200'"
 
         function fish_greeting
-          printf -n "Fish fzf bindings:
-          Keybindings	Remarks
-          Ctrl-t		Find a file, paste it into commandline.
-          Ctrl-r		Search through command history.
-          Alt-c		cd into sub-directories (recursively searched).
-          Alt-Shift-c	cd into sub-directories, including hidden ones.
-          See: https://github.com/jethrokuan/fzf
+            printf -n "Fish fzf bindings:
+            Keybindings	Remarks
+            Ctrl-t		Find a file, paste it into commandline.
+            Ctrl-r		Search through command history.
+            Alt-c		cd into sub-directories (recursively searched).
+            Alt-Shift-c	cd into sub-directories, including hidden ones.
+            See: https://github.com/jethrokuan/fzf
 
-          Autojump:
-          jc bar   Jump to child dir
-          jo bar   Open dir in file manager
-          jco bar  Open child dir in file manager
-          "
+            Autojump:
+            jc bar   Jump to child dir
+            jo bar   Open dir in file manager
+            jco bar  Open child dir in file manager
+            "
         end
 
         # Advanced customization of fzf options via _fzf_comprun function
@@ -192,15 +202,15 @@ in
           tool = "splice";
         };
         pull = {
-            rebase = true;
+          rebase = true;
         };
         push = {
-            default = "simple";
-            autoSetupRemote = true;
+          default = "simple";
+          autoSetupRemote = true;
         };
         rerere = {
-            enabled = true;
-            autoUpdate = true;
+          enabled = true;
+          autoUpdate = true;
         };
       };
     };
@@ -375,61 +385,64 @@ in
           code_syntax_highlight = "solarized-light";
 
           # ========= Border =========
-          file_panel_border   = "#93a1a1";  # base1
-          sidebar_border      = "#93a1a1";  # base2
-          footer_border       = "#93a1a1";  # base1
+          file_panel_border = "#93a1a1"; # base1
+          sidebar_border = "#93a1a1"; # base2
+          footer_border = "#93a1a1"; # base1
 
           # ========= Border Active =========
           file_panel_border_active = "#268bd2"; # blue
-          sidebar_border_active    = "#cb4b16"; # orange
-          footer_border_active     = "#859900"; # green
-          modal_border_active      = "#6c71c4"; # violet
+          sidebar_border_active = "#cb4b16"; # orange
+          footer_border_active = "#859900"; # green
+          modal_border_active = "#6c71c4"; # violet
 
           # ========= Background (bg) =========
-          full_screen_bg = "#fdf6e3";  # base3
-          file_panel_bg  = "#fdf6e3";  # base3
-          sidebar_bg     = "#fdf6e3";  # base2
-          footer_bg      = "#fdf6e3";  # base2
-          modal_bg       = "#fdf6e3";  # base3
+          full_screen_bg = "#fdf6e3"; # base3
+          file_panel_bg = "#fdf6e3"; # base3
+          sidebar_bg = "#fdf6e3"; # base2
+          footer_bg = "#fdf6e3"; # base2
+          modal_bg = "#fdf6e3"; # base3
 
           # ========= Foreground (fg) =========
-          full_screen_fg = "#657b83";  # base00
-          file_panel_fg  = "#657b83";  # base00
-          sidebar_fg     = "#657b83";  # base00
-          footer_fg      = "#657b83";  # base00
-          modal_fg       = "#657b83";  # base00
+          full_screen_fg = "#657b83"; # base00
+          file_panel_fg = "#657b83"; # base00
+          sidebar_fg = "#657b83"; # base00
+          footer_fg = "#657b83"; # base00
+          modal_fg = "#657b83"; # base00
 
           # ========= Special Color =========
-          cursor  = "#586e75";  # base01
-          correct = "#859900";  # green
-          error   = "#dc322f";  # red
-          hint    = "#2aa198";  # cyan
-          cancel  = "#cb4b16";  # orange
+          cursor = "#586e75"; # base01
+          correct = "#859900"; # green
+          error = "#dc322f"; # red
+          hint = "#2aa198"; # cyan
+          cancel = "#cb4b16"; # orange
 
           # Gradient color can only have two colors!
-          gradient_color = ["#268bd2" "#6c71c4"];  # blue → violet
+          gradient_color = [
+            "#268bd2"
+            "#6c71c4"
+          ]; # blue → violet
 
           # ========= File Panel Special Items =========
-          file_panel_top_directory_icon = "#859900";  # green
-          file_panel_top_path           = "#268bd2";  # blue
-          file_panel_item_selected_fg   = "#073642";  # base02 (good contrast on base2)
-          file_panel_item_selected_bg   = "#eee8d5";  # base2
+          file_panel_top_directory_icon = "#859900"; # green
+          file_panel_top_path = "#268bd2"; # blue
+          file_panel_item_selected_fg = "#073642"; # base02 (good contrast on base2)
+          file_panel_item_selected_bg = "#eee8d5"; # base2
 
           # ========= Sidebar Special Items =========
-          sidebar_title             = "#b58900";  # yellow
-          sidebar_item_selected_fg  = "#073642";  # base02
-          sidebar_item_selected_bg  = "#eee8d5";  # base2
-          sidebar_divider           = "#93a1a1";  # base1
+          sidebar_title = "#b58900"; # yellow
+          sidebar_item_selected_fg = "#073642"; # base02
+          sidebar_item_selected_bg = "#eee8d5"; # base2
+          sidebar_divider = "#93a1a1"; # base1
 
           # ========= Modal Special Items =========
-          modal_cancel_fg = "#073642";  # base02
-          modal_cancel_bg = "#cb4b16";  # orange
-          modal_confirm_fg = "#073642";  # base02
-          modal_confirm_bg = "#859900";  # green
+          modal_cancel_fg = "#073642"; # base02
+          modal_cancel_bg = "#cb4b16"; # orange
+          modal_confirm_fg = "#073642"; # base02
+          modal_confirm_bg = "#859900"; # green
 
           # ========= Help Menu =========
-          help_menu_hotkey = "#268bd2";  # blue
-          help_menu_title  = "#d33682";  # magenta
+          help_menu_hotkey = "#268bd2"; # blue
+          help_menu_title = "#d33682"; # magenta
         };
       };
     };
@@ -515,14 +528,14 @@ in
         buffer_font_weight = 400;
 
         ui_font_size = zedUiFontSize;
-        ui_font_family = ".SystemUIFont";  # "JetBrains Mono, MesloLGS Nerd Font";
+        ui_font_family = ".SystemUIFont"; # "JetBrains Mono, MesloLGS Nerd Font";
         ui_font_weight = 400;
 
         agent_font_size = 15;
 
         # Terminal Font Settings
         terminal = {
-          font_family = "MesloLGS Nerd Font, Droid Sans Mono";
+          font_family = "JetBrainsMono Nerd Font, MesloLGL Nerd Font, Droid Sans Mono";
           font_size = 13;
           # Terminal line height: comfortable (1.618), standard(1.3) or `{ "custom": 2 }`
           line_height = "standard";
@@ -592,7 +605,7 @@ in
 
     zellij = {
       enable = true;
-      enableFishIntegration = true;
+      enableFishIntegration = false; # Manually controlled in shell.nix to only run in Ghostty
       settings = {
         theme = "gruvbox-light"; # "solarized-light" is hardly readable
       };

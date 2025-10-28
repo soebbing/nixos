@@ -41,5 +41,14 @@ in
   # Use the fish shell.
   programs.fish = {
     enable = true;
+
+    # Auto-start zellij only in Ghostty terminal
+    interactiveShellInit = ''
+      if not set -q ZELLIJ
+        if test "$TERM_PROGRAM" = "ghostty"
+          exec zellij
+        end
+      end
+    '';
   };
 }
