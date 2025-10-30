@@ -25,10 +25,9 @@
       gnumake
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
       iredis # Terminal GUI for Redis
-      mariadb-client # MariaDB client
       minio-client # S3 client
       mycli # MySQL client
-      mysql-client # Für mysqldump
+      mariadb.client # Für mysqldump
 
       nodejs # For npx
 
