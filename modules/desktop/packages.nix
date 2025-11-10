@@ -15,9 +15,9 @@ in
     calibre # Comprehensive e-book software
     canto-curses # Ncurses-based console Atom/RSS feed reader
     cherrytree # Hierarchical note taking application
-    chrome-gnome-shell
-    #ctodo
-    cura-appimage # 3D prining slicer
+    gnome-browser-connector
+    ctodo
+    cura-appimage # 3D printing slicer
     enpass
     firefox # Web browser built from Firefox source tree
     gimp
