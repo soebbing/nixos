@@ -7,7 +7,7 @@
     [
       nixVersions.latest
 
-      ansible
+      #ansible
       awscli2
       binsider # Perform binary analysis in your terminal.
       csvlens # CSV file viewer and editor
@@ -30,7 +30,7 @@
       iredis # Terminal GUI for Redis
       mdfried # Markdown viewer for the terminal that renders headers as Bigger Text than the rest.
       minio-client # S3 client
-      mycli # MySQL client
+      #mycli # MySQL client
       mariadb.client # For mysqldump
 
       nodejs # For npx
