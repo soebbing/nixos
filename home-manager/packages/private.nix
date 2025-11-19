@@ -8,8 +8,7 @@ in
     [
       nixVersions.latest
 
-      #ansible
-      arduino-cli
+      #arduino-cli
       bandwhich # Terminal bandwidth utilization tool
       bottom # A customizable cross-platform graphical process/system monitor inspired by tools like htop, gtop, etc. Command: btm
       broot # A new way to see and navigate directory trees
@@ -29,7 +28,7 @@ in
       fzy # A simple, fast fuzzy finder for the terminal. Used by neovim-fuzzy
       glab # A command line tool for gitlab
       gping # Ping, but with a graph
-      #gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
+      gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
       inetutils # A collection of common network programs
       jql # A JSON query language CLI tool
