@@ -7,9 +7,7 @@
       "appearance": "dark",
       "name": "Solarized Dark",
       "style": {
-        "accents": [
-          "#268bd2"
-        ],
+        "accents": ["#268bd2"],
         "background": "#002b36",
         "background.appearance": "transparent",
         "border": "#586e75",
@@ -320,9 +318,7 @@
       "appearance": "light",
       "name": "Solarized Light",
       "style": {
-        "accents": [
-          "#268bd2"
-        ],
+        "accents": ["#268bd2"],
         "background": "#fdf6e3",
         "background.appearance": "transparent",
         "border": "#93a1a1",

@@ -12,7 +12,7 @@ let
 in
 {
   home = {
-    stateVersion = "25.05";
+    stateVersion = "25.11";
     username = "hendrik";
     homeDirectory = if pkgs.stdenv.isDarwin then "/Users/hendrik" else "/home/hendrik";
     shell.enableFishIntegration = true;
@@ -465,7 +465,7 @@ in
         nvim-tree-lua
         nvim-cmp
         solarized-nvim
-        lualine-nvim
+        #lualine-nvim
         telescope-nvim
         scope-nvim
       ];
