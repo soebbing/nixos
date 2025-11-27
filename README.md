@@ -22,6 +22,8 @@ Install channels, e.g. for Home Manager and unstable channel
 
 `nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager`
 
+`nix flake update -–extra-experimental-features nix-command -–extra-experimental-features flakes`
+
 # Building of the configuration
 
 ## On Darwin
@@ -30,4 +32,4 @@ Install channels, e.g. for Home Manager and unstable channel
 
 ## On Linux/NixOS
 
-`sudo nix-rebuild -- switch --flake ~/.config/home-manager/#lenovo` (`lenovo` is the device name)
+`sudo nixos-rebuild -- switch --flake ~/.config/home-manager/#lenovo` (`lenovo` is the device name)
