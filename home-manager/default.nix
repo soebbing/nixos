@@ -465,7 +465,7 @@ in
         nvim-tree-lua
         nvim-cmp
         solarized-nvim
-        #lualine-nvim
+        lualine-nvim
         telescope-nvim
         scope-nvim
       ];

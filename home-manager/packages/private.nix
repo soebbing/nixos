@@ -46,7 +46,7 @@ in
       ngrok # Secure introspectable tunnels to localhost
       nmap # Network exploration tool and security / port scanner
       nvd # Nix package diff
-      ollama # Get up and running with large language models locally
+      #ollama # Get up and running with large language models locally
       onefetch # Stats about git repos
       php84
       php84Extensions.xdebug
