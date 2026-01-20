@@ -16,15 +16,17 @@ want to configure.
 
 # Prerequisits
 
-Install channels, e.g. for Home Manager and unstable channel
+Install channels, e.g. for Home Manager and unstable channel as root
 
-`nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable`
+`sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable`
 
-`nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager`
+`sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager`
 
-`nix flake update -–extra-experimental-features nix-command -–extra-experimental-features flakes`
+`sudo nix flake update -–extra-experimental-features nix-command -–extra-experimental-features flakes`
 
 # Building of the configuration
+
+Modify the paths to match your local configuration!
 
 ## On Darwin
 

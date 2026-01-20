@@ -15,18 +15,10 @@
       dive # Docker image analyzer
       dua # Disk Usage Analyzer
 
-      elixir
-      gcc
-
-      go
-      gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
-      grpc # The C based gRPC (C++, Python, Ruby, Objective-C, PHP, C#)
-      protoc-gen-go # Go support for Google's protocol buffers
-      protoc-gen-go-grpc # The Go language implementation of gRPC. HTTP/2 based RPC
-      grpc-gateway # A gRPC to JSON proxy generator plugin for Google Protocol Buffers
+      gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9sers
       lnav # Logfile Navigator
-      gnumake
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
+      insomnia # REST API GUI
       iredis # Terminal GUI for Redis
       mdfried # Markdown viewer for the terminal that renders headers as Bigger Text than the rest.
       minio-client # S3 client
@@ -48,9 +40,17 @@
 
       s3cmd # S3 client
       slumber # Terminal HTTP/REST client
+      soapui # SOAP API testing tool
+
       terraform # Infrastructure as Code tool
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
+
+      #jetbrains.rider
+      jetbrains.goland
+      jetbrains.phpstorm
+
+      code-cursor-fhs # AI-powered code editor built on vscode
 
       usql # General SQL terminal interface
       uv # Fast Python package installer
