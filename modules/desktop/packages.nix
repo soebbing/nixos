@@ -24,7 +24,7 @@ in
     github-cli
     google-chrome
     handbrake
-    hexcurse # ncurses-based console hexeditor written in C
+    #hexcurse # ncurses-based console hexeditor written in C
     hicolor-icon-theme
     inkscape # Vector graphics editor
     kbfs

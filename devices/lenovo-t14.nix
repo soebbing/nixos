@@ -10,11 +10,13 @@
     ../modules/desktop/manager/gnome.nix
   ];
 
-  fileSystems."/".options = [
-    "noatime"
-    "nodiratime"
-    "discard"
-  ];
+  fileSystems = {
+    "/".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
+    "/var/log".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
+    "/nix".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
+    "/home".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
+    "/swap".options = [ "noatime" ];
+  };
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,8 +24,9 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-3963685d-ea3d-45a0-b41a-cb6d5c472324".device =
-    "/dev/disk/by-uuid/3963685d-ea3d-45a0-b41a-cb6d5c472324";
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/bd92597d-f38f-4b4a-88ed-f26f5eb8466b";
+
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   networking.hostName = "lenovo";
   networking.hosts = {
@@ -49,6 +52,13 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
+
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = [ "/" ];
+  };
+
 
   services.fprintd = {
     enable = true;

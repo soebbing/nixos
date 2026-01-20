@@ -9,6 +9,8 @@ in
       nixVersions.latest
 
       #arduino-cli
+
+      arduino # Open-source electronics prototyping platform
       bandwhich # Terminal bandwidth utilization tool
       bottom # A customizable cross-platform graphical process/system monitor inspired by tools like htop, gtop, etc. Command: btm
       broot # A new way to see and navigate directory trees
@@ -41,15 +43,15 @@ in
       most # Better more/less
       fastfetch # A maintained, feature-rich and performance oriented, neofetch like system information tool
       ncdu # A disk usage analyzer with an ncurses interface
+      networkmanager-openvpn
       nil # Nix language server
       nixd # Nix language server
       ngrok # Secure introspectable tunnels to localhost
       nmap # Network exploration tool and security / port scanner
       nvd # Nix package diff
-      #ollama # Get up and running with large language models locally
+      ollama # Get up and running with large language models locally
       onefetch # Stats about git repos
-      php84
-      php84Extensions.xdebug
+      openvpn3
       pre-commit # Pre-Commit Hooks https://pre-commit.com/
       procps # Legacy ps command (among others)
       procs # Modern replacement for ps written in Rust

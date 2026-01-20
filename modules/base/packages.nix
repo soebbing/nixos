@@ -51,7 +51,7 @@ in
     just # A command runner for managing project-specific tasks with simple commands
     keyd # Key mapping
     ncdu # Disk usage analyzer with an ncurses interface
-    nixfmt-rfc-style
+    nixfmt
     nixfmt-tree
     nix-search-cli
     ntfs3g # FUSE-based NTFS driver with full write support
