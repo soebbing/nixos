@@ -32,7 +32,7 @@ in
     php84
     php84Packages.composer
     php84Packages.psalm
-    php84Packages.phpstan
+    phpstan
     php84Packages.phpmd
     #php84Packages.php-codesniffer
     php84Packages.php-parallel-lint

@@ -9,13 +9,14 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    baobab
+    dconf-editor
+    geary
     gnome-desktop
     gnome-tweaks
-    dconf-editor
     gnome-shell-extensions
-    rhythmbox
-    baobab
     neovim-gtk
+    rhythmbox
 
     whitesur-icon-theme
     adwaita-icon-theme
