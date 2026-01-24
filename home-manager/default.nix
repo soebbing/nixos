@@ -466,6 +466,7 @@ in
         nvim-cmp
         solarized-nvim
         lualine-nvim
+        plenary-nvim
         telescope-nvim
         scope-nvim
       ];

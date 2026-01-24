@@ -28,6 +28,7 @@
 
     flat-remix-gnome
 
+    gnome-extension-manager
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.panel-corners
