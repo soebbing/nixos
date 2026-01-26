@@ -11,7 +11,7 @@
       awscli2
       binsider # Perform binary analysis in your terminal.
       csvlens # CSV file viewer and editor
-      claude-code
+      claude-code # A command line interface for Anthropic's Claude AI models
       dive # Docker image analyzer
       dua # Disk Usage Analyzer
 
@@ -25,32 +25,25 @@
       mycli # MySQL client
       mariadb.client # For mysqldump
 
-      nodejs # For npx
-
       oha # HTTP load testing tool
       oxker # A tool for managing Docker containers
       openapi-tui # Unlock the power of APIs with simplicity and speed, right from your terminal. View OpenAPI documentations in your terminal.
 
       packer # A tool for creating identical machine images for multiple platforms from a single source configuration
       protobuf # Google Protobuf compiler
-      python3
 
       rainfrog # A lightweight and terminal-based tool for interacting with databases.
       rucola # An application to manage markdown notes from your terminal and compile them to HTML
 
       s3cmd # S3 client
       slumber # Terminal HTTP/REST client
-      soapui # SOAP API testing tool
 
       terraform # Infrastructure as Code tool
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
 
-      #jetbrains.rider
       jetbrains.goland
       jetbrains.phpstorm
-
-      code-cursor-fhs # AI-powered code editor built on vscode
 
       usql # General SQL terminal interface
       uv # Fast Python package installer
@@ -60,7 +53,9 @@
     ]
     # Linux only packages
     ++ lib.optionals pkgs.stdenv.isLinux [
+      code-cursor-fhs # AI-powered code editor built on vscode
       tiny-rdm # Redis GUI
       libgcc # GCC library for Linux
+      soapui # SOAP API testing tool
     ];
 }

@@ -6,6 +6,7 @@
     ./packages.nix
     ./users.nix
     ./services.nix
+    ./fonts.nix
   ];
 
   networking.extraHosts = '''';

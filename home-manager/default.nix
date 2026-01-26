@@ -11,6 +11,12 @@ let
   zedUiFontSize = if isDarwin then 14 else 19;
 in
 {
+  fonts.fontconfig = {
+    enable = false;
+    antialiasing = true;
+    hinting = "full";
+  };
+  
   home = {
     stateVersion = "25.11";
     username = "hendrik";
@@ -18,6 +24,7 @@ in
     shell.enableFishIntegration = true;
     sessionVariables = {
     };
+
 
     # Available in any shell, but one needs to be enabled below
     shellAliases = {
