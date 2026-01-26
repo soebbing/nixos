@@ -8,17 +8,12 @@ in
     [
       nixVersions.latest
 
-      #arduino-cli
-
-      arduino # Open-source electronics prototyping platform
       bandwhich # Terminal bandwidth utilization tool
       bottom # A customizable cross-platform graphical process/system monitor inspired by tools like htop, gtop, etc. Command: btm
       broot # A new way to see and navigate directory trees
-      cachix
+      cachix # Cache binary Nix builds
       cmake # Cross-platform make
-      devenv
       dive # A tool for exploring each layer in a docker image
-      #docker
       delve # Debugger for the Go programming language
       doggo # Command-line DNS client for humans
       dua # View disk space usage and delete unwanted data, fast.
@@ -43,7 +38,6 @@ in
       most # Better more/less
       fastfetch # A maintained, feature-rich and performance oriented, neofetch like system information tool
       ncdu # A disk usage analyzer with an ncurses interface
-      networkmanager-openvpn
       nil # Nix language server
       nixd # Nix language server
       ngrok # Secure introspectable tunnels to localhost
@@ -51,8 +45,6 @@ in
       nvd # Nix package diff
       ollama # Get up and running with large language models locally
       onefetch # Stats about git repos
-      openvpn3
-      pre-commit # Pre-Commit Hooks https://pre-commit.com/
       procps # Legacy ps command (among others)
       procs # Modern replacement for ps written in Rust
       ripgrep # Recursively searches directories for a regex pattern
@@ -62,9 +54,9 @@ in
       symfony-cli
       tealdeer # A very fast implementation of tldr in Rust
       tre-command # Better tree command
-      unrar
-      wakeonlan
-      watch
+      unrar # RAR file extractor
+      wakeonlan # Send magic packets to wake up sleeping computers
+      watch # Executes a program periodically, showing output fullscreen
       xh # "Friendly and fast tool for sending HTTP requests"
       zellij # "A terminal workspace with batteries included"
 
@@ -88,7 +80,10 @@ in
     ]
     # Linux only packages
     ++ lib.optionals pkgs.stdenv.isLinux [
+      arduino # Open-source electronics prototyping platform
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
+      networkmanager-openvpn
+      openvpn3
     ];
 }

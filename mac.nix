@@ -8,6 +8,10 @@
 }:
 
 {
+  imports = [
+    modules/desktop/fonts.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   documentation.enable = false;
