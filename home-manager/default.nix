@@ -8,7 +8,8 @@ let
   # Font-Sizes in Zed depend on the platform
   isDarwin = pkgs.stdenv.isDarwin;
   zedBufferFontSize = if isDarwin then 13 else 15;
-  zedUiFontSize = if isDarwin then 14 else 19;
+  zedUiFontSize = if isDarwin then 15 else 19;
+  zedFontMono = "MesloLGSDZ Nerd Font Mono";
 in
 {
   fonts.fontconfig = {
@@ -16,7 +17,7 @@ in
     antialiasing = true;
     hinting = "full";
   };
-  
+
   home = {
     stateVersion = "25.11";
     username = "hendrik";
@@ -530,13 +531,14 @@ in
 
     zed-editor = {
       enable = true;
+      mutableUserSettings = false;
       themes = builtins.fromJSON (builtins.readFile ./configs/zed-themes.json);
 
       userSettings = {
         theme = "Solarized Light";
         autosave = "on_focus_change";
         buffer_font_size = zedBufferFontSize;
-        buffer_font_family = "JetBrains Mono, MesloLGS Nerd Font, Droid Sans Mono";
+        buffer_font_family = zedFontMono;
         buffer_font_weight = 400;
 
         ui_font_size = zedUiFontSize;
@@ -547,7 +549,7 @@ in
 
         # Terminal Font Settings
         terminal = {
-          font_family = "JetBrainsMono Nerd Font, MesloLGL Nerd Font, Droid Sans Mono";
+          font_family = zedFontMono;
           font_size = 13;
           # Terminal line height: comfortable (1.618), standard(1.3) or `{ "custom": 2 }`
           line_height = "standard";
