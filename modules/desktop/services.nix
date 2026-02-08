@@ -8,6 +8,7 @@ in
     flatpak = {
       enable = true;
     };
+
     keybase = {
       enable = true;
     };

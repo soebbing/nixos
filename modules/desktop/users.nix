@@ -24,7 +24,6 @@
       "systemd-journal"
       "libvirtd"
     ];
-    #shell = "/run/current-system/sw/bin/fish";
   };
 
   nix.settings.trusted-users = [
