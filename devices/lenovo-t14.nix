@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -59,26 +59,40 @@
     fileSystems = [ "/" ];
   };
 
+  # Fingerprint reader
+  services = {
+    fprintd = {
+      enable = true;
+      tod = {
+          enable = true;
+          driver = pkgs.libfprint-2-tod1-goodix; # Nur wenn lsusb ein Goodix Gerät zeigt
+        };
+    };
 
-  services.fprintd = {
-    enable = true;
-    tod.enable = true;
-    tod.driver = pkgs.libfprint-2-tod1-goodix;
-  };
+    fwupd.enable = true;
 
-  services.keyd = {
-    enable = true;
-    keyboards = {
-      default = {
-        ids = [ "*" ];
-        settings = {
-          main = {
-            capslock = "overload(control, esc)";
-            leftalt = "leftmeta";
-            leftmeta = "leftalt";
+    keyd = {
+      enable = true;
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              capslock = "overload(control, esc)";
+              leftalt = "leftmeta";
+              leftmeta = "leftalt";
+            };
           };
         };
       };
     };
+  };
+
+  security.polkit.enable = true;
+
+  security.pam.services = {
+    gdm-password.fprintAuth = true;
+    gdm-fingerprint.fprintAuth = true;
+    sudo.fprintAuth = true;
   };
 }

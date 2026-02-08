@@ -276,7 +276,7 @@ in
       enableFishIntegration = true;
       # Configuration: https://ghostty.zerebos.com
       settings = {
-        theme = "dark:Builtin Solarized Dark,light:Builtin Solarized Light";
+        theme = "dark:iTerm2 Solarized Dark,light:iTerm2 Solarized Light";
         # Use a Nerd Font for icons, with a fallback for any missing characters
         font-family = "MesloLGS Nerd Font, Droid Sans Mono";
 

@@ -26,6 +26,7 @@ in
     handbrake
     #hexcurse # ncurses-based console hexeditor written in C
     hicolor-icon-theme
+    hypnotix # IP TV player
     inkscape # Vector graphics editor
     kbfs
     keybase
@@ -40,6 +41,7 @@ in
     mtr-gui # Network diagnostics tool
     ncspot # Cross-platform ncurses Spotify client written in Rust, inspired by ncmpc and the likes
     networkmanagerapplet
+    networkmanager-openvpn
     openssl # Cryptographic library that implements the SSL and TLS protocols
     powerline-fonts
     qemu # Generic and open source machine emulator and virtualizer
