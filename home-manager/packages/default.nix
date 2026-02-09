@@ -1,6 +1,4 @@
 {
-  config,
-  pkgs,
   lib,
   ...
 }:
@@ -10,7 +8,6 @@ let
   optionalImports = lib.filter (path: builtins.pathExists path) [
     ./private.nix
     ./work.nix
-    ./programming.nix
   ];
 in
 {

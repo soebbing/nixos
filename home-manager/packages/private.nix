@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
 in
@@ -23,7 +23,6 @@ in
       fd # A simple, fast and user-friendly alternative to 'find'
       felix-fm # tui file manager with vim-like key mapping. Command: fx
       fzy # A simple, fast fuzzy finder for the terminal. Used by neovim-fuzzy
-      glab # A command line tool for gitlab
       gping # Ping, but with a graph
       gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
@@ -40,6 +39,7 @@ in
       ncdu # A disk usage analyzer with an ncurses interface
       nil # Nix language server
       nixd # Nix language server
+      nixfmt # Nix language formatter
       ngrok # Secure introspectable tunnels to localhost
       nmap # Network exploration tool and security / port scanner
       nvd # Nix package diff
@@ -51,14 +51,12 @@ in
       rm-improved # A safe and ergonomic alternative to rm
       screenfetch # System information tool
       sshs # Interface for SSH connections in ssh/config
-      symfony-cli
       tealdeer # A very fast implementation of tldr in Rust
       tre-command # Better tree command
       unrar # RAR file extractor
       wakeonlan # Send magic packets to wake up sleeping computers
       watch # Executes a program periodically, showing output fullscreen
       xh # "Friendly and fast tool for sending HTTP requests"
-      zellij # "A terminal workspace with batteries included"
 
       # # It is sometimes useful to fine-tune packages, for example, by applying
       # # overrides. You can do that directly here, just don't forget the
@@ -80,9 +78,9 @@ in
     ]
     # Linux only packages
     ++ lib.optionals pkgs.stdenv.isLinux [
-      arduino # Open-source electronics prototyping platform
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
+      freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
       networkmanager-openvpn
       openvpn3
     ];
