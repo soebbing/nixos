@@ -27,6 +27,12 @@ in
       enable = false;
       support32Bit = true;
     };
+
+    udev.packages = with pkgs; [
+      yubikey-personalization
+      libu2f-host
+      solo2-cli
+    ];
   };
 
   virtualisation.docker = {
@@ -34,12 +40,6 @@ in
     enableOnBoot = true;
     extraOptions = "--registry-mirror=https://mirror.gcr.io";
   };
-
-  #  virtualisation.virtualbox.host = {
-  #    enable = true;
-  #    enableExtensionPack = true;
-  #    package = virtualboxWithExtpack;
-  #  };
 
   system.autoUpgrade.enable = true;
 }

@@ -39,7 +39,6 @@
     playerctl
     blueman
     feh
-    networkmanagerapplet
     escrotum
 
     numix-icon-theme

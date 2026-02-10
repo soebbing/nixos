@@ -50,7 +50,6 @@
     playerctl
     blueman
     feh
-    networkmanagerapplet
     termite
     escrotum
     lxappearance

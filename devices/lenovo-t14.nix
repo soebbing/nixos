@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -11,10 +16,30 @@
   ];
 
   fileSystems = {
-    "/".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
-    "/var/log".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
-    "/nix".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
-    "/home".options = [ "noatime" "nodiratime" "compress=zstd" "discard" ];
+    "/".options = [
+      "noatime"
+      "nodiratime"
+      "compress=zstd"
+      "discard"
+    ];
+    "/var/log".options = [
+      "noatime"
+      "nodiratime"
+      "compress=zstd"
+      "discard"
+    ];
+    "/nix".options = [
+      "noatime"
+      "nodiratime"
+      "compress=zstd"
+      "discard"
+    ];
+    "/home".options = [
+      "noatime"
+      "nodiratime"
+      "compress=zstd"
+      "discard"
+    ];
     "/swap".options = [ "noatime" ];
   };
   boot.loader.systemd-boot.enable = true;
@@ -64,9 +89,9 @@
     fprintd = {
       enable = true;
       tod = {
-          enable = true;
-          driver = pkgs.libfprint-2-tod1-goodix; # Nur wenn lsusb ein Goodix Gerät zeigt
-        };
+        enable = true;
+        driver = pkgs.libfprint-2-tod1-goodix;
+      };
     };
 
     fwupd.enable = true;

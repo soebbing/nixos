@@ -15,8 +15,9 @@
       nerd-fonts.ubuntu-mono
       nerd-fonts.ubuntu-sans
       nerd-fonts.zed-mono
-     
+
       monaspace
+      powerline-fonts
       source-code-pro
     ];
   };

@@ -54,6 +54,7 @@ in
       tealdeer # A very fast implementation of tldr in Rust
       tre-command # Better tree command
       unrar # RAR file extractor
+      usbutils # See USB devices
       wakeonlan # Send magic packets to wake up sleeping computers
       watch # Executes a program periodically, showing output fullscreen
       xh # "Friendly and fast tool for sending HTTP requests"
@@ -81,7 +82,6 @@ in
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
       freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
-      networkmanager-openvpn
       openvpn3
     ];
 }

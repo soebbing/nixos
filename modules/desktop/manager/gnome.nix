@@ -29,6 +29,7 @@
     flat-remix-gnome
 
     gnome-extension-manager
+    gnomeExtensions.caffeine
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.panel-corners
