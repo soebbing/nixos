@@ -26,7 +26,6 @@ in
     sessionVariables = {
     };
 
-
     # Available in any shell, but one needs to be enabled below
     shellAliases = {
       cat = "bat";
@@ -280,9 +279,6 @@ in
         # Use a Nerd Font for icons, with a fallback for any missing characters
         font-family = "MesloLGS Nerd Font, Droid Sans Mono";
 
-        # Enable programming ligatures (like ->, ===, etc.)
-        #font-feature-settings = "\"calt\" 1, \"liga\" 1";
-
         font-size = 13;
       };
     };
@@ -291,6 +287,62 @@ in
     pay-respects = {
       enable = true;
       enableFishIntegration = true;
+    };
+
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+
+      extraConfig = ''
+        KeepAlive yes
+      '';
+
+      matchBlocks = {
+        "*" = {
+          controlMaster = "auto";
+          controlPath = "/tmp/ssh_mux_%h_%p_%r";
+
+          compression = true;
+          forwardAgent = true;
+          serverAliveInterval = 120;
+
+          extraOptions = {
+            "TCPKeepAlive" = "no";
+            "IPQoS" = "throughput";
+          };
+        };
+
+        "gitlab.com" = {
+          hostname = "gitlab.com";
+          user = "git";
+          identityFile = "~/.ssh/id_rsa_privat";
+        };
+
+        "pwnagotchi" = {
+          hostname = "10.0.0.2";
+          user = "pi";
+          identityFile = "~/.ssh/id_rsa_privat";
+        };
+
+        "homeassistant homeassistant.local" = {
+          hostname = "192.168.1.4";
+          user = "root";
+          identityFile = "~/.ssh/id_rsa_privat";
+        };
+
+        "flightradar" = {
+          hostname = "192.168.1.3";
+          user = "hendrik";
+          identityFile = "~/.ssh/id_rsa_privat";
+        };
+
+        "handcoding.de builder" = {
+          hostname = "handcoding.de";
+          user = "hendrik";
+          identitiesOnly = true;
+          identityFile = "~/.ssh/id_rsa_privat";
+        };
+      };
     };
 
     superfile = {
