@@ -16,6 +16,7 @@
     gnome-tweaks
     gnome-shell-extensions
     neovim-gtk
+    newsflash
     rhythmbox
 
     whitesur-icon-theme
