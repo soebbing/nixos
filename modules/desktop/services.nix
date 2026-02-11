@@ -28,6 +28,9 @@ in
       support32Bit = true;
     };
 
+    # For Yubikey
+    pcscd.enable = true;
+
     udev.packages = with pkgs; [
       yubikey-personalization
       libu2f-host
