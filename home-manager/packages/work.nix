@@ -79,6 +79,7 @@
 
       temurin-bin # OpenJDK
       terraform # Infrastructure as Code tool
+      opentofu
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
 
