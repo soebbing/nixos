@@ -20,6 +20,8 @@
       "docker"
       "video"
       "audio"
+      "tty"
+      "dialout"
       "networkmanager"
       "systemd-journal"
       "libvirtd"
