@@ -11,6 +11,9 @@
       amp-cli # Amp CLI (https://ampcode.com/)
       gemini-cli # Gemini client
       claude-code # A command line interface for Anthropic's Claude AI models
+      codex # OpenAI coding agent
+      codex-acp # OpenAI adapter for Zed
+      crewai # Framework for orchestrating role-playing, autonomous AI agents
 
       awscli2
       binsider # Perform binary analysis in your terminal.

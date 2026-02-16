@@ -88,6 +88,10 @@ in
       nix-direnv.enable = true;
     };
 
+    element-desktop = {
+      enable = true;
+    };
+
     # Use the fish shell.
     fish = {
       enable = true;
@@ -667,6 +671,7 @@ in
     yazi = {
       enable = true;
       enableFishIntegration = true;
+      shellWrapperName = "y";
     };
 
     zellij = {
@@ -675,6 +680,18 @@ in
       settings = {
         theme = "gruvbox-light"; # "solarized-light" is hardly readable
       };
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "NumixSolarizedLightOrange";
+      package = pkgs.numix-solarized-gtk-theme;
+    };
+    iconTheme = {
+      name = "Numix"; # Falls im Paket enthalten, sonst z.B. "Papirus-Light"
+      package = pkgs.numix-solarized-gtk-theme;
     };
   };
 
