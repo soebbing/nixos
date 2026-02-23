@@ -35,6 +35,8 @@ in
     yubioath-flutter
     handbrake
     libreoffice
+    hyphenDicts.en-us
+    hyphenDicts.de-de
     mqttx # Powerful cross-platform MQTT 5.0 Desktop, CLI, and WebSocket client tools
     remind # Sophisticated calendar and alarm program for the console
     shared-mime-info # Database of common MIME types
