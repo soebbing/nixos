@@ -44,8 +44,9 @@
       insomnia # REST API GUI
       iredis # Terminal GUI for Redis
 
+      jetbrains.idea
       jetbrains.goland
-      #jetbrains.phpstorm
+      jetbrains.phpstorm
 
       mariadb.client # For mysqldump
       mdfried # Markdown viewer for the terminal that renders headers as Bigger Text than the rest.
