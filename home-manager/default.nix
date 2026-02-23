@@ -220,7 +220,7 @@ in
           rebase = true;
         };
         push = {
-          default = "simple";
+          default = "current";
           autoSetupRemote = true;
         };
         rerere = {
