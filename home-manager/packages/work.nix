@@ -8,7 +8,7 @@
       nixVersions.latest
 
       # LLM coding tools
-      #amp-cli # Amp CLI (https://ampcode.com/)
+      amp-cli # Amp CLI (https://ampcode.com/)
       gemini-cli # Gemini client
       claude-code # A command line interface for Anthropic's Claude AI models
       codex # OpenAI coding agent
@@ -82,7 +82,7 @@
       symfony-cli
 
       temurin-bin # OpenJDK
-      #terraform # Infrastructure as Code tool
+      terraform # Infrastructure as Code tool
       opentofu
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
@@ -92,6 +92,7 @@
     ]
     # Only MacOS packages
     ++ lib.optionals pkgs.stdenv.isDarwin [
+      teams # Microsoft Teams client for Linux
     ]
     # Linux only packages
     ++ lib.optionals pkgs.stdenv.isLinux [
@@ -99,6 +100,7 @@
       tiny-rdm # Redis GUI
       libgcc # GCC library for Linux
       soapui # SOAP API testing tool
+      teams-for-linux # Inofficial Microsoft Teams client for Linux
 
       antigravity-fhs # Agentic development platform, evolving the IDE into the agent-first era, wrapped variant of antigravity which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
       code-cursor-fhs # AI-powered code editor built on vscode
