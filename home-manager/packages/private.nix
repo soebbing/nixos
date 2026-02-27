@@ -81,7 +81,7 @@ in
     ++ lib.optionals pkgs.stdenv.isLinux [
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
-      freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
+      #freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
       openvpn3
     ];
 }

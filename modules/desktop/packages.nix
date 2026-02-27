@@ -17,6 +17,7 @@ in
     firefox # Web browser built from Firefox source tree
     google-chrome
     gnome-browser-connector
+    helium # Helium Browser
 
     # Chat
     wasistlos # Whatsapp Client
@@ -31,9 +32,8 @@ in
     cura-appimage # 3D printing slicer
     enpass
     gimp
-    inkscape # Vector graphics editor
-    yubioath-flutter
     handbrake
+    inkscape # Vector graphics editor
     libreoffice
     hyphenDicts.en-us
     hyphenDicts.de-de
@@ -42,6 +42,7 @@ in
     shared-mime-info # Database of common MIME types
     transmission_4-gtk # Fast, easy and free BitTorrent client
     typespeed # Curses based typing game
+    yubioath-flutter
 
     # Media
     hypnotix # IP TV player
