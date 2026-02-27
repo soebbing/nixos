@@ -8,12 +8,12 @@
       nixVersions.latest
 
       # LLM coding tools
-      amp-cli # Amp CLI (https://ampcode.com/)
+      #amp-cli # Amp CLI (https://ampcode.com/)
       gemini-cli # Gemini client
       claude-code # A command line interface for Anthropic's Claude AI models
       codex # OpenAI coding agent
       codex-acp # OpenAI adapter for Zed
-      crewai # Framework for orchestrating role-playing, autonomous AI agents
+      #crewai # Framework for orchestrating role-playing, autonomous AI agents
 
       awscli2
       binsider # Perform binary analysis in your terminal.
@@ -51,7 +51,7 @@
       mariadb.client # For mysqldump
       mdfried # Markdown viewer for the terminal that renders headers as Bigger Text than the rest.
       minio-client # S3 client
-      mycli # MySQL client
+      #mycli # MySQL client
 
       nodejs # For npx
       oha # HTTP load testing tool
@@ -82,7 +82,7 @@
       symfony-cli
 
       temurin-bin # OpenJDK
-      terraform # Infrastructure as Code tool
+      #terraform # Infrastructure as Code tool
       opentofu
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker

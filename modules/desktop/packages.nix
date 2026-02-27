@@ -25,7 +25,7 @@ in
 
     # Office style
     ctodo
-    calibre # Comprehensive e-book software
+    #calibre # Comprehensive e-book software
     canto-curses # Ncurses-based console Atom/RSS feed reader
     cherrytree # Hierarchical note taking application
     cura-appimage # 3D printing slicer
@@ -66,11 +66,13 @@ in
     mtr-gui # Network diagnostics tool
     networkmanagerapplet
     networkmanager-openvpn
+    noson # Noson is a SONOS controller for Linux platforms
     openssl # Cryptographic library that implements the SSL and TLS protocols
     qemu # Generic and open source machine emulator and virtualizer
     rclone # Command line program to sync files and directories to and from major cloud storage
     shellcheck # Shell script analysis tool
     sipcalc # Advanced console ip subnet calculator
+    soco-cli # SONOS controller for Linux platforms
     tree # Command to produce a depth indented directory listing
 
     xautolock

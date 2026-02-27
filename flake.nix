@@ -5,6 +5,11 @@
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +33,7 @@
       home-manager,
       omarchy-nix,
       darwin,
+      nur,
       self,
       ...
     }:
@@ -47,6 +53,7 @@
           system = "x86_64-linux";
           modules = [
             omarchy-nix.nixosModules.default
+            nur.modules.nixos.default
             ./devices/lenovo-t14.nix
             home-manager.nixosModules.home-manager
             {
@@ -79,6 +86,7 @@
           system = "x86_64-linux";
           modules = [
             ./devices/lenovo-t14.nix
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
