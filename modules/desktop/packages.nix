@@ -40,6 +40,7 @@ in
     mqttx # Powerful cross-platform MQTT 5.0 Desktop, CLI, and WebSocket client tools
     remind # Sophisticated calendar and alarm program for the console
     shared-mime-info # Database of common MIME types
+    thunderbird # Email client
     transmission_4-gtk # Fast, easy and free BitTorrent client
     typespeed # Curses based typing game
     yubioath-flutter
