@@ -24,6 +24,8 @@
       docker
       docker-compose
 
+      dotnet-sdk # .NET SDK
+
       elixir # Dynamic, functional language designed for building scalable and maintainable applications
 
       gcc # GNU Compiler Collection
@@ -54,14 +56,15 @@
       #mycli # MySQL client
 
       nodejs # For npx
+
       oha # HTTP load testing tool
       oxker # A tool for managing Docker containers
       openapi-tui # Unlock the power of APIs with simplicity and speed, right from your terminal. View OpenAPI documentations in your terminal.
+      opentofu # OpenTofu is a tool for building, changing, and destroying infrastructure safely and efficiently.
 
       packer # A tool for creating identical machine images for multiple platforms from a single source configuration
-
-      pre-commit # Pre-Commit Hooks https://pre-commit.com/
-      python3
+      package-version-server # Language server that handles hover information in package.json files
+      pgadmin4 # PostgreSQL administration tool
 
       php85
       php85Packages.composer
@@ -72,18 +75,19 @@
       php85Extensions.xdebug
       phpstan # PHP Static Analysis Tool
 
-      dotnet-sdk # .NET SDK
+      pre-commit # Pre-Commit Hooks https://pre-commit.com/
+      python3
+
+      quarkus # Kubernetes-native Java framework tailored for GraalVM and HotSpot, crafted from best-of-breed Java libraries and standards
 
       rainfrog # A lightweight and terminal-based tool for interacting with databases.
       rucola # An application to manage markdown notes from your terminal and compile them to HTML
 
       s3cmd # S3 client
       slumber # Terminal HTTP/REST client
-      symfony-cli
-
+      (pkgs.lib.hiPrio pkgs.symfony-cli) # Conflicts with oolama
       temurin-bin # OpenJDK
       terraform # Infrastructure as Code tool
-      opentofu
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
 
@@ -92,7 +96,7 @@
     ]
     # Only MacOS packages
     ++ lib.optionals pkgs.stdenv.isDarwin [
-      teams # Microsoft Teams client for Linux
+      teams # Microsoft Teams client for MacOS
     ]
     # Linux only packages
     ++ lib.optionals pkgs.stdenv.isLinux [
