@@ -46,7 +46,7 @@
       insomnia # REST API GUI
       iredis # Terminal GUI for Redis
 
-      jetbrains.idea
+      jetbrains.idea-oss
       jetbrains.goland
       jetbrains.phpstorm
 
