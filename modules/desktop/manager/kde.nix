@@ -48,15 +48,19 @@ in
     kdePackages.ktorrent
     kdePackages.okular
     kdePackages.kmail
+    kdePackages.kmail-account-wizard
     kdePackages.konsole
     kdePackages.dolphin
     kdePackages.ark
     kdePackages.ksshaskpass
     kdePackages.elisa
     kdePackages.falkon
-    kdePackages.kmail
     kdePackages.marble
     kdePackages.kontact
+    kdePackages.kpeople
+    kdePackages.kcontacts
+    kdePackages.akonadi
+    kdePackages.akonadi-contacts
     kdePackages.dragon
     kdePackages.juk
     kdePackages.merkuro
