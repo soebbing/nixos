@@ -40,7 +40,7 @@
       memory_limit=2G
     '';
 
-    mode = "0777";
+    mode = "0644";
   };
 
   # The NixOS release version.

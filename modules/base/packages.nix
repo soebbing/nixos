@@ -5,18 +5,11 @@
   ...
 }:
 
-let
-
-in
 {
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     bash
-    bat
     cmake
     coreutils
-    curl # Command line tool for transferring files with URL syntax
     file
     linuxPackages.cpupower
     lsof # Tool to list open files
@@ -28,10 +21,7 @@ in
     unzip # Extraction utility for archives compressed in .zip format
     wget
     xsel
-    bottom # Cross-platform graphical process/system monitor with a customizable interface
     ctags # Tool for fast source code browsing (exuberant ctags)
-
-    autojump # `cd' command that learns
     curlie # The power of curl, the ease of use of httpie.
     broot # Interactive tree view, a fuzzy search, a balanced BFS descent and customizable commands
     duf # A better df alternative
@@ -67,5 +57,7 @@ in
     xh # Friendly and fast tool for sending HTTP requests
     yq # Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents
     zenith # Interactive process viewer
+
+    qemu_full
   ];
 }

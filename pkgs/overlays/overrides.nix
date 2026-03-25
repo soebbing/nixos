@@ -1,5 +1,27 @@
 self: super: {
+  # Redirect python311 to python312 to fix sphinx-9.x compatibility issues
+  # sphinx-9.x dropped support for Python 3.11, causing evaluation errors
+  # in several packages (e.g., cherrypy, inflect).
+  python311 = self.python312;
+  python311Packages = self.python312Packages;
+
+  arrow-cpp = (super.arrow-cpp.override {
+    boost = self.boost187;
+  }).overrideAttrs (old: {
+    cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+      "-DBoost_NO_BOOST_CMAKE=ON"
+      "-DBOOST_ROOT=${self.boost187.dev}"
+      "-DBOOST_INCLUDEDIR=${self.boost187.dev}/include"
+      "-DBOOST_LIBRARYDIR=${self.boost187.out}/lib"
+    ];
+  });
+
+  openvpn3 = super.openvpn3.overrideAttrs (old: {
+    NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -Wno-error=unused-result";
+  });
+
   helium = self.callPackage (
+
     {
       lib,
       fetchurl,

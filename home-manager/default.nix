@@ -13,7 +13,7 @@ let
 in
 {
   fonts.fontconfig = {
-    enable = false;
+    enable = true;
     antialiasing = true;
     hinting = "full";
   };
@@ -693,6 +693,7 @@ in
       name = "Numix"; # Falls im Paket enthalten, sonst z.B. "Papirus-Light"
       package = pkgs.numix-solarized-gtk-theme;
     };
+    gtk4.theme = null;
   };
 
   imports = [
