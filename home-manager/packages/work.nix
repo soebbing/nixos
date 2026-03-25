@@ -13,6 +13,7 @@
       claude-code # A command line interface for Anthropic's Claude AI models
       codex # OpenAI coding agent
       codex-acp # OpenAI adapter for Zed
+      opencode # AI coding agent built for the terminal
       #crewai # Framework for orchestrating role-playing, autonomous AI agents
 
       awscli2
@@ -91,7 +92,7 @@
       tflint # Terraform linter focused on possible errors, best practices, and so on https://github.com/terraform-linters/tflint
       typos-lsp # Source code spell checker
 
-      usql # General SQL terminal interface
+      # usql # General SQL terminal interface (Broken 2026-03-25)
       uv # Fast Python package installer
     ]
     # Only MacOS packages
@@ -104,10 +105,12 @@
       tiny-rdm # Redis GUI
       libgcc # GCC library for Linux
       soapui # SOAP API testing tool
-      teams-for-linux # Inofficial Microsoft Teams client for Linux
+      #teams-for-linux # Inofficial Microsoft Teams client for Linux
 
       antigravity-fhs # Agentic development platform, evolving the IDE into the agent-first era, wrapped variant of antigravity which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
       code-cursor-fhs # AI-powered code editor built on vscode
       kiro-fhs # IDE for Agentic AI workflows based on VS Code, wrapped variant of kiro which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
+
+      virt-manager # Virtual machine manager (alternative to gnome-boxes which has Python 3.11 compatibility issues)
     ];
 }

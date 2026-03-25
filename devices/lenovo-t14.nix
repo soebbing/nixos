@@ -15,31 +15,24 @@
     ../modules/desktop/manager/gnome.nix
   ];
 
-  fileSystems = {
-    "/".options = [
+  # Use mandoc instead of man-db to avoid sphinx/python3.11 compatibility issue
+  documentation.man = {
+    man-db.enable = false;
+    mandoc.enable = true;
+  };
+
+  fileSystems = let
+    btrfsOptions = [
       "noatime"
       "nodiratime"
       "compress=zstd"
       "discard"
     ];
-    "/var/log".options = [
-      "noatime"
-      "nodiratime"
-      "compress=zstd"
-      "discard"
-    ];
-    "/nix".options = [
-      "noatime"
-      "nodiratime"
-      "compress=zstd"
-      "discard"
-    ];
-    "/home".options = [
-      "noatime"
-      "nodiratime"
-      "compress=zstd"
-      "discard"
-    ];
+  in {
+    "/".options = btrfsOptions;
+    "/var/log".options = btrfsOptions;
+    "/nix".options = btrfsOptions;
+    "/home".options = btrfsOptions;
     "/swap".options = [ "noatime" ];
   };
   boot.loader.systemd-boot.enable = true;
@@ -75,8 +68,13 @@
     ];
   };
 
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  # Disabled due to incompatibility with Linux kernel 6.19.8
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "hendrik" ];
+
+  # Virtualization with GNOME Boxes
+  virtualisation.libvirtd.enable = true;
+  users.users.hendrik.extraGroups = [ "libvirtd" ];
 
   services.btrfs.autoScrub = {
     enable = true;

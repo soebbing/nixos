@@ -46,6 +46,18 @@
       extraArgs = {
         flake = self;
       };
+
+      commonHomeManager = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "home-manager-backup";
+        home-manager.extraSpecialArgs = extraArgs;
+      };
+
+      commonNixpkgs = {
+        nixpkgs.overlays = import ./pkgs/overlays;
+        nixpkgs.config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
@@ -56,6 +68,8 @@
             nur.modules.nixos.default
             ./devices/lenovo-t14.nix
             home-manager.nixosModules.home-manager
+            commonHomeManager
+            commonNixpkgs
             {
               # Configure omarchy
               # https://github.com/henrysipp/omarchy-nix
@@ -65,11 +79,6 @@
                 full_name = "Hendrik Söbbing";
                 email_address = "hendrik@soebbing.de";
               };
-
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "home-manager-backup";
-              home-manager.extraSpecialArgs = extraArgs;
 
               home-manager.users.hendrik = {
                 imports = [
@@ -88,12 +97,9 @@
             ./devices/lenovo-t14.nix
             nur.modules.nixos.default
             home-manager.nixosModules.home-manager
+            commonHomeManager
+            commonNixpkgs
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "home-manager-backup";
-              home-manager.extraSpecialArgs = extraArgs;
-
               home-manager.users.hendrik.imports = [
                 ./home-manager
               ];

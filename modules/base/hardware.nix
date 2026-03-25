@@ -8,6 +8,7 @@
 {
   boot = {
     tmp.cleanOnBoot = true;
+    # Disabling all performance impacting mitigations
     kernelParams = [
       "noibrs"
       "noibpb"

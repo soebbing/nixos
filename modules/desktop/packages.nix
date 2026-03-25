@@ -66,10 +66,10 @@ in
     libnotify
     lm_sensors # Tools for reading hardware sensors
     mtr-gui # Network diagnostics tool
-    networkmanagerapplet
     networkmanager-openvpn
     noson # Noson is a SONOS controller for Linux platforms
     openssl # Cryptographic library that implements the SSL and TLS protocols
+
     qemu # Generic and open source machine emulator and virtualizer
     rclone # Command line program to sync files and directories to and from major cloud storage
     shellcheck # Shell script analysis tool
