@@ -5,16 +5,18 @@ self: super: {
   python311 = self.python312;
   python311Packages = self.python312Packages;
 
-  arrow-cpp = (super.arrow-cpp.override {
-    boost = self.boost187;
-  }).overrideAttrs (old: {
-    cmakeFlags = (old.cmakeFlags or [ ]) ++ [
-      "-DBoost_NO_BOOST_CMAKE=ON"
-      "-DBOOST_ROOT=${self.boost187.dev}"
-      "-DBOOST_INCLUDEDIR=${self.boost187.dev}/include"
-      "-DBOOST_LIBRARYDIR=${self.boost187.out}/lib"
-    ];
-  });
+  arrow-cpp =
+    (super.arrow-cpp.override {
+      boost = self.boost187;
+    }).overrideAttrs
+      (old: {
+        cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+          "-DBoost_NO_BOOST_CMAKE=ON"
+          "-DBOOST_ROOT=${self.boost187.dev}"
+          "-DBOOST_INCLUDEDIR=${self.boost187.dev}/include"
+          "-DBOOST_LIBRARYDIR=${self.boost187.out}/lib"
+        ];
+      });
 
   openvpn3 = super.openvpn3.overrideAttrs (old: {
     NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -Wno-error=unused-result";

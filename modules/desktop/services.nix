@@ -31,11 +31,18 @@ in
     # For Yubikey
     pcscd.enable = true;
 
-    udev.packages = with pkgs; [
-      yubikey-personalization
-      libu2f-host
-      solo2-cli
-    ];
+    udev = {
+      packages = with pkgs; [
+        yubikey-personalization
+        libu2f-host
+        solo2-cli
+      ];
+
+      extraRules = ''
+        KERNEL=="ttyUSB[0-9]*", MODE="0666"
+        KERNEL=="ttyACM[0-9]*", MODE="0666"
+      '';
+    };
   };
 
   virtualisation.docker = {
