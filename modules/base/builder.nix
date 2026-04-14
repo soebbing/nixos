@@ -4,7 +4,7 @@
   nix.buildMachines = [
     {
       hostName = "handcoding.de";
-      system = "x86_64-linux";
+      systems = [ "x86_64-linux" ];
       sshUser = "hendrik";
       # if the builder supports building for multiple architectures,
       # replace the previous line by, e.g.,
