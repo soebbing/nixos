@@ -81,6 +81,7 @@ in
     delta = {
       enable = true;
       enableGitIntegration = true;
+      enableJujutsuIntegration = true;
     };
 
     direnv = {
@@ -235,8 +236,23 @@ in
       enable = true;
     };
 
+    jjui = {
+      enable = true;
+    };
+
     jq = {
       enable = true;
+    };
+
+    # Git-compatible DVCS that is both simple and powerful
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          email = "hendrik@soebbing.de";
+          name = "Hendrik Söbbing";
+        };
+      };
     };
 
     # Broken on mac (2025-10-06)
