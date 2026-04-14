@@ -27,7 +27,7 @@
         "noatime"
         "nodiratime"
         "compress=zstd"
-        "discard"
+        "discard=async"
       ];
     in
     {
@@ -47,6 +47,7 @@
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/bd92597d-f38f-4b4a-88ed-f26f5eb8466b";
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
+  zramSwap.enable = true;
 
   networking.hostName = "lenovo";
   networking.hosts = {
@@ -77,6 +78,8 @@
   # Virtualization with GNOME Boxes
   virtualisation.libvirtd.enable = true;
   users.users.hendrik.extraGroups = [ "libvirtd" ];
+
+  services.tlp.enable = true;
 
   services.btrfs.autoScrub = {
     enable = true;
