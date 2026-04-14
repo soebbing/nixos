@@ -53,6 +53,7 @@
     ripgrep # Replacement for grep
     rm-improved # Replacement for rm with focus on safety, ergonomics and performance
     screenfetch # Fetches system/theme information in terminal for Linux desktop screenshots
+    kooha # Screen recorder
     worker # Orthodox file manager
     xh # Friendly and fast tool for sending HTTP requests
     yq # Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents
