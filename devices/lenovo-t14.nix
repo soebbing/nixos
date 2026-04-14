@@ -21,20 +21,22 @@
     mandoc.enable = true;
   };
 
-  fileSystems = let
-    btrfsOptions = [
-      "noatime"
-      "nodiratime"
-      "compress=zstd"
-      "discard"
-    ];
-  in {
-    "/".options = btrfsOptions;
-    "/var/log".options = btrfsOptions;
-    "/nix".options = btrfsOptions;
-    "/home".options = btrfsOptions;
-    "/swap".options = [ "noatime" ];
-  };
+  fileSystems =
+    let
+      btrfsOptions = [
+        "noatime"
+        "nodiratime"
+        "compress=zstd"
+        "discard"
+      ];
+    in
+    {
+      "/".options = btrfsOptions;
+      "/var/log".options = btrfsOptions;
+      "/nix".options = btrfsOptions;
+      "/home".options = btrfsOptions;
+      "/swap".options = [ "noatime" ];
+    };
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;

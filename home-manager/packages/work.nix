@@ -14,6 +14,7 @@
       codex # OpenAI coding agent
       codex-acp # OpenAI adapter for Zed
       opencode # AI coding agent built for the terminal
+      #openclaw
       #crewai # Framework for orchestrating role-playing, autonomous AI agents
 
       awscli2
