@@ -236,6 +236,7 @@ in
       enable = true;
     };
 
+    # Interface for jujutsu
     jjui = {
       enable = true;
     };
@@ -710,6 +711,12 @@ in
       package = pkgs.numix-solarized-gtk-theme;
     };
     gtk4.theme = null;
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "kde";
+    style.name = "kvantum";
   };
 
   imports = [

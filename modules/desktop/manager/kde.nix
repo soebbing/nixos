@@ -22,55 +22,75 @@ in
     };
   };
 
-  # Use Plasma 5
+  # Use Plasma 6
   services.displayManager.defaultSession = "plasma";
   services.desktopManager.plasma6.enable = true;
 
   environment.systemPackages = with pkgs; [
-
-    # This is needed for graphical dialogs used to enter GPG passphrases
+    # Security & Tools
     pinentry-qt
+    kdePackages.kwallet
+    kdePackages.kwalletmanager
+    kdePackages.ksshaskpass
+    kdePackages.filelight
+    kdePackages.yakuake
+
+    # Graphics & Photography
     digikam
     krita
     kphotoalbum
-    amarok
-
-    # KDE apps
-    kdePackages.kdeplasma-addons
+    kdePackages.gwenview
     kdePackages.spectacle
-    kdePackages.calendarsupport
-    kdePackages.kalarm
+
+    # Multimedia
+    kdePackages.elisa
     kdePackages.kdenlive
-    kdePackages.bluedevil
-    kdePackages.dolphin-plugins
-    kdePackages.kwallet
-    kdePackages.kwalletmanager
-    kdePackages.ktorrent
-    kdePackages.okular
+    haruna
+
+    # Communication & PIM
+    kdePackages.merkuro
     kdePackages.kmail
     kdePackages.kmail-account-wizard
-    kdePackages.konsole
-    kdePackages.dolphin
-    kdePackages.ark
-    kdePackages.ksshaskpass
-    kdePackages.elisa
-    kdePackages.falkon
-    kdePackages.marble
     kdePackages.kontact
     kdePackages.kpeople
     kdePackages.kcontacts
     kdePackages.akonadi
     kdePackages.akonadi-contacts
-    kdePackages.dragon
-    kdePackages.juk
-    kdePackages.merkuro
+    kdePackages.akregator
 
-    #kdePackages.liquidshell
-    kdePackages.bomber
-    kdePackages.killbots
-    kdePackages.konquest
-    kdePackages.kubrick
-    kdePackages.filelight
-    kdePackages.yakuake
+    # Internet & Network
+    kdePackages.ktorrent
+    kdePackages.kdeconnect-kde
+    kdePackages.bluedevil
+
+    # Utilities
+    kdePackages.okular
+    kdePackages.konsole
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.ark
+    kdePackages.kcalc
+    kdePackages.kalarm
+    kdePackages.calendarsupport
+    kdePackages.marble
+
+    # System & Addons
+    kdePackages.kdeplasma-addons
+
+    # macOS-like look and feel
+    whitesur-kde
+    whitesur-gtk-theme
+    whitesur-icon-theme
+    whitesur-cursors
+    mojave-gtk-theme
+    qogir-kde
+    apple-cursor
+    nordzy-icon-theme
+    plasma-panel-colorizer
+
+    # Solarized support
+    numix-solarized-gtk-theme
+    dircolors-solarized
+    kdePackages.qtstyleplugin-kvantum
   ];
 }

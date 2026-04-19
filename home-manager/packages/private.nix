@@ -23,10 +23,8 @@ in
       fd # A simple, fast and user-friendly alternative to 'find'
       felix-fm # tui file manager with vim-like key mapping. Command: fx
       fzy # A simple, fast fuzzy finder for the terminal. Used by neovim-fuzzy
-      gping # Ping, but with a graph
       gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
-      inetutils # A collection of common network programs
       jql # A JSON query language CLI tool
       lemmeknow # Identify mysterious text or analyze hard-coded strings from captured network packets, malwares, and more.
       libusb1

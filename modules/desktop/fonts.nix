@@ -19,6 +19,7 @@
       monaspace
       powerline-fonts
       source-code-pro
+      inter
     ];
   };
 }
