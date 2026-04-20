@@ -8,7 +8,8 @@
       touchpad.tapping = true;
       touchpad.disableWhileTyping = true;
       touchpad.scrollMethod = "twofinger";
-      touchpad.naturalScrolling = false;
+      touchpad.naturalScrolling = true;
+      mouse.naturalScrolling = true;
     };
   };
 

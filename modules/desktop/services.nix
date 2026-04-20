@@ -9,6 +9,11 @@ in
       enable = true;
     };
 
+    # Required for flatpak
+    dbus.enable = true;
+
+    upower.enable = true;
+
     keybase = {
       enable = true;
     };
@@ -43,6 +48,12 @@ in
         KERNEL=="ttyACM[0-9]*", MODE="0666"
       '';
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
   };
 
   virtualisation.docker = {
