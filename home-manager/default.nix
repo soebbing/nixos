@@ -7,8 +7,9 @@
 let
   # Font-Sizes in Zed depend on the platform
   isDarwin = pkgs.stdenv.isDarwin;
-  zedBufferFontSize = if isDarwin then 13 else 15;
-  zedUiFontSize = if isDarwin then 15 else 19;
+  isI3 = config.xsession.windowManager.i3.enable;
+  zedBufferFontSize = (if isDarwin then 13 else 15) - (if isI3 then 5 else 0);
+  zedUiFontSize = (if isDarwin then 15 else 19) - (if isI3 then 6 else 0);
   zedFontMono = "MesloLGSDZ Nerd Font Mono";
 in
 {

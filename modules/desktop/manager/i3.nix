@@ -2,6 +2,15 @@
 
 {
   services = {
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+      };
+      mouse = {
+        naturalScrolling = true;
+      };
+    };
     xserver = {
       enable = true;
       windowManager = {
@@ -10,15 +19,6 @@
         };
       };
 
-      displayManager = {
-        defaultSession = "none+i3";
-        lightdm = {
-          autoLogin = {
-            enable = true;
-            user = "hendrik";
-          };
-        };
-      };
       desktopManager = {
         xterm = {
           enable = false;
@@ -26,7 +26,15 @@
       };
     };
 
-    gnome3 = {
+    displayManager = {
+      defaultSession = "none+i3";
+      autoLogin = {
+        enable = true;
+        user = "hendrik";
+      };
+    };
+
+    gnome = {
       gnome-keyring = {
         enable = true;
       };
@@ -46,13 +54,15 @@
     clipmenu
     dmenu
     pavucontrol
-    xfce.thunar
+    thunar
     playerctl
     blueman
     feh
     termite
     escrotum
     lxappearance
+    networkmanagerapplet
+    brightnessctl
 
     numix-icon-theme
     numix-solarized-gtk-theme
