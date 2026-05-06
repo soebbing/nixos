@@ -33,7 +33,7 @@
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.panel-corners
     gnomeExtensions.just-perfection
-    gnomeExtensions.pop-shell
+    gnomeExtensions.forge
   ];
 
   services = {
