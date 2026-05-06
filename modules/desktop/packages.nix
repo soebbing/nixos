@@ -20,7 +20,7 @@ in
     helium # Helium Browser
 
     # Chat
-    wasistlos # Whatsapp Client
+    karere # Whatsapp Client
     signal-desktop # Signal App
     discord
 
