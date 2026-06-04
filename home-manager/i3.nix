@@ -25,7 +25,7 @@ in
     enable = true;
     config = {
       modifier = "Mod4"; # Super key
-      
+
       fonts = {
         names = [ "MesloLGS Nerd Font" ];
         size = 11.0;
@@ -111,43 +111,54 @@ in
         }
       ];
 
-      keybindings = let
-        modifier = "Mod4";
-      in pkgs.lib.mkOptionDefault {
-        "${modifier}+Return" = "exec ${pkgs.ghostty}/bin/ghostty";
-        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
-        "${modifier}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show run";
-        "${modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
-        "${modifier}+Shift+q" = "kill";
-        
-        # Audio controls
-        "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
-        "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        
-        # Media controls
-        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
-        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+      keybindings =
+        let
+          modifier = "Mod4";
+        in
+        pkgs.lib.mkOptionDefault {
+          "${modifier}+Return" = "exec ${pkgs.ghostty}/bin/ghostty";
+          "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+          "${modifier}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show run";
+          "${modifier}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
+          "${modifier}+Shift+q" = "kill";
 
-        # Brightness
-        "XF86MonBrightnessUp" = "exec brightnessctl set +5%";
-        "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
+          # Audio controls
+          "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
+          "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
+          "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
 
-        # Apps
-        "${modifier}+b" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
-        "${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
-        "${modifier}+n" = "exec ${pkgs.thunar}/bin/thunar";
-        "${modifier}+s" = "exec ${pkgs.spotify}/bin/spotify";
-        "${modifier}+m" = "exec ${pkgs.signal-desktop}/bin/signal-desktop";
-        "${modifier}+c" = "exec ${pkgs.discord}/bin/discord";
-        "${modifier}+t" = "exec ${pkgs.thunderbird}/bin/thunderbird";
-      };
+          # Media controls
+          "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+          "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+          "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+
+          # Brightness
+          "XF86MonBrightnessUp" = "exec brightnessctl set +5%";
+          "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
+
+          # Apps
+          "${modifier}+b" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
+          "${modifier}+f" = "exec ${pkgs.firefox}/bin/firefox";
+          "${modifier}+n" = "exec ${pkgs.thunar}/bin/thunar";
+          "${modifier}+s" = "exec ${pkgs.spotify}/bin/spotify";
+          "${modifier}+m" = "exec ${pkgs.signal-desktop}/bin/signal-desktop";
+          "${modifier}+c" = "exec ${pkgs.discord}/bin/discord";
+          "${modifier}+t" = "exec ${pkgs.thunderbird}/bin/thunderbird";
+        };
 
       startup = [
-        { command = "feh --bg-color '#fdf6e3'"; notification = false; }
-        { command = "nm-applet"; notification = false; }
-        { command = "blueman-applet"; notification = false; }
+        {
+          command = "feh --bg-color '#fdf6e3'";
+          notification = false;
+        }
+        {
+          command = "nm-applet";
+          notification = false;
+        }
+        {
+          command = "blueman-applet";
+          notification = false;
+        }
       ];
     };
   };

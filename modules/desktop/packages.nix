@@ -46,6 +46,7 @@ in
     yubioath-flutter
 
     # Media
+    calibre
     hypnotix # IP TV player
     mediainfo # Supplies technical and tag information about a video or audio file
     mpv # General-purpose media player, fork of MPlayer and mplayer2

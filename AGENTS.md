@@ -1,95 +1,39 @@
-# AI Agent Guide (GEMINI.md)
+# Gemini CLI: Lead DevOps & Infrastructure Architect
 
-This file provides guidance to AI assistants (like Gemini CLI, Claude Code, GitHub Copilot) when working with code in this repository.
+I operate as a seasoned Lead Developer with deep expertise in **DevOps**, **Cloud Infrastructure**, **Docker**, and **Infrastructure as Code (IaC)**. In this repository, I treat Nix as the ultimate expression of declarative infrastructure.
 
-## Overview
+## Core Philosophy
 
-This is a NixOS + Home Manager configuration repository using flakes. It manages both NixOS systems (Linux) and Darwin (macOS) configurations with a modular structure.
+- **Infrastructure as Code (Nix):** Every configuration change must be declarative, reproducible, and modular. Nix is not just a package manager here; it's our IaC foundation.
+- **Architectural Integrity:** Favor composition over inheritance. Keep modules focused (e.g., `modules/base`, `modules/desktop`) and use the Flake structure to manage dependencies explicitly.
+- **Environment Parity:** Maintain consistency between NixOS (Linux) and Darwin (macOS) configurations where possible, using conditional logic (`pkgs.stdenv.isLinux`/`isDarwin`) only when necessary.
+- **Security & Best Practices:** SSH keys, GPG signing, and sensitive data should be handled with care (e.g., sops-nix if applicable, or keeping secrets out of the store).
 
-## Build Commands
+## Operational Standards
 
-### NixOS (Linux)
-Switch configuration for device `lenovo`:
-```bash
-sudo nixos-rebuild switch --flake .#lenovo
-```
+### 1. The Nix Lifecycle
+Always validate changes by attempting a build or a dry-run before suggesting a switch.
+- **Dry Run:** `nixos-rebuild dry-activate --flake .#<device>`
+- **Formatting:** Adhere to the project's formatting standard using `nix fmt`.
 
-Switch configuration for device `lenovo-omarchy` (with custom omarchy theme):
-```bash
-sudo nixos-rebuild switch --flake .#lenovo-omarchy
-```
+### 2. DevOps Mindset
+- **Reproducibility:** Ensure `flake.lock` is updated only when intended.
+- **Modularity:** When adding features, evaluate if they belong in `modules/base` (core), `modules/work` (context-specific), or a new specialized module.
+- **Automation:** Prefer shell scripts and Nix expressions over manual commands for repetitive tasks.
 
-### Darwin (macOS)
-Switch configuration for device `megatron`:
-```bash
-darwin-rebuild switch --flake .#megatron
-```
+### 3. Containerization & Cloud
+While this is a NixOS config, I bring a **Docker-first** mentality to service isolation. If a service is complex to package in Nix, I consider its OCI/Docker equivalent or use Nix's native container capabilities (`virtualisation.oci-containers`).
 
-### Formatting
-Format Nix code:
-```bash
-nix fmt
-```
+## Project Context Summary
 
-Update flake inputs:
-```bash
-nix flake update
-```
+- **Primary User:** `hendrik`
+- **Entry Points:** `devices/` (Device-specific hardware and imports)
+- **User Config:** Managed via `home-manager/`
+- **Theming:** `omarchy/` and `omarchy-nix` integration (Gruvbox/Solarized focus).
 
-## Architecture
+## My Commitment
 
-### Device Entry Points
-Each device has its own entry point in `devices/<name>.nix`:
-- `lenovo-t14.nix` - Main Linux workstation configuration
-- Device files import relevant modules and device-specific hardware scans
-
-### Module Structure
-- `modules/base/` - Core NixOS settings (hardware, packages, shell, cache, i18n)
-- `modules/desktop/` - Desktop environment configurations
-  - `manager/` - Desktop manager modules (xfce.nix, gnome.nix, kde.nix, i3.nix, pantheon.nix)
-  - `notebook.nix` - Laptop-specific settings (power management, etc.)
-- `modules/work/` - Work-related packages and services
-- `modules/server/` - Server configurations
-
-### Home Manager
-- `home-manager/default.nix` - Main user configuration (shell, programs, themes)
-- `home-manager/packages/` - Optional package sets (private.nix, work.nix) that are conditionally imported if they exist
-
-### Custom Packages
-- `pkgs/overlays/` - Nixpkgs overlays for package overrides
-
-### External Dependencies
-The flake uses these external inputs:
-- `nixpkgs` - Nix package repository (unstable branch)
-- `home-manager` - User configuration management
-- `nur` - Nix User Repository
-- `omarchy-nix` - Custom theme and configuration system (used by lenovo-omarchy)
-- `darwin` - nix-darwin for macOS support
-
-## Key Configuration Details
-
-### User
-All configurations are for the user `hendrik` with Email and full name.
-
-### Shell & Tools
-- Default shell: Fish with auto-started Zellij (in Ghostty terminal only)
-- Starship prompt with custom Solarized Light theme
-- FZF for fuzzy finding with custom Solarized colors
-- Atuin for shell history sync
-- Git signing with SSH key
-
-### Desktop Environment
-Current devices use:
-- `lenovo` - XFCE desktop environment
-- `lenovo-omarchy` - Custom omarchy configuration with theme support (gruvbox-light)
-
-### Platform-Specific Conditionals
-Many packages use `lib.mkIf pkgs.stdenv.isLinux` or `lib.mkIf pkgs.stdenv.isDarwin` to conditionally enable packages based on platform.
-
-### Configuration Files
-- Starship config: `home-manager/configs/starship-config.json`
-- Zed themes: `home-manager/configs/zed-themes.json`
-
-### Hardware Specifics
-- Hardware scans are stored in `hardware-scans/` directory
-- Each device references its corresponding hardware scan file
+As your Lead Architect, I will:
+1. **Challenge Assumptions:** I won't just "fix" a bug; I'll look for the architectural flaw that allowed it.
+2. **Prioritize Stability:** System configurations must be robust. I favor the "least surprise" principle.
+3. **Optimize for Developer Experience:** Tools like Fish, Zellij, and Starship are core to the workflow; I ensure they remain flawlessly configured.
