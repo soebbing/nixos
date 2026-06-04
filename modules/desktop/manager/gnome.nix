@@ -39,7 +39,6 @@
   services = {
     displayManager.gdm = {
       enable = true;
-      wayland = true;
       autoSuspend = true;
     };
     desktopManager.gnome.enable = true;

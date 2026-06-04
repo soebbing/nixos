@@ -317,9 +317,11 @@ in
 
       extraConfig = ''
         KeepAlive yes
+        TCPKeepAlive no
+        IPQoS throughput
       '';
 
-      matchBlocks = {
+      settings = {
         "*" = {
           controlMaster = "auto";
           controlPath = "/tmp/ssh_mux_%h_%p_%r";
@@ -327,11 +329,6 @@ in
           compression = true;
           forwardAgent = true;
           serverAliveInterval = 120;
-
-          extraOptions = {
-            "TCPKeepAlive" = "no";
-            "IPQoS" = "throughput";
-          };
         };
 
         "gitlab.com" = {

@@ -13,7 +13,7 @@
       beads # Lightweight memory system for AI coding agents with graph-based issue tracking
       claude-code # A command line interface for Anthropic's Claude AI models
       codex # OpenAI coding agent
-      codex-acp # OpenAI adapter for Zed
+      # codex-acp # OpenAI adapter for Zed
       opencode # AI coding agent built for the terminal
       #openclaw
       #crewai # Framework for orchestrating role-playing, autonomous AI agents
@@ -56,7 +56,7 @@
       mariadb.client # For mysqldump
       mdfried # Markdown viewer for the terminal that renders headers as Bigger Text than the rest.
       minio-client # S3 client
-      #mycli # MySQL client
+      # mycli # MySQL client
 
       nodejs # For npx
 
