@@ -702,9 +702,7 @@ in
 
   gtk = {
     enable = true;
-    # mkDefault: the Numix Solarized theme is the default for GNOME/other
-    # hosts, but omarchy-nix overrides it (Adwaita:dark) on the omarchy host.
-    theme = lib.mkDefault {
+    theme = {
       name = "NumixSolarizedLightOrange";
       package = pkgs.numix-solarized-gtk-theme;
     };

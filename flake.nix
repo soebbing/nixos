@@ -15,12 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    omarchy-nix = {
-      url = "github:henrysipp/omarchy-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +25,6 @@
     {
       nixpkgs,
       home-manager,
-      omarchy-nix,
       darwin,
       nur,
       self,
@@ -60,45 +53,23 @@
       };
 
       mkHost =
-        {
-          name,
-          omarchy ? false,
-        }:
+        { name }:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules =
-            [
-              ./devices/${name}.nix
-              nur.modules.nixos.default
-              home-manager.nixosModules.home-manager
-              commonHomeManager
-              commonNixpkgs
-              {
-                home-manager.users.hendrik.imports =
-                  [ ./home-manager ]
-                  ++ nixpkgs.lib.optional omarchy ./omarchy
-                  ++ nixpkgs.lib.optional omarchy omarchy-nix.homeManagerModules.default;
-              }
-            ]
-            ++ nixpkgs.lib.optional omarchy omarchy-nix.nixosModules.default
-            ++ nixpkgs.lib.optional omarchy {
-              # Configure omarchy
-              # https://github.com/henrysipp/omarchy-nix
-              omarchy = {
-                theme = "gruvbox-light"; # kanagawa gruvbox-light
-
-                full_name = "Hendrik Söbbing";
-                email_address = "hendrik@soebbing.de";
-              };
-            };
+          modules = [
+            ./devices/${name}.nix
+            nur.modules.nixos.default
+            home-manager.nixosModules.home-manager
+            commonHomeManager
+            commonNixpkgs
+            {
+              home-manager.users.hendrik.imports = [ ./home-manager ];
+            }
+          ];
         };
     in
     {
       nixosConfigurations = {
-        lenovo-omarchy = mkHost {
-          name = "lenovo-t14";
-          omarchy = true;
-        };
         lenovo = mkHost {
           name = "lenovo-t14";
         };
