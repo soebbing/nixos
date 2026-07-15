@@ -58,19 +58,30 @@
         nixpkgs.overlays = import ./pkgs/overlays;
         nixpkgs.config.allowUnfree = true;
       };
-    in
-    {
-      nixosConfigurations = {
-        lenovo-omarchy = nixpkgs.lib.nixosSystem {
+
+      mkHost =
+        {
+          name,
+          omarchy ? false,
+        }:
+        nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [
-            omarchy-nix.nixosModules.default
-            nur.modules.nixos.default
-            ./devices/lenovo-t14.nix
-            home-manager.nixosModules.home-manager
-            commonHomeManager
-            commonNixpkgs
-            {
+          modules =
+            [
+              ./devices/${name}.nix
+              nur.modules.nixos.default
+              home-manager.nixosModules.home-manager
+              commonHomeManager
+              commonNixpkgs
+              {
+                home-manager.users.hendrik.imports =
+                  [ ./home-manager ]
+                  ++ nixpkgs.lib.optional omarchy ./omarchy
+                  ++ nixpkgs.lib.optional omarchy omarchy-nix.homeManagerModules.default;
+              }
+            ]
+            ++ nixpkgs.lib.optional omarchy omarchy-nix.nixosModules.default
+            ++ nixpkgs.lib.optional omarchy {
               # Configure omarchy
               # https://github.com/henrysipp/omarchy-nix
               omarchy = {
@@ -79,32 +90,17 @@
                 full_name = "Hendrik Söbbing";
                 email_address = "hendrik@soebbing.de";
               };
-
-              home-manager.users.hendrik = {
-                imports = [
-                  omarchy-nix.homeManagerModules.default
-                  ./omarchy
-                  ./home-manager
-                ];
-              };
-            }
-          ];
+            };
         };
-
-        lenovo = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./devices/lenovo-t14.nix
-            nur.modules.nixos.default
-            home-manager.nixosModules.home-manager
-            commonHomeManager
-            commonNixpkgs
-            {
-              home-manager.users.hendrik.imports = [
-                ./home-manager
-              ];
-            }
-          ];
+    in
+    {
+      nixosConfigurations = {
+        lenovo-omarchy = mkHost {
+          name = "lenovo-t14";
+          omarchy = true;
+        };
+        lenovo = mkHost {
+          name = "lenovo-t14";
         };
       };
 

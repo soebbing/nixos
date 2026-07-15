@@ -5,8 +5,9 @@
     ../modules/base
     ../modules/desktop
     ../modules/desktop/notebook.nix
-    ../modules/desktop/manager/i3.nix
   ];
+
+  hendrik.desktop = "i3";
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;

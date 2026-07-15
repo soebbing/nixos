@@ -8,12 +8,9 @@
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
-    #    ../modules/desktop/manager/pantheon.nix
-    #    ../modules/desktop/manager/xfce.nix
-    ../modules/desktop/manager/gnome.nix
-    #    ../modules/desktop/manager/kde.nix
-    #    ../modules/desktop/manager/i3.nix
   ];
+
+  hendrik.desktop = "gnome";
 
   fileSystems."/".options = [
     "noatime"

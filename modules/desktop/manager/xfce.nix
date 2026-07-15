@@ -5,7 +5,7 @@
   ...
 }:
 
-{
+lib.mkIf (config.hendrik.desktop == "xfce") {
   services = {
 
     displayManager.defaultSession = "xfce";

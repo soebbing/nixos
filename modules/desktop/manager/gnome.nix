@@ -5,7 +5,7 @@
   ...
 }:
 
-{
+lib.mkIf (config.hendrik.desktop == "gnome") {
   environment.systemPackages = with pkgs; [
     baobab
     dconf-editor
@@ -30,10 +30,12 @@
     gnome-extension-manager
     gnomeExtensions.caffeine
     gnomeExtensions.clipboard-indicator
-    gnomeExtensions.sound-output-device-chooser
-    gnomeExtensions.panel-corners
     gnomeExtensions.just-perfection
-    gnomeExtensions.forge
+    gnomeExtensions.panel-corners
+    gnomeExtensions.paperwm
+    gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.whatcable
+    #gnomeExtensions.forge
   ];
 
   services = {
