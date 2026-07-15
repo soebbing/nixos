@@ -164,6 +164,8 @@ in
       enable = true;
       enableFishIntegration = true;
       tmux.enableShellIntegration = true;
+      historyWidget.command = ""; # For compatibility with atuin
+
       # Solarized Light, Truecolor
       colors = {
         fg = "-1";
@@ -700,7 +702,9 @@ in
 
   gtk = {
     enable = true;
-    theme = {
+    # mkDefault: the Numix Solarized theme is the default for GNOME/other
+    # hosts, but omarchy-nix overrides it (Adwaita:dark) on the omarchy host.
+    theme = lib.mkDefault {
       name = "NumixSolarizedLightOrange";
       package = pkgs.numix-solarized-gtk-theme;
     };
