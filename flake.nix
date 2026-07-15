@@ -15,6 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
+
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +29,7 @@
     {
       nixpkgs,
       home-manager,
+      nixos-hardware,
       darwin,
       nur,
       self,
@@ -53,7 +58,10 @@
       };
 
       mkHost =
-        { name }:
+        {
+          name,
+          hardware ? [ ],
+        }:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -65,13 +73,26 @@
             {
               home-manager.users.hendrik.imports = [ ./home-manager ];
             }
-          ];
+          ] ++ hardware;
         };
     in
     {
       nixosConfigurations = {
         lenovo = mkHost {
           name = "lenovo-t14";
+        };
+
+        syn = mkHost {
+          name = "syn";
+          hardware = [ nixos-hardware.nixosModules.dell-xps-13-7390 ];
+        };
+
+        mac = mkHost {
+          name = "mac";
+        };
+
+        ack = mkHost {
+          name = "ack";
         };
       };
 
@@ -81,12 +102,9 @@
           specialArgs = extraArgs;
           modules = [
             home-manager.darwinModules.default
+            commonHomeManager
             ./mac.nix
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "home-manager-backup";
-              home-manager.extraSpecialArgs = extraArgs;
               home-manager.users.hendrik = import ./home-manager;
             }
           ];
