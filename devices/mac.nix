@@ -2,7 +2,6 @@
 
 {
   imports = [
-    <home-manager/nixos>
     ../hardware-scans/mac.nix
     ../modules/base
     ../modules/desktop

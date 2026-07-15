@@ -2,7 +2,6 @@
 
 {
   imports = [
-    <nixos-hardware/dell/xps/13-7390>
     ../hardware-scans/syn.nix
     ../modules/base
     ../modules/desktop
