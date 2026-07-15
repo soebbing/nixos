@@ -51,26 +51,13 @@
   zramSwap.enable = true;
 
   networking.hostName = "lenovo";
-  networking.hosts = {
-    "127.0.0.1" = [
-      "canastapp.example"
-      "www.canastapp.example"
-      "api.canastapp.example"
-      "db.canastapp.example"
-      "mail.canastapp.example"
-      "traefik.canastapp.example"
-
-      "www.unixtimestamp.example"
-      "www.convert-unix-timestamp.example"
-      "www.download-handbuch.example"
-      "www.manuals-online.example"
-      "www.djplaymysong.example"
-      "www.auctionmap.example"
-      "www.farbuhr.example"
-      "www.utf8-encode.example"
-      "www.utf8-decode.example"
-    ];
-  };
+  networking.hosts."127.0.0.1" = [
+    "canastapp.example"
+    "api.canastapp.example"
+    "db.canastapp.example"
+    "mail.canastapp.example"
+    "traefik.canastapp.example"
+  ];
 
   # Disabled due to incompatibility with Linux kernel 6.19.8
   # virtualisation.virtualbox.host.enable = true;

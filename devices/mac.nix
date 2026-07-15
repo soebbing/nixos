@@ -32,7 +32,7 @@
     };
   };
 
-  networking.hostName = "syn";
+  networking.hostName = "mac";
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";

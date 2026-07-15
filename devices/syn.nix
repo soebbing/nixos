@@ -50,26 +50,13 @@
 
   networking.hostName = "syn";
   networking.hostId = "16bee688";
-  networking.hosts = {
-    "127.0.0.1" = [
-      "traefik.shopmacher.example"
-      "portainer.shopmacher.example"
-      "traefik.handcoding.example"
-      "portainer.handcoding.example"
-      "grafana.handcoding.example"
-
-      "www.unixtimestamp.example"
-      "www.convert-unix-timestamp.example"
-      "www.download-handbuch.example"
-      "www.manuals-online.example"
-      "www.canastapp.example"
-      "www.djplaymysong.example"
-      "www.auctionmap.example"
-      "www.farbuhr.example"
-      "www.utf8-encode.example"
-      "www.utf8-decode.example"
-    ];
-  };
+  networking.hosts."127.0.0.1" = [
+    "traefik.shopmacher.example"
+    "portainer.shopmacher.example"
+    "traefik.handcoding.example"
+    "portainer.handcoding.example"
+    "grafana.handcoding.example"
+  ];
 
   boot.kernelParams = [ "acpi_rev_override" ];
 
