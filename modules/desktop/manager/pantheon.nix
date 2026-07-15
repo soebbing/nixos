@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
+lib.mkIf (config.hendrik.desktop == "pantheon") {
   services = {
     displayManager = {
       autoLogin = {

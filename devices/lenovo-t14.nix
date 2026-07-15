@@ -12,8 +12,9 @@
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
-    ../modules/desktop/manager/gnome.nix
   ];
+
+  hendrik.desktop = "gnome";
 
   # Use mandoc instead of man-db to avoid sphinx/python3.11 compatibility issue
   documentation.man = {
