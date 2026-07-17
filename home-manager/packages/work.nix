@@ -9,7 +9,7 @@
 
       # LLM coding tools
       amp-cli # Amp CLI (https://ampcode.com/)
-      gemini-cli # Gemini client
+      #gemini-cli # Gemini client
       beads # Lightweight memory system for AI coding agents with graph-based issue tracking
       claude-code # A command line interface for Anthropic's Claude AI models
       codex # OpenAI coding agent
@@ -29,7 +29,7 @@
 
       dotnet-sdk # .NET SDK
 
-      elixir # Dynamic, functional language designed for building scalable and maintainable applications
+      beamPackages.elixir # Dynamic, functional language designed for building scalable and maintainable applications
 
       gcc # GNU Compiler Collection
       glab # A command line tool for gitlab

@@ -1,7 +1,6 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }:
 
 # Desktop manager is chosen per host via `hendrik.desktop`.

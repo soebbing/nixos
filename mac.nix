@@ -1,10 +1,9 @@
-{
-  config,
-  lib,
-  pkgs,
-  flake,
-  environment,
-  ...
+{ config
+, lib
+, pkgs
+, flake
+, environment
+, ...
 }:
 
 {

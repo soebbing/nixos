@@ -26,14 +26,13 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      nixos-hardware,
-      darwin,
-      nur,
-      self,
-      ...
+    { nixpkgs
+    , home-manager
+    , nixos-hardware
+    , darwin
+    , nur
+    , self
+    , ...
     }:
     let
       supportedSystems = [
@@ -58,9 +57,9 @@
       };
 
       mkHost =
-        {
-          name,
-          hardware ? [ ],
+        { name
+        , hardware ? [ ]
+        ,
         }:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -93,6 +92,10 @@
 
         ack = mkHost {
           name = "ack";
+        };
+
+        handcoding = mkHost {
+          name = "handcoding";
         };
       };
 

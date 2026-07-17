@@ -45,7 +45,7 @@
     fsType = "vfat";
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/658684d9-f7a1-43d9-b92a-ba011aed4186"; } ];
+  swapDevices = [{ device = "/dev/disk/by-uuid/658684d9-f7a1-43d9-b92a-ba011aed4186"; }];
 
   networking.hostName = "syn";
   networking.hostId = "16bee688";

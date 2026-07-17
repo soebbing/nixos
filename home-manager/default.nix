@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }:
 
 {
@@ -17,8 +16,7 @@
     username = "hendrik";
     homeDirectory = if pkgs.stdenv.isDarwin then "/Users/hendrik" else "/home/hendrik";
     shell.enableFishIntegration = true;
-    sessionVariables = {
-    };
+    sessionVariables = { };
 
     # Available in any shell, but one needs to be enabled below
     shellAliases = {
