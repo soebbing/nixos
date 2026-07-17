@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }:
 
 {
@@ -47,7 +46,7 @@
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/bd92597d-f38f-4b4a-88ed-f26f5eb8466b";
 
-  swapDevices = [ { device = "/swap/swapfile"; } ];
+  swapDevices = [{ device = "/swap/swapfile"; }];
   zramSwap.enable = true;
 
   networking.hostName = "lenovo";

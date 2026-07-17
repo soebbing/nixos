@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
@@ -15,7 +16,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/enc";
+    {
+      device = "/dev/mapper/enc";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
@@ -23,31 +25,36 @@
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/bd92597d-f38f-4b4a-88ed-f26f5eb8466b";
 
   fileSystems."/swap" =
-    { device = "/dev/mapper/enc";
+    {
+      device = "/dev/mapper/enc";
       fsType = "btrfs";
       options = [ "subvol=swap" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/mapper/enc";
+    {
+      device = "/dev/mapper/enc";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/mapper/enc";
+    {
+      device = "/dev/mapper/enc";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/mapper/enc";
+    {
+      device = "/dev/mapper/enc";
       fsType = "btrfs";
       options = [ "subvol=log" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/12CE-A600";
+    {
+      device = "/dev/disk/by-uuid/12CE-A600";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
