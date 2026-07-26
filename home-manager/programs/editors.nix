@@ -100,7 +100,8 @@ in
         ui_font_family = ".SystemUIFont"; # "JetBrains Mono, MesloLGS Nerd Font";
         ui_font_weight = 400;
 
-        agent_font_size = 15;
+        agent_ui_font_size = 15;
+        agent_buffer_font_size = 15;
 
         # Terminal Font Settings
         terminal = {
@@ -112,14 +113,38 @@ in
 
         profiles = {
           presentation = {
-            buffer_font_size = 22;
-            ui_font_size = 22;
-            theme = "Solarized Dark";
+            base = "user";
+            settings = {
+              buffer_font_size = 22;
+              ui_font_size = 22;
+              theme = "Solarized Dark";
+            };
           };
         };
 
         telemetry = {
           metrics = false;
+        };
+
+        # MiniMax Token Plan (OpenAI-compatible). Credentials live in the
+        # MINIMAX_TOKEN_PLAN_API_KEY env var; do not commit the key.
+        # Provider id `minimax-token-plan` maps to that env var name.
+        # See: https://platform.minimaxi.com/docs/token-plan/quickstart
+        #      https://zed.dev/docs/ai/use-api-access#openai-compatible
+        language_models = {
+          openai_compatible = {
+            "minimax-token-plan" = {
+              api_url = "https://api.minimaxi.com/v1";
+              available_models = [
+                {
+                  name = "MiniMax-M3";
+                  display_name = "MiniMax M3";
+                  max_tokens = 1000000;
+                  max_output_tokens = 64000;
+                }
+              ];
+            };
+          };
         };
       };
 
@@ -135,8 +160,8 @@ in
       ];
 
       extensions = [
-        "adawait"
-        "adawait-pastel"
+        "adwaita"
+        "adwaita-pastel"
         "caddyfile"
         "csharp"
         "docker-compose"
@@ -148,7 +173,7 @@ in
         "http"
         "ini"
         "java"
-        "jetbrains-new-icons"
+        "jetbrains-new-ui-icons"
         "jetbrains-themes"
         "nginx"
         "php"
