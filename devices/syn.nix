@@ -50,8 +50,6 @@
   networking.hostName = "syn";
   networking.hostId = "16bee688";
   networking.hosts."127.0.0.1" = [
-    "traefik.shopmacher.example"
-    "portainer.shopmacher.example"
     "traefik.handcoding.example"
     "portainer.handcoding.example"
     "grafana.handcoding.example"
