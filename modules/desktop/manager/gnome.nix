@@ -32,7 +32,6 @@ lib.mkIf (config.hendrik.desktop == "gnome") {
     gnomeExtensions.just-perfection
     gnomeExtensions.panel-corners
     gnomeExtensions.paperwm
-    gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.whatcable
     #gnomeExtensions.forge
   ];

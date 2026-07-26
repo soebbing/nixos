@@ -109,7 +109,7 @@
       soapui # SOAP API testing tool
       #teams-for-linux # Inofficial Microsoft Teams client for Linux
 
-      antigravity-fhs # Agentic development platform, evolving the IDE into the agent-first era, wrapped variant of antigravity which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
+      antigravity-ide-fhs # Agentic development platform, evolving the IDE into the agent-first era, wrapped variant of antigravity which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
       code-cursor-fhs # AI-powered code editor built on vscode
       kiro-fhs # IDE for Agentic AI workflows based on VS Code, wrapped variant of kiro which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
 
