@@ -9,6 +9,8 @@
     ./ssh.nix
     ./cache.nix
     ./i18n-de.nix
+    ./hosts.nix
+    ./users.nix
   ];
 
   nixpkgs.overlays = import ../../pkgs/overlays;

@@ -1,11 +1,10 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 
-{
+lib.mkIf (config.hendrik.desktop == "xfce") {
   services = {
 
     displayManager.defaultSession = "xfce";
