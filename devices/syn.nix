@@ -2,18 +2,14 @@
 
 {
   imports = [
-    <nixos-hardware/dell/xps/13-7390>
     ../hardware-scans/syn.nix
     ../modules/base
     ../modules/desktop
     ../modules/desktop/notebook.nix
     ../modules/work
-    #    ../modules/desktop/manager/pantheon.nix
-    #    ../modules/desktop/manager/xfce.nix
-    ../modules/desktop/manager/gnome.nix
-    #    ../modules/desktop/manager/kde.nix
-    #      ../modules/desktop/manager/i3.nix
   ];
+
+  hendrik.desktop = "gnome";
 
   boot.loader.grub = {
     enable = true;
@@ -49,30 +45,15 @@
     fsType = "vfat";
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/658684d9-f7a1-43d9-b92a-ba011aed4186"; } ];
+  swapDevices = [{ device = "/dev/disk/by-uuid/658684d9-f7a1-43d9-b92a-ba011aed4186"; }];
 
   networking.hostName = "syn";
   networking.hostId = "16bee688";
-  networking.hosts = {
-    "127.0.0.1" = [
-      "traefik.shopmacher.example"
-      "portainer.shopmacher.example"
-      "traefik.handcoding.example"
-      "portainer.handcoding.example"
-      "grafana.handcoding.example"
-
-      "www.unixtimestamp.example"
-      "www.convert-unix-timestamp.example"
-      "www.download-handbuch.example"
-      "www.manuals-online.example"
-      "www.canastapp.example"
-      "www.djplaymysong.example"
-      "www.auctionmap.example"
-      "www.farbuhr.example"
-      "www.utf8-encode.example"
-      "www.utf8-decode.example"
-    ];
-  };
+  networking.hosts."127.0.0.1" = [
+    "traefik.handcoding.example"
+    "portainer.handcoding.example"
+    "grafana.handcoding.example"
+  ];
 
   boot.kernelParams = [ "acpi_rev_override" ];
 

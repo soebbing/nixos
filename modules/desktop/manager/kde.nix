@@ -1,14 +1,10 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
+{ config
+, pkgs
+, lib
+, ...
 }:
 
-let
-
-in
-{
+lib.mkIf (config.hendrik.desktop == "kde") {
   nixpkgs.config.allowUnfree = true;
 
   services = {

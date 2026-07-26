@@ -25,6 +25,7 @@ in
       fzy # A simple, fast fuzzy finder for the terminal. Used by neovim-fuzzy
       gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
+      inotify-tools # For elexir
       jql # A JSON query language CLI tool
       lemmeknow # Identify mysterious text or analyze hard-coded strings from captured network packets, malwares, and more.
       libusb1
@@ -79,7 +80,7 @@ in
     ++ lib.optionals pkgs.stdenv.isLinux [
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
-      freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
+      #freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
       openvpn3
     ];
 }
