@@ -19,7 +19,6 @@ lib.mkIf (config.hendrik.desktop == "gnome") {
     whitesur-icon-theme
     adwaita-icon-theme
     numix-icon-theme
-    numix-solarized-gtk-theme
     numix-cursor-theme
     breeze-hacked-cursor-theme
     openzone-cursors

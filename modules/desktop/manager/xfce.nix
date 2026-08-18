@@ -58,7 +58,6 @@ lib.mkIf (config.hendrik.desktop == "xfce") {
 
     # Themes & appearance
     numix-icon-theme
-    numix-solarized-gtk-theme
     gnome-themes-extra
     papirus-icon-theme
     arc-theme

@@ -78,6 +78,7 @@ in
     sipcalc # Advanced console ip subnet calculator
     soco-cli # SONOS controller for Linux platforms
     tree # Command to produce a depth indented directory listing
+    warp-terminal # A Rust based terminal
 
     xautolock
     xclip
