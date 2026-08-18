@@ -15,6 +15,8 @@
       codex # OpenAI coding agent
       # codex-acp # OpenAI adapter for Zed
       opencode # AI coding agent built for the terminal
+      happy-coder # A command line tool for happy-coder
+      context7-mcp # MCP Server for up-to-date code documentation for LLMs and AI code editors
       #openclaw
       #crewai # Framework for orchestrating role-playing, autonomous AI agents
 
@@ -44,12 +46,11 @@
       grpc-gateway # A gRPC to JSON proxy generator plugin for Go
 
       lnav # Logfile Navigator
-      happy-coder # A command line tool for happy-coder
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
       insomnia # REST API GUI
       iredis # Terminal GUI for Redis
 
-      jetbrains.idea-oss
+      jetbrains.idea
       jetbrains.goland
       jetbrains.phpstorm
 
