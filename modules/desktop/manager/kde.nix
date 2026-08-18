@@ -85,7 +85,6 @@ lib.mkIf (config.hendrik.desktop == "kde") {
     plasma-panel-colorizer
 
     # Solarized support
-    numix-solarized-gtk-theme
     dircolors-solarized
     kdePackages.qtstyleplugin-kvantum
   ];

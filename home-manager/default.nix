@@ -43,12 +43,12 @@
   gtk = {
     enable = true;
     theme = {
-      name = "NumixSolarizedLightOrange";
-      package = pkgs.numix-solarized-gtk-theme;
+      name = "WhiteSur-light";
+      package = pkgs.whitesur-gtk-theme;
     };
     iconTheme = {
-      name = "Numix"; # Falls im Paket enthalten, sonst z.B. "Papirus-Light"
-      package = pkgs.numix-solarized-gtk-theme;
+      name = "WhiteSur-light"; # Falls im Paket enthalten, sonst z.B. "Papirus-Light"
+      package = pkgs.whitesur-icon-theme;
     };
     gtk4.theme = null;
   };

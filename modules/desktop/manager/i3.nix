@@ -65,6 +65,5 @@ lib.mkIf (config.hendrik.desktop == "i3") {
     brightnessctl
 
     numix-icon-theme
-    numix-solarized-gtk-theme
   ];
 }
