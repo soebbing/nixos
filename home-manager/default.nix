@@ -14,7 +14,7 @@
   home = {
     stateVersion = "25.11";
     username = "hendrik";
-    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/hendrik" else "/home/hendrik";
+    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/hendrik" else "/home/hendrik";
     shell.enableFishIntegration = true;
     sessionVariables = { };
 

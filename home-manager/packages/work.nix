@@ -47,6 +47,7 @@
 
       lnav # Logfile Navigator
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
+      hunk # Terminal diff viewer for agentic changesets
       insomnia # REST API GUI
       iredis # Terminal GUI for Redis
 
@@ -57,7 +58,8 @@
       mariadb.client # For mysqldump
       mdfried # Markdown viewer for the terminal that renders headers as Bigger Text than the rest.
       minio-client # S3 client
-      # mycli # MySQL client
+
+      mycli # MySQL client
 
       nodejs # For npx
 
@@ -99,11 +101,11 @@
       uv # Fast Python package installer
     ]
     # Only MacOS packages
-    ++ lib.optionals pkgs.stdenv.isDarwin [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       teams # Microsoft Teams client for MacOS
     ]
     # Linux only packages
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       arduino # Open-source electronics prototyping platform
       tiny-rdm # Redis GUI
       libgcc # GCC library for Linux

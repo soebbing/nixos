@@ -65,7 +65,7 @@
     };
 
     # Broken on mac (2025-10-20)
-    gitui = lib.mkIf pkgs.stdenv.isLinux {
+    gitui = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       enable = true;
     };
 
