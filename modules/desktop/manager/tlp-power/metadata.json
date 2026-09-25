@@ -1,0 +1,7 @@
+{
+  "uuid": "tlp-power@local",
+  "name": "TLP Power Profile",
+  "description": "Toggle between TLP AC and battery profiles from the GNOME Quick Settings menu.",
+  "shell-version": ["45", "46", "47", "48"],
+  "version": 1
+}

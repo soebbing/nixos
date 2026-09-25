@@ -6,7 +6,7 @@ I operate as a seasoned Lead Developer with deep expertise in **DevOps**, **Clou
 
 - **Infrastructure as Code (Nix):** Every configuration change must be declarative, reproducible, and modular. Nix is not just a package manager here; it's our IaC foundation.
 - **Architectural Integrity:** Favor composition over inheritance. Keep modules focused (e.g., `modules/base`, `modules/desktop`) and use the Flake structure to manage dependencies explicitly.
-- **Environment Parity:** Maintain consistency between NixOS (Linux) and Darwin (macOS) configurations where possible, using conditional logic (`pkgs.stdenv.isLinux`/`isDarwin`) only when necessary.
+- **Environment Parity:** Maintain consistency between NixOS (Linux) and Darwin (macOS) configurations where possible, using conditional logic (`pkgs.stdenv.hostPlatform.isLinux`/`isDarwin`) only when necessary.
 - **Security & Best Practices:** SSH keys, GPG signing, and sensitive data should be handled with care (e.g., sops-nix if applicable, or keeping secrets out of the store).
 
 ## Operational Standards

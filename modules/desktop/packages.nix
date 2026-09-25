@@ -47,7 +47,7 @@ in
     yubioath-flutter
 
     # Media
-    calibre
+    #calibre
     hypnotix # IP TV player
     mediainfo # Supplies technical and tag information about a video or audio file
     mpv # General-purpose media player, fork of MPlayer and mplayer2
@@ -63,7 +63,7 @@ in
     github-cli
     kbfs
     keybase
-    keybase-gui
+    # keybase-gui # insecure as of 2026-09-07
     libdvdcss
     libnotify
     lm_sensors # Tools for reading hardware sensors
@@ -73,6 +73,7 @@ in
     openssl # Cryptographic library that implements the SSL and TLS protocols
 
     #qemu # Generic and open source machine emulator and virtualizer
+    qFlipper # Cross-platform desktop tool to manage your flipper device
     rclone # Command line program to sync files and directories to and from major cloud storage
     shellcheck # Shell script analysis tool
     sipcalc # Advanced console ip subnet calculator

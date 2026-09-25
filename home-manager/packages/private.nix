@@ -72,12 +72,12 @@ in
       # '')
     ]
     # Only MacOS packages
-    ++ lib.optionals pkgs.stdenv.isDarwin [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
       #colima
       maccy
     ]
     # Linux only packages
-    ++ lib.optionals pkgs.stdenv.isLinux [
+    ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
       #freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler

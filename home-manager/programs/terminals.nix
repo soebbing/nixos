@@ -7,7 +7,7 @@
 {
   programs = {
     # Broken on mac (2025-10-06)
-    kitty = lib.mkIf pkgs.stdenv.isLinux {
+    kitty = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       enable = true;
       shellIntegration.enableFishIntegration = true;
       enableGitIntegration = true;
@@ -15,7 +15,7 @@
     };
 
     # Broken on mac (2025-09-10)
-    ghostty = lib.mkIf pkgs.stdenv.isLinux {
+    ghostty = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       enable = true;
       enableFishIntegration = true;
       # Configuration: https://ghostty.zerebos.com
