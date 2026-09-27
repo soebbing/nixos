@@ -16,7 +16,9 @@
     username = "hendrik";
     homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/hendrik" else "/home/hendrik";
     shell.enableFishIntegration = true;
-    sessionVariables = { };
+    # Wayland / Hyprland session vars (XDG_CURRENT_DESKTOP, MOZ_ENABLE_WAYLAND,
+    # QT_*, SDL_*, …) live in ./hyprland.nix, gated on osConfig.hendrik.desktop
+    # so they don't leak XDG_CURRENT_DESKTOP=Hyprland into GNOME.
 
     # Available in any shell, but one needs to be enabled below
     shellAliases = {
@@ -39,6 +41,10 @@
   };
 
   programs.home-manager.enable = true;
+
+  # xdg-desktop-portal 1.17+: without `common.default = "*"` the daemon
+  # refuses to pick a backend and screen-share / file-chooser break silently.
+  xdg.portal.config.common.default = "*";
 
   gtk = {
     enable = true;
@@ -66,5 +72,7 @@
     ./programs/editors.nix
     ./programs/terminals.nix
     ./programs/files.nix
+    ./programs/cliphist.nix
+    ./hyprland.nix
   ];
 }

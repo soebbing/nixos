@@ -5,9 +5,7 @@
 }:
 
 let
-  # Custom Quick Settings tile that toggles TLP between the AC and battery
-  # profiles. Built from ./tlp-power/ and installed under the standard
-  # /usr/share/gnome-shell/extensions/<uuid>/ path.
+  # Quick Settings tile that toggles TLP AC/battery profiles; built from ./tlp-power/.
   tlpPowerExtension = pkgs.stdenvNoCC.mkDerivation {
     pname = "gnome-shell-extension-tlp-power";
     version = "1";
@@ -20,8 +18,7 @@ let
     '';
   };
 
-  # Fixed-path wrapper around pkgs.tlp so polkit can whitelist a stable
-  # absolute path (the nix store path changes on every rebuild).
+  # Fixed-path wrapper so polkit can whitelist a stable absolute path (nix store path changes per rebuild).
   tlpSet = pkgs.writeShellScript "tlp-set" ''
     exec ${pkgs.tlp}/bin/tlp "$@"
   '';
@@ -54,18 +51,17 @@ lib.mkIf (config.hendrik.desktop == "gnome") {
     gnomeExtensions.just-perfection
     gnomeExtensions.panel-corners
     gnomeExtensions.paperwm
+    gnomeExtensions.pop-shell
     gnomeExtensions.whatcable
     #gnomeExtensions.forge
 
     tlpPowerExtension
   ];
 
-  # Drop the tlp-set wrapper at /etc/tlp-set so polkit can match on a stable
-  # absolute path. The extension invokes `pkexec /etc/tlp-set ac|bat`.
+  # Drop the tlp-set wrapper at /etc/tlp-set so polkit matches a stable absolute path.
   environment.etc."tlp-set".source = tlpSet;
 
-  # Authorise the active local user to run /etc/tlp-set without a password
-  # prompt. Adjust `subject.user` if the desktop account is renamed.
+  # Authorise the local user to run /etc/tlp-set without a password.
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (action.id == "org.freedesktop.policykit.exec" &&
@@ -76,6 +72,25 @@ lib.mkIf (config.hendrik.desktop == "gnome") {
       }
     });
   '';
+
+  # Pop Shell: Hyprland-style auto-tiling on top of GNOME. Schema settings
+  # only — the user toggles `enabled-extensions` via Extension Manager,
+  # which writes to the user db and wins over this system db. After rebuild:
+  #   gnome-extensions enable pop-shell@system76.com
+  programs.dconf.profiles.user.databases = [
+    {
+      settings = {
+        "org/gnome/shell/extensions/pop-shell" = {
+          "tile-by-default" = true;
+          # Gaps must match home-manager/hyprland.nix for parity.
+          # lib.gvariant.mkUint32: schema type is `u`, not inferrable from a literal.
+          "gap-inner" = lib.gvariant.mkUint32 5;
+          "gap-outer" = lib.gvariant.mkUint32 10;
+          "smart-gaps" = true;
+        };
+      };
+    }
+  ];
 
   services = {
     displayManager.gdm = {

@@ -107,8 +107,9 @@
   security.polkit.enable = true;
 
   security.pam.services = {
-    gdm-password.fprintAuth = true;
-    gdm-fingerprint.fprintAuth = true;
+    # gdm-password / gdm-fingerprint are no-ops here: the NixOS gdm module
+    # hardcodes both .text files and forces login.fprintAuth = false.
+    hyprlock.fprintAuth = true;
     sudo.fprintAuth = true;
   };
 }
