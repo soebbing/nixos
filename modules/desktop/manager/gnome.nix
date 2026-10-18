@@ -4,26 +4,6 @@
 , ...
 }:
 
-let
-  # Quick Settings tile that toggles TLP AC/battery profiles; built from ./tlp-power/.
-  tlpPowerExtension = pkgs.stdenvNoCC.mkDerivation {
-    pname = "gnome-shell-extension-tlp-power";
-    version = "1";
-    src = ./tlp-power;
-    dontBuild = true;
-    installPhase = ''
-      uuid="tlp-power@local"
-      mkdir -p "$out/share/gnome-shell/extensions/$uuid"
-      cp -r $src/* "$out/share/gnome-shell/extensions/$uuid/"
-    '';
-  };
-
-  # Fixed-path wrapper so polkit can whitelist a stable absolute path (nix store path changes per rebuild).
-  tlpSet = pkgs.writeShellScript "tlp-set" ''
-    exec ${pkgs.tlp}/bin/tlp "$@"
-  '';
-in
-
 lib.mkIf (config.hendrik.desktop == "gnome") {
   environment.systemPackages = with pkgs; [
     baobab
@@ -54,24 +34,7 @@ lib.mkIf (config.hendrik.desktop == "gnome") {
     gnomeExtensions.pop-shell
     gnomeExtensions.whatcable
     #gnomeExtensions.forge
-
-    tlpPowerExtension
   ];
-
-  # Drop the tlp-set wrapper at /etc/tlp-set so polkit matches a stable absolute path.
-  environment.etc."tlp-set".source = tlpSet;
-
-  # Authorise the local user to run /etc/tlp-set without a password.
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (action.id == "org.freedesktop.policykit.exec" &&
-          action.lookup("program") == "/etc/tlp-set" &&
-          subject.local && subject.active &&
-          subject.user == "hendrik") {
-        return polkit.Result.YES;
-      }
-    });
-  '';
 
   # Pop Shell: Hyprland-style auto-tiling on top of GNOME. Schema settings
   # only — the user toggles `enabled-extensions` via Extension Manager,

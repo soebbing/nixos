@@ -70,7 +70,7 @@
 
       packer # A tool for creating identical machine images for multiple platforms from a single source configuration
       package-version-server # Language server that handles hover information in package.json files
-      pgadmin4 # PostgreSQL administration tool
+      #pgadmin4 # PostgreSQL administration tool
 
       php85
       php85Packages.composer

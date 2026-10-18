@@ -146,4 +146,30 @@
       };
     };
   };
+
+  # Replace atuin's default `bind ctrl-r _atuin_search` with an fzf-based
+  # version that does not call `commandline -f repaint`. The atuin binding
+  # (and any pure-fish `commandline -r + repaint` from a binding) triggers
+  # a 4.9.3 bug that duplicates the first character of the new buffer
+  # (e.g., "ls" renders as "lls"). The bug is in fish's repaint, not in
+  # our config. By skipping repaint, the buffer is set correctly and
+  # fish's natural redraw on the next keystroke displays it cleanly.
+  xdg.configFile."fish/conf.d/99-fzf-atuin-history.fish".text = ''
+    function _fzf_atuin_history
+        set -l current (commandline)
+        set -l selected (
+            atuin search --format "{command}" --limit 1000 2>/dev/null |
+                string uniq |
+                fzf --no-sort --query "$current" \
+                    --prompt " history> " --height 40% --reverse
+        )
+        if test -n "$selected"
+            # Intentionally no `commandline -f repaint` — see comment above.
+            commandline -r -- "$selected"
+        end
+    end
+
+    bind -e ctrl-r
+    bind ctrl-r _fzf_atuin_history
+  '';
 }
