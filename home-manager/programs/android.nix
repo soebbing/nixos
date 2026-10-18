@@ -11,7 +11,7 @@ let
   # bundled in the nixpkgs input. The shape of this call mirrors
   # compose-android-packages.nix lines 31-162 (nixpkgs pinned in flake.lock).
   androidEnv = pkgs.androidenv.composeAndroidPackages {
-    platformVersions = [ "android-34" ];
+    platformVersions = [ "34" ];
     buildToolsVersions = [ "34.0.0" ];
     ndkVersions = [ "27.0.12077973" ];
     includeNDK = true;
