@@ -3,45 +3,44 @@
 let
   cfg = osConfig.hendrik.android or false;
 
-  platform = pkgs.buildPackages.androidenv.platforms.android-34;
-  buildTools = pkgs.buildPackages.androidenv.build-tools."34.0.0";
-  ndk = pkgs.androidenv.ndk."27.0.12077973";
-
   # composeAndroidPackages does the sdkmanager install inside the Nix
   # sandbox at build time, so no licence-acceptance dialog or per-host
   # network fetch is needed. The result is one /nix/store derivation
-  # rooted at ANDROID_HOME.
+  # rooted at ANDROID_HOME. We pass version strings (not pre-resolved
+  # pkgs) so the function can resolve everything from the Android repo
+  # bundled in the nixpkgs input. The shape of this call mirrors
+  # compose-android-packages.nix lines 31-162 (nixpkgs pinned in flake.lock).
   androidEnv = pkgs.androidenv.composeAndroidPackages {
-    platforms = [ platform ];
-    buildTools = [ buildTools ];
+    platformVersions = [ "android-34" ];
+    buildToolsVersions = [ "34.0.0" ];
+    ndkVersions = [ "27.0.12077973" ];
     includeNDK = true;
-    includeNdkSysroot = false;
     includeEmulator = true;
-    systemImages = [
-      # `default;x86_64` keeps the licence footprint small and uses
-      # the KVM-friendly x86_64 system image so /dev/kvm is used.
-      pkgs.buildPackages.androidenv.system-images."system-images;android-34;default;x86_64"
-    ];
+    includeSystemImages = true;
+    systemImageTypes = [ "default" ];
+    abiVersions = [ "x86_64" ];
     includeSources = true;
   };
 in
 lib.mkIf cfg {
   home.packages = [
     androidEnv # exposes bin/ for sdkmanager, avdmanager, emulator
-    androidEnv.androidsdk # the /share/android-sdk data root (also auto-PATHed)
+    androidEnv.androidsdk # the /libexec/android-sdk data root (also auto-PATHed)
     pkgs.android-studio
-    ndk # exposes bin/ for ndk-build, clang, llvm, etc.
   ];
 
-  # Set ANDROID_HOME / ANDROID_SDK_ROOT / ANDROID_NDK_HOME so Gradle,
-  # sdkmanager, avdmanager, and Android Studio all find the Nix-managed
-  # install paths. home.packages already puts each derivation's bin/
-  # on PATH, giving us adb, emulator, sdkmanager, avdmanager with no
-  # further wiring.
+  # ANDROID_HOME / ANDROID_SDK_ROOT point at the SDK layout that
+  # cmdline-tools.nix builds at $androidsdk/libexec/android-sdk. NDK
+  # is symlinked into that layout under ndk/<revision>/ by
+  # linkNdkPlugins (rootName = "ndk"); for r27 the revision is the
+  # input string "27.0.12077973", so ANDROID_NDK_HOME points inside
+  # the same SDK root. home.packages already puts each derivation's
+  # bin/ on PATH, giving us adb, emulator, sdkmanager, avdmanager
+  # with no further wiring.
   home.sessionVariables = {
-    ANDROID_SDK_ROOT = "${androidEnv.androidsdk}/share/android-sdk";
-    ANDROID_HOME = "${androidEnv.androidsdk}/share/android-sdk";
-    ANDROID_NDK_HOME = "${ndk}";
+    ANDROID_SDK_ROOT = "${androidEnv.androidsdk}/libexec/android-sdk";
+    ANDROID_HOME = "${androidEnv.androidsdk}/libexec/android-sdk";
+    ANDROID_NDK_HOME = "${androidEnv.androidsdk}/libexec/android-sdk/ndk/27.0.12077973";
   };
 
   # AVD creation helper. AVDs are not declaratively Nix-buildable (they
