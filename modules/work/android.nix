@@ -25,6 +25,13 @@ in
     # without setuid. Additive — `libvirtd` is added in devices/lenovo-t14.nix.
     users.users.hendrik.extraGroups = [ "kvm" ];
 
+    # Accept the Android SDK license at evaluation time. Without this,
+    # composeAndroidPackages' cmdline-tools.nix:691 throws
+    # "You must accept the following licenses: android-sdk-license"
+    # at install time. Spec Appendix A claimed "no licence-acceptance
+    # dialog (build-time)" — this is the line that makes that true.
+    nixpkgs.config.android_sdk.accept_license = true;
+
     environment.systemPackages = with pkgs; [
       qemu # qemu-kvm, qemu-img, qemu-system-x86_64
       libguestfs-with-appliance # virt-cat, virt-ls for VM image inspection
