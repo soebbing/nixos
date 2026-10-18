@@ -24,8 +24,12 @@ let
 in
 lib.mkIf cfg {
   home.packages = [
-    androidEnv # exposes bin/ for sdkmanager, avdmanager, emulator
-    androidEnv.androidsdk # the /libexec/android-sdk data root (also auto-PATHed)
+    # `androidEnv` is the recurseIntoAttrs attrset returned by
+    # `pkgs.androidenv.composeAndroidPackages` — NOT a derivation, so
+    # it must not go here. `androidEnv.androidsdk` IS the derivation
+    # (built by cmdline-tools.nix) and its $out/bin/ has the symlinks
+    # for sdkmanager, avdmanager, emulator, and adb (via platform-tools).
+    androidEnv.androidsdk
     pkgs.android-studio
   ];
 
