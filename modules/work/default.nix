@@ -5,5 +5,6 @@
     ../base
     ./packages.nix
     ./services.nix
+    ./android.nix
   ];
 }
