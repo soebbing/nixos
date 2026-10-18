@@ -1,0 +1,145 @@
+{
+  "planPath": "docs/superpowers/plans/2026-10-18-android-kvm.md",
+  "specPath": "docs/superpowers/specs/2026-10-18-android-kvm-design.md",
+  "lastUpdated": "2026-10-18T00:00:00Z",
+  "tasks": [
+    {
+      "id": 1,
+      "subject": "Task 1: System-level Android NixOS module",
+      "status": "pending",
+      "blockedBy": [],
+      "files": ["modules/work/android.nix"],
+      "verifyCommand": "nix-instantiate --parse modules/work/android.nix && echo OK",
+      "acceptanceCriteria": [
+        "File exists at exact path with content per plan Task 1 Step 1",
+        "nix-instantiate --parse exits 0",
+        "nix fmt --check is a no-op"
+      ],
+      "modelTier": "mechanical"
+    },
+    {
+      "id": 2,
+      "subject": "Task 2: User-level Android home-manager module",
+      "status": "pending",
+      "blockedBy": [],
+      "files": ["home-manager/programs/android.nix"],
+      "verifyCommand": "nix-instantiate --parse home-manager/programs/android.nix && echo OK",
+      "acceptanceCriteria": [
+        "File exists at exact path with content per plan Task 2 Step 1",
+        "nix-instantiate --parse exits 0",
+        "nix fmt --check is a no-op"
+      ],
+      "modelTier": "mechanical"
+    },
+    {
+      "id": 3,
+      "subject": "Task 3: Wire modules into parent imports",
+      "status": "pending",
+      "blockedBy": [1, 2],
+      "files": ["modules/work/default.nix", "home-manager/default.nix"],
+      "verifyCommand": "nix fmt && nixos-rebuild dry-activate --flake .#lenovo",
+      "acceptanceCriteria": [
+        "modules/work/default.nix imports ./android.nix",
+        "home-manager/default.nix imports ./programs/android.nix",
+        "nix flake show exits 0",
+        "nix fmt --check is no-op",
+        "nixos-rebuild dry-activate --flake .#lenovo exits 0",
+        "nixos-rebuild dry-activate --flake .#syn exits 0 with no Android material"
+      ],
+      "modelTier": "mechanical"
+    },
+    {
+      "id": 4,
+      "subject": "Task 4: Set hendrik.android flag on lenovo-t14",
+      "status": "pending",
+      "blockedBy": [3],
+      "files": ["devices/lenovo-t14.nix"],
+      "verifyCommand": "nix fmt --check && nixos-rebuild dry-activate --flake .#lenovo",
+      "acceptanceCriteria": [
+        "Exactly one new line `hendrik.android = true;` after `hendrik.desktop = \"gnome\";`",
+        "nix flake show exits 0",
+        "nixos-rebuild dry-activate --flake .#lenovo exits 0",
+        "nixos-rebuild dry-activate --flake .#syn exits 0 with no Android material"
+      ],
+      "modelTier": "mechanical"
+    },
+    {
+      "id": 5,
+      "subject": "Task 5: nixos-rebuild switch to land changes",
+      "status": "pending",
+      "blockedBy": [4],
+      "files": [],
+      "verifyCommand": "sudo nixos-rebuild switch --flake .#lenovo && lsmod | grep -E 'kvm_intel|tun' && ls -l /dev/kvm",
+      "acceptanceCriteria": [
+        "nixos-rebuild switch exits 0",
+        "KVM kernel module loaded after switch",
+        "/dev/kvm exists with group kvm and mode 0660",
+        "qemu-system-x86_64 reports a version",
+        "nix-collect-garbage NOT run"
+      ],
+      "modelTier": "frontier",
+      "notes": "First build can take 10-30 minutes — Android SDK/NDK/Studio/system image are all built from nixpkgs. Do not cancel."
+    },
+    {
+      "id": 6,
+      "subject": "Task 6: System-level smoke tests post-switch",
+      "status": "pending",
+      "blockedBy": [5],
+      "tags": ["user-gate"],
+      "userGate": true,
+      "files": ["/tmp/android-verify/system.txt"],
+      "verifyCommand": "newgrp kvm -c 'lsmod | grep kvm_intel; ls -l /dev/kvm; groups; qemu-system-x86_64 --version | head -1; systemctl is-active libvirtd' | tee /tmp/android-verify/system.txt",
+      "acceptanceCriteria": [
+        "AC1: lsmod output contains kvm_intel",
+        "AC2: /dev/kvm has group kvm and mode 0660",
+        "AC3: groups output contains kvm",
+        "AC4: qemu-system-x86_64 --version prints a version",
+        "AC5: systemctl is-active libvirtd prints 'active'"
+      ],
+      "modelTier": "standard",
+      "captureLog": "/tmp/android-verify/system.txt"
+    },
+    {
+      "id": 7,
+      "subject": "Task 7: User-level env + AVD helper smoke",
+      "status": "pending",
+      "blockedBy": [5],
+      "tags": ["user-gate"],
+      "userGate": true,
+      "files": ["/tmp/android-verify/user.txt"],
+      "verifyCommand": "exec fish -l -c '<full smoke block per plan Task 7>' | tee /tmp/android-verify/user.txt",
+      "acceptanceCriteria": [
+        "UB1: ANDROID_SDK_ROOT points inside /nix/store",
+        "UB2: ANDROID_NDK_HOME points inside /nix/store",
+        "UB3: SDK layout has cmdline-tools, platforms, build-tools, ndk, system-images, emulator",
+        "UB4: adb version reports a version",
+        "UB5: avdmanager resolves under ANDROID_SDK_ROOT",
+        "UB6: mk-android-avd function defined",
+        "UB7: smoketest AVD created",
+        "UB8: smoketest.ini exists",
+        "UB9: avdmanager list avd shows smoketest"
+      ],
+      "modelTier": "standard",
+      "captureLog": "/tmp/android-verify/user.txt"
+    },
+    {
+      "id": 8,
+      "subject": "Task 8: Emulator + assembleDebug smoke",
+      "status": "pending",
+      "blockedBy": [7],
+      "tags": ["user-gate"],
+      "userGate": true,
+      "files": ["/tmp/android-verify/emulator.txt"],
+      "verifyCommand": "exec bash -c '<full smoke block per plan Task 8>' | tee /tmp/android-verify/emulator.txt",
+      "acceptanceCriteria": [
+        "EM1: adb devices shows emulator-5554 as device within 90s",
+        "EM2: getprop ro.product.cpu.abi returns x86_64",
+        "EM3: getprop ro.build.version.sdk returns 34",
+        "EM4: getprop sys.boot_completed returns 1",
+        "EM5: gradle assembleDebug exits 0 (or deferred-with-reason if offline)"
+      ],
+      "modelTier": "frontier",
+      "captureLog": "/tmp/android-verify/emulator.txt"
+    }
+  ]
+}
