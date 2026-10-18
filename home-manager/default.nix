@@ -74,5 +74,6 @@
     ./programs/files.nix
     ./programs/cliphist.nix
     ./hyprland.nix
+    ./programs/android.nix
   ];
 }
