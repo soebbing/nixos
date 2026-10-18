@@ -47,7 +47,13 @@
       commonHomeManager = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "home-manager-backup";
+        # Use a numbered-backup command instead of the default `.home-manager-backup`
+        # suffix. The default refuses to overwrite an existing backup, so a stale
+        # backup file blocks the whole HM service until the user cleans it up by hand.
+        # Numbered backups (`file.bak.~1~`, `file.bak.~2~`, …) rotate old copies out
+        # of the way automatically.
+        home-manager.backupFileExtension = null;
+        home-manager.backupCommand = "cp --backup=numbered -- %s %s.bak";
         home-manager.extraSpecialArgs = extraArgs;
       };
 
