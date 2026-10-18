@@ -36,7 +36,7 @@ in
       qemu # qemu-kvm, qemu-img, qemu-system-x86_64
       libguestfs-with-appliance # virt-cat, virt-ls for VM image inspection
       libvirt # virsh + virt-install CLIs
-      adb # adb / fastboot on system PATH
+      android-tools # adb / fastboot on system PATH
     ];
   };
 }
