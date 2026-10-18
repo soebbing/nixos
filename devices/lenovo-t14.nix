@@ -15,6 +15,11 @@
 
   hendrik.desktop = "gnome";
 
+  # Local Android dev: KVM, qemu/adb, Android SDK/NDK/Studio, AVD helper.
+  # Modules gated on this flag live in modules/work/android.nix and
+  # home-manager/programs/android.nix. False everywhere else.
+  hendrik.android = true;
+
   # Use mandoc instead of man-db to avoid sphinx/python3.11 compatibility issue
   documentation.man = {
     man-db.enable = false;
