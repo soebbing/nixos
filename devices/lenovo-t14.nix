@@ -71,6 +71,11 @@
   virtualisation.libvirtd.enable = true;
   users.users.hendrik.extraGroups = [ "libvirtd" ];
 
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchExternalPower = "suspend";
+  };
+
   services.tlp.enable = true;
   services.power-profiles-daemon.enable = false;
 
