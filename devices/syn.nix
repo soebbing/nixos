@@ -10,6 +10,7 @@
   ];
 
   hendrik.desktop = "gnome";
+  hendrik.tailscale.enable = true;
 
   boot.loader.grub = {
     enable = true;

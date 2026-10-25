@@ -4,6 +4,10 @@
 , ...
 }:
 
+let
+  fontFamily = "MesloLGS Nerd Font";
+  fontSize = 13;
+in
 {
   programs = {
     # Broken on mac (2025-10-06)
@@ -11,7 +15,20 @@
       enable = true;
       shellIntegration.enableFishIntegration = true;
       enableGitIntegration = true;
-      themeFile = "Solarized_Light";
+
+      font = {
+        name = fontFamily;
+        size = fontSize;
+      };
+
+      # Kitty follows the OS light/dark preference, like Ghostty's
+      # `dark:`/`light:` theme pair. Auto themes override all color settings.
+      autoThemeFiles = {
+        dark = "Solarized_Dark";
+        light = "Solarized_Light";
+        # No color preference counts as light.
+        noPreference = "Solarized_Light";
+      };
     };
 
     # Broken on mac (2025-09-10)
@@ -22,9 +39,9 @@
       settings = {
         theme = "dark:iTerm2 Solarized Dark,light:iTerm2 Solarized Light";
         # Use a Nerd Font for icons, with a fallback for any missing characters
-        font-family = "MesloLGS Nerd Font, Droid Sans Mono";
+        font-family = "${fontFamily}, Droid Sans Mono";
 
-        font-size = 13;
+        font-size = fontSize;
       };
     };
   };

@@ -6,6 +6,7 @@
     ./builder.nix
     ./packages.nix
     ./ssh.nix
+    ./tailscale.nix
     ./cache.nix
     ./i18n-de.nix
     ./hosts.nix

@@ -10,6 +10,7 @@
   ];
 
   hendrik.desktop = "gnome";
+  hendrik.tailscale.enable = true;
 
   fileSystems."/".options = [
     "noatime"
