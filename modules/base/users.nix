@@ -4,6 +4,8 @@
   # Allow passwordless sudo for wheel users.
   security.sudo.wheelNeedsPassword = false;
 
+  programs.fish.enable = true;
+
   # User accounts.
   users.users.hendrik = {
     isNormalUser = true;

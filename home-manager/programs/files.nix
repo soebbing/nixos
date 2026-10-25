@@ -72,6 +72,12 @@
           identityFile = "~/.ssh/id_rsa_privat";
         };
 
+        "octopi" = {
+          hostname = "192.168.1.9";
+          user = "pi";
+          identityFile = "~/.ssh/id_rsa_privat";
+        };
+
         "handcoding.de builder" = {
           hostname = "handcoding.de";
           user = "hendrik";

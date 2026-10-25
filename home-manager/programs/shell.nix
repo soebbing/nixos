@@ -5,6 +5,42 @@
 }:
 
 {
+  home = {
+    sessionVariables = {
+      TERMINAL = "gnome-terminal";
+      GOPATH = "$HOME/go";
+    };
+
+    sessionPath = [
+      "$HOME/go/bin"
+      "$HOME/.vpn-tool/bin"
+      "$HOME/.config/nix-cache"
+      "$HOME/.composer/vendor/bin"
+      "$HOME/.npm-packages/bin"
+    ];
+
+    shellAliases = {
+      nano = "nvim";
+      vim = "nvim";
+      cat = "bat";
+      df = "duf";
+      ping = "gping";
+      spf = "superfile";
+      tree = "tre";
+      ga = "git add";
+      gc = "git commit --signoff";
+      gd = "git diff";
+      gs = "git status";
+      gp = "git push";
+      gpr = "git pull --rebase";
+      j = "z";
+      more = "most";
+      less = "most";
+      ps = "procs";
+      ls = "eza --long --header --git";
+    };
+  };
+
   programs = {
     # Shell History search
     atuin = {
@@ -17,11 +53,6 @@
         workspaces = true;
         update_check = false;
       };
-    };
-
-    autojump = {
-      enable = true;
-      enableFishIntegration = true;
     };
 
     bat = {
@@ -69,10 +100,9 @@
             Alt-Shift-c	cd into sub-directories, including hidden ones.
             See: https://github.com/jethrokuan/fzf
 
-            Autojump:
-            jc bar   Jump to child dir
-            jo bar   Open dir in file manager
-            jco bar  Open child dir in file manager
+            Zoxide:
+            z bar    Jump to the most used directory matching "bar"
+            zi bar   Interactive directory jump
             "
         end
 
@@ -144,6 +174,11 @@
       settings = {
         theme = "gruvbox-light"; # "solarized-light" is hardly readable
       };
+    };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
     };
   };
 

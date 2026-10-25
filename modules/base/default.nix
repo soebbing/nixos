@@ -5,7 +5,6 @@
     ./hardware.nix
     ./builder.nix
     ./packages.nix
-    ./shell.nix
     ./ssh.nix
     ./cache.nix
     ./i18n-de.nix
