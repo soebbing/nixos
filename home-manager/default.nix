@@ -19,25 +19,6 @@
     # Wayland / Hyprland session vars (XDG_CURRENT_DESKTOP, MOZ_ENABLE_WAYLAND,
     # QT_*, SDL_*, …) live in ./hyprland.nix, gated on osConfig.hendrik.desktop
     # so they don't leak XDG_CURRENT_DESKTOP=Hyprland into GNOME.
-
-    # Available in any shell, but one needs to be enabled below
-    shellAliases = {
-      cat = "bat";
-      df = "duf";
-      ping = "gping";
-      spf = "superfile";
-      tree = "tre";
-      ga = "git add";
-      gc = "git commit --signoff";
-      gd = "git diff";
-      gs = "git status";
-      gp = "git push";
-      gpr = "git pull --rebase";
-      more = "most";
-      less = "most";
-      ps = "procs";
-      ls = "eza --long --header --git";
-    };
   };
 
   programs.home-manager.enable = true;

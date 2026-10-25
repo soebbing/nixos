@@ -12,7 +12,9 @@ in
       bottom # A customizable cross-platform graphical process/system monitor inspired by tools like htop, gtop, etc. Command: btm
       broot # A new way to see and navigate directory trees
       cachix # Cache binary Nix builds
+      canto-curses # Ncurses-based console Atom/RSS feed reader
       cmake # Cross-platform make
+      ctodo # Console todo
       dive # A tool for exploring each layer in a docker image
       delve # Debugger for the Go programming language
       doggo # Command-line DNS client for humans
@@ -24,34 +26,41 @@ in
       felix-fm # tui file manager with vim-like key mapping. Command: fx
       fzy # A simple, fast fuzzy finder for the terminal. Used by neovim-fuzzy
       gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9s
+      gron # Make JSON greppable
       httpie # Command line HTTP client whose goal is to make CLI human-friendly
       inotify-tools # For elexir
+      jless # Command-line JSON viewer
       jql # A JSON query language CLI tool
       lemmeknow # Identify mysterious text or analyze hard-coded strings from captured network packets, malwares, and more.
       libusb1
       litecli # SQLlite client
-      (pkgs.writeShellScriptBin "mco" ''
-        exec ${pkgs.mc}/bin/mc "$@"
-      '') # Midnight Commander wrapper with different binary name, conflicts with minio-client
+      mc # Midnight Commander wrapper with different binary name, conflicts with minio-client
+      mediainfo # Supplies technical and tag information about a video or audio file
       most # Better more/less
+      mtr # Network diagnostic tool combining traceroute and ping
       fastfetch # A maintained, feature-rich and performance oriented, neofetch like system information tool
       ncdu # A disk usage analyzer with an ncurses interface
+      ncspot # Cross-platform ncurses Spotify client written in Rust, inspired by ncmpc and the likes
       nil # Nix language server
       nixd # Nix language server
       nixfmt # Nix language formatter
+      nix-tree # Interactively browse a Nix store path dependency tree
       ngrok # Secure introspectable tunnels to localhost
+      nh # NixOS/home-manager rebuild helper
       nmap # Network exploration tool and security / port scanner
       nvd # Nix package diff
       ollama # Get up and running with large language models locally
       onefetch # Stats about git repos
       procps # Legacy ps command (among others)
       procs # Modern replacement for ps written in Rust
+      rclone # Command line program to sync files and directories to and from major cloud storage
       ripgrep # Recursively searches directories for a regex pattern
-      rm-improved # A safe and ergonomic alternative to rm
+      rm-improved # A safe and ergonomic alternative to rm (command: rip)
       screenfetch # System information tool
       sshs # Interface for SSH connections in ssh/config
       tealdeer # A very fast implementation of tldr in Rust
       tre-command # Better tree command
+      trippy # Network diagnostic tool combining traceroute and ping
       unrar # RAR file extractor
       usbutils # See USB devices
       wakeonlan # Send magic packets to wake up sleeping computers
@@ -80,7 +89,7 @@ in
     ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       impala # Wifi manager TUI
       flameshot # A screenshot tool, not working on Mac
-      #freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
+      freecad # General purpose Open Source 3D CAD/MCAD/CAx/CAE/PLM modeler
       openvpn3
     ];
 }

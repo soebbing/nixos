@@ -9,7 +9,6 @@
 
       # LLM coding tools
       amp-cli # Amp CLI (https://ampcode.com/)
-      #gemini-cli # Gemini client
       beads # Lightweight memory system for AI coding agents with graph-based issue tracking
       claude-code # A command line interface for Anthropic's Claude AI models
       codex # OpenAI coding agent
@@ -34,6 +33,7 @@
       beamPackages.elixir # Dynamic, functional language designed for building scalable and maintainable applications
 
       gcc # GNU Compiler Collection
+      github-cli # A command line tool for github
       glab # A command line tool for gitlab
       gnumake # GNU Make utility to maintain groups of programs
       gonzo # https://gonzo.controltheory.com/ - A powerful, real-time log analysis terminal UI inspired by k9sers
@@ -57,18 +57,18 @@
 
       mariadb.client # For mysqldump
       mdfried # Markdown viewer for the terminal that renders headers as Bigger Text than the rest.
-      minio-client # S3 client
 
-      mycli # MySQL client
+      #mycli # MySQL client
 
       nodejs # For npx
 
       oha # HTTP load testing tool
       oxker # A tool for managing Docker containers
       openapi-tui # Unlock the power of APIs with simplicity and speed, right from your terminal. View OpenAPI documentations in your terminal.
+      openjfx17 # Necessary for Java GUI in Wayland
       opentofu # OpenTofu is a tool for building, changing, and destroying infrastructure safely and efficiently.
 
-      packer # A tool for creating identical machine images for multiple platforms from a single source configuration
+      #packer # A tool for creating identical machine images for multiple platforms from a single source configuration
       package-version-server # Language server that handles hover information in package.json files
       #pgadmin4 # PostgreSQL administration tool
 
@@ -110,7 +110,7 @@
       tiny-rdm # Redis GUI
       libgcc # GCC library for Linux
       soapui # SOAP API testing tool
-      #teams-for-linux # Inofficial Microsoft Teams client for Linux
+      #teams-for-linux # Unofficial Microsoft Teams client for Linux
 
       antigravity-ide-fhs # Agentic development platform, evolving the IDE into the agent-first era, wrapped variant of antigravity which launches in a FHS compatible environment, should allow for easy usage of extensions without nix-specific modifications
       code-cursor-fhs # AI-powered code editor built on vscode
