@@ -74,7 +74,7 @@
       # Auto-start zellij, but not in JetBrains IDEs (PHPStorm, GoLand, etc.)
       interactiveShellInit = ''
         if not set -q ZELLIJ
-            if test "$TERM_PROGRAM" = "ghostty"
+            if test "$TERM_PROGRAM" = "ghostty"; or set -q KITTY_WINDOW_ID
                 exec zellij
             end
         end
@@ -83,8 +83,9 @@
       loginShellInit = ''
         export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-        # Fix Ghostty (only on Linux)
-        if test "$TERM_PROGRAM" = "ghostty"
+        # Ghostty and Kitty ship terminfo entries missing from the system
+        # terminfo database, so ssh and nested sessions cannot resolve them.
+        if test "$TERM_PROGRAM" = "ghostty"; or set -q KITTY_WINDOW_ID
             set -x TERM xterm-256color
         end
 
@@ -170,7 +171,7 @@
 
     zellij = {
       enable = true;
-      enableFishIntegration = false; # Manually controlled in shell.nix to only run in Ghostty
+      enableFishIntegration = false; # Manually controlled above (Ghostty/Kitty only)
       settings = {
         theme = "gruvbox-light"; # "solarized-light" is hardly readable
       };
@@ -182,13 +183,14 @@
     };
   };
 
-  # Replace atuin's default `bind ctrl-r _atuin_search` with an fzf-based
-  # version that does not call `commandline -f repaint`. The atuin binding
-  # (and any pure-fish `commandline -r + repaint` from a binding) triggers
-  # a 4.9.3 bug that duplicates the first character of the new buffer
-  # (e.g., "ls" renders as "lls"). The bug is in fish's repaint, not in
-  # our config. By skipping repaint, the buffer is set correctly and
-  # fish's natural redraw on the next keystroke displays it cleanly.
+  # History search for ctrl-r, backed by an fzf list of atuin history.
+  #
+  # Inert today: fish sources conf.d/*.fish before config.fish, where atuin's
+  # integration binds ctrl-r, so this binding is overridden.
+  #
+  # The "lls" first-character bug this avoids was a starship prompt width
+  # mismatch — the prompt must not end in a variation selector (U+FE0F).
+  # See configs/starship-config.json.
   xdg.configFile."fish/conf.d/99-fzf-atuin-history.fish".text = ''
     function _fzf_atuin_history
         set -l current (commandline)
@@ -199,7 +201,7 @@
                     --prompt " history> " --height 40% --reverse
         )
         if test -n "$selected"
-            # Intentionally no `commandline -f repaint` — see comment above.
+            # `commandline -r` sets the buffer and fish redraws the line itself.
             commandline -r -- "$selected"
         end
     end

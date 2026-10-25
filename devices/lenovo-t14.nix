@@ -14,6 +14,7 @@
   ];
 
   hendrik.desktop = "gnome";
+  hendrik.tailscale.enable = true;
 
   # Local Android dev: KVM, qemu/adb, Android SDK/NDK/Studio, AVD helper.
   # Modules gated on this flag live in modules/work/android.nix and

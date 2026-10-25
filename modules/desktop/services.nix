@@ -36,12 +36,6 @@ in
     # For Yubikey
     pcscd.enable = true;
 
-    tailscale = {
-      enable = true;
-      # Interactive login: run `sudo tailscale up` once per host after rebuild.
-      extraUpFlags = [ "--accept-dns=true" ]; # MagicDNS
-    };
-
     udev = {
       packages = with pkgs; [
         yubikey-personalization

@@ -8,6 +8,7 @@
   ];
 
   hendrik.desktop = "i3";
+  hendrik.tailscale.enable = true;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
